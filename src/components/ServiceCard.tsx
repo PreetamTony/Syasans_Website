@@ -8,16 +8,12 @@ interface ServiceCardProps {
 
 export const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
   return (
-    <div className="glass glass-hover p-8 rounded-2xl group cursor-pointer">
-      <div className="mb-4 text-primary transform group-hover:scale-110 transition-transform duration-300">
+    <div className="scroll-reveal glass glass-hover rounded-xl p-6 group cursor-pointer">
+      <div className="text-primary mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
         {icon}
       </div>
-      <h3 className="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300">
-        {title}
-      </h3>
-      <p className="text-muted-foreground leading-relaxed">
-        {description}
-      </p>
+      <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{title}</h3>
+      <p className="text-muted-foreground leading-relaxed">{description}</p>
     </div>
   );
 };

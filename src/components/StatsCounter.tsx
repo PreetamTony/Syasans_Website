@@ -4,9 +4,10 @@ interface StatsCounterProps {
   end: number;
   label: string;
   suffix?: string;
+  decimals?: number;
 }
 
-export const StatsCounter = ({ end, label, suffix = "" }: StatsCounterProps) => {
+export const StatsCounter = ({ end, label, suffix = "", decimals = 0 }: StatsCounterProps) => {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -43,25 +44,19 @@ export const StatsCounter = ({ end, label, suffix = "" }: StatsCounterProps) => 
         setCount(end);
         clearInterval(timer);
       } else {
-        setCount(Math.floor(current));
+        setCount(decimals > 0 ? parseFloat(current.toFixed(decimals)) : Math.floor(current));
       }
     }, stepDuration);
 
     return () => clearInterval(timer);
-  }, [isVisible, end]);
+  }, [isVisible, end, decimals]);
 
   return (
-    <div
-      ref={ref}
-      className="glass glass-hover p-8 rounded-2xl text-center transform transition-all duration-500"
-    >
-      <div className="text-4xl md:text-5xl font-bold gradient-text mb-2">
-        {count.toLocaleString()}
-        {suffix}
+    <div ref={ref} className="text-center p-4 rounded-lg hover:bg-muted/50 transition-all hover:scale-105 transform">
+      <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
+        {decimals > 0 ? count.toFixed(decimals) : count.toLocaleString()}{suffix}
       </div>
-      <div className="text-muted-foreground text-sm md:text-base font-medium">
-        {label}
-      </div>
+      <div className="text-xs md:text-sm text-muted-foreground font-medium">{label}</div>
     </div>
   );
 };
