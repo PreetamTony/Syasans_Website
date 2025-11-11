@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Users, Award, TrendingUp, Target, Briefcase, Facebook, Twitter, Mail } from "lucide-react";
 import { StatsCounter } from "@/components/StatsCounter";
 import { ServiceCard } from "@/components/ServiceCard";
-import { TestimonialCard } from "@/components/TestimonialCard";
+import { ImageGallery } from "@/components/ImageGallery";
 import { Navigation } from "@/components/Navigation";
 
 const Index = () => {
@@ -64,10 +64,10 @@ const Index = () => {
         
         {/* Hero Content */}
         <div className="relative z-10 container mx-auto px-6 text-center" style={fadeInStyle}>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 animate-fade-in">
             <span className="gradient-text">SYASAN'S</span>
           </h1>
-          <p className="text-2xl md:text-4xl font-semibold mb-4 animate-fade-in text-foreground" style={{ animationDelay: "0.2s" }}>
+          <p className="text-2xl md:text-4xl font-display font-semibold mb-4 animate-fade-in text-foreground" style={{ animationDelay: "0.2s" }}>
             Crafting Your Career to Excellence
           </p>
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.4s" }}>
@@ -168,33 +168,14 @@ const Index = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-16 scroll-reveal">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Success <span className="gradient-text">Stories</span>
+              Performance <span className="gradient-text">Feedback</span>
             </h2>
             <p className="text-muted-foreground text-lg">
-              Hear from professionals who transformed their careers with us
+              Visual insights into our training excellence
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <TestimonialCard
-              name="Priya Sharma"
-              role="Software Engineer at Google"
-              content="The mentorship program was a game-changer. Within 6 months, I landed my dream job with a 150% salary increase."
-              rating={5}
-            />
-            <TestimonialCard
-              name="Rahul Verma"
-              role="Data Scientist at Amazon"
-              content="The career analytics helped me identify my strengths and focus areas. Best investment in my career!"
-              rating={5}
-            />
-            <TestimonialCard
-              name="Anjali Reddy"
-              role="Product Manager at Microsoft"
-              content="From training to placement, the entire journey was seamless. Highly recommend Syasan's to everyone!"
-              rating={5}
-            />
-          </div>
+          <ImageGallery />
         </div>
       </section>
 

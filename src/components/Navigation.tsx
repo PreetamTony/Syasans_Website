@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "@/components/NavLink";
+import logo from "@/assets/syasans-logo.png";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -32,7 +33,7 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          <div className="text-xl font-bold gradient-text">SYASAN'S</div>
+          <img src={logo} alt="Syasan's Logo" className="h-12 md:h-14 w-auto hover:scale-105 transition-transform duration-300" />
           
           <ul className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (

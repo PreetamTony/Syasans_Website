@@ -52,7 +52,10 @@ export const StatsCounter = ({ end, label, suffix = "", decimals = 0 }: StatsCou
   }, [isVisible, end, decimals]);
 
   return (
-    <div ref={ref} className="text-center p-4 rounded-lg hover:bg-muted/50 transition-all hover:scale-105 transform">
+    <div
+      ref={ref}
+      className="glass p-6 rounded-xl text-center bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 border border-primary/20 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:scale-105 scroll-reveal"
+    >
       <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
         {decimals > 0 ? count.toFixed(decimals) : count.toLocaleString()}{suffix}
       </div>
