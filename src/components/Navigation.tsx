@@ -33,7 +33,17 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between">
-          <img src={logo} alt="Syasan's Logo" className="h-12 md:h-14 w-auto hover:scale-105 transition-transform duration-300" />
+          <div className="flex items-center">
+            <img 
+              src={logo} 
+              alt="Syasan's Logo" 
+              className="h-16 w-auto hover:opacity-90 transition-opacity"
+            />
+            <div className="ml-5">
+              <div className="text-3xl font-extrabold text-foreground leading-none gradient-text">SYASAN'S</div>
+              <div className="text-base font-semibold text-muted-foreground tracking-wider mt-1">CAREER ANALYTICS</div>
+            </div>
+          </div>
           
           <ul className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
