@@ -1,53 +1,88 @@
-# Welcome to your Lovable project
+# SYASAN'S - Professional Training & Development
 
-## Project info
+## 🚀 About SYASAN'S
 
-**URL**: https://lovable.dev/projects/148a5733-da0c-4e84-a2c6-e8cefbab1451
+SYASAN'S is a premier training and development organization that provides professional education and skill development programs. Our mission is to empower individuals and organizations through high-quality training programs led by industry experts.
 
-## How can I edit this code?
+## 🖥️ Website Features
 
-There are several ways of editing your application.
+- **Responsive Design**: Fully responsive layout that works on all devices
+- **Modern Stack**: Built with React, TypeScript, and Tailwind CSS
+- **Performance Optimized**: Fast loading times and smooth animations
+- **Accessible**: Built with accessibility in mind
+- **SEO Friendly**: Optimized for search engines
 
-**Use Lovable**
+## 🛠️ Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/148a5733-da0c-4e84-a2c6-e8cefbab1451) and start prompting.
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS, Shadcn/ui
+- **Icons**: Lucide Icons
+- **Build Tool**: Vite
+- **Deployment**: GitHub Pages / Vercel
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Getting Started
 
-**Use your preferred IDE**
+### Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js 16+ and npm 8+
+- Git
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Installation
 
-Follow these steps:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/PreetamTony/Syasans_Website.git
+   cd Syasans_Website
+   ```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## 📂 Project Structure
+
+```
+src/
+├── assets/          # Static assets like images
+├── components/      # Reusable UI components
+├── pages/           # Page components
+│   ├── AboutUs.tsx
+│   ├── Endorsement.tsx
+│   ├── Inquiries.tsx
+│   ├── Join.tsx
+│   ├── ReferringTo.tsx
+│   └── Team.tsx
+└── types/           # TypeScript type definitions
 ```
 
-**Edit a file directly in GitHub**
+## 🤝 Contributing
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-**Use GitHub Codespaces**
+## 📄 License
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- All the amazing team members at SYASAN'S
+- Our mentors and industry experts
+- The open-source community for their invaluable tools and libraries
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
 ## What technologies are used for this project?
