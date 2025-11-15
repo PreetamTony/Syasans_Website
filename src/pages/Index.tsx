@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Users, Award, TrendingUp, Target, Briefcase, Facebook, Twitter, Mail } from "lucide-react";
+import { ArrowRight, BookOpen, Users, Award, TrendingUp, Target, Briefcase } from "lucide-react";
 import { StatsCounter } from "@/components/StatsCounter";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ImageGallery } from "@/components/ImageGallery";
 import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -44,181 +45,175 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation />
       
-      {/* Hero Section with Parallax */}
-      <section
-        ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      >
-        {/* Animated Background Gradient */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background: "var(--gradient-hero)",
-            ...parallaxStyle,
-          }}
-        />
-        
-        {/* Floating Orbs */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }} />
-        
-        {/* Hero Content */}
-        <div className="relative z-10 container mx-auto px-6 text-center" style={fadeInStyle}>
-          <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 animate-fade-in">
-            <span className="gradient-text">SYASAN'S</span>
-          </h1>
-          <p className="text-2xl md:text-4xl font-display font-semibold mb-4 animate-fade-in text-foreground" style={{ animationDelay: "0.2s" }}>
-            Crafting Your Career to Excellence
-          </p>
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            Transform your career journey with expert guidance, comprehensive training, and proven success strategies
-          </p>
-          <div className="flex gap-4 justify-center animate-fade-in" style={{ animationDelay: "0.6s" }}>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground group shadow-lg hover:shadow-xl transition-all">
-              Get Started
-              <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline" className="glass glass-hover border-primary/30 hover:border-primary">
-              Learn More
-            </Button>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce micro-pulse">
-          <div className="w-6 h-10 border-2 border-primary/50 rounded-full p-1">
-            <div className="w-1.5 h-3 bg-primary rounded-full mx-auto" />
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
+        <div className="container mx-auto px-6 text-center">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-8">
+              <span className="inline-block px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold">
+                CAREER ANALYTICS SOLUTIONS
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
+              SYASAN'S
+            </h1>
+            <p className="text-2xl md:text-3xl font-semibold text-gray-800 mb-8">
+              Transform Your Career with Expert Training
+            </p>
+            <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+              Professional career development programs designed by industry experts to help you achieve your goals
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Get Started Today
+              </button>
+              <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-colors">
+                View Programs
+              </button>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 relative scroll-reveal">
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/30 to-background" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-            <StatsCounter end={9} label="Years" suffix="" />
-            <StatsCounter end={100} label="Mentors" suffix="+" />
-            <StatsCounter end={50} label="Clients" suffix="+" />
-            <StatsCounter end={4.5} label="Rated 4.5/5" suffix="" decimals={1} />
-            <StatsCounter end={88} label="Project Success" suffix="K" />
-            <StatsCounter end={99} label="Client Retention" suffix="%" />
-            <StatsCounter end={94} label="Performance" suffix="%" />
-            <StatsCounter end={5} label="Batches" suffix="K+" />
-            <StatsCounter end={30} label="Training Hours" suffix="K+" />
-            <StatsCounter end={250} label="Students Trained" suffix="k+" />
-            <StatsCounter end={20} label="Learning Centers" suffix="+" />
-            <StatsCounter end={50} label="Pool Drives" suffix="+" />
-            <StatsCounter end={30} label="MoU's" suffix="+" />
-            <StatsCounter end={89} label="Career Success" suffix="%" />
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Proven Track Record
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Numbers that speak to our commitment to excellence
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-blue-600 mb-2">
+                <StatsCounter end={9} label="" suffix="+" />
+              </div>
+              <p className="text-gray-600 font-medium">Years Experience</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-green-600 mb-2">
+                <StatsCounter end={250} label="" suffix="K+" />
+              </div>
+              <p className="text-gray-600 font-medium">Students Trained</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-purple-600 mb-2">
+                <StatsCounter end={100} label="" suffix="+" />
+              </div>
+              <p className="text-gray-600 font-medium">Expert Mentors</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-orange-600 mb-2">
+                <StatsCounter end={88} label="" suffix="%" />
+              </div>
+              <p className="text-gray-600 font-medium">Success Rate</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section className="py-20 relative scroll-reveal">
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16 scroll-reveal">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Our <span className="gradient-text">Services</span>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Our Services
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Comprehensive career development solutions tailored to your success
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ServiceCard
-              icon={<BookOpen className="w-8 h-8" />}
-              title="Career Training"
-              description="Industry-leading training programs designed to enhance your professional skills and market value"
-            />
-            <ServiceCard
-              icon={<Users className="w-8 h-8" />}
-              title="Mentorship Program"
-              description="One-on-one guidance from industry experts to accelerate your career growth"
-            />
-            <ServiceCard
-              icon={<Award className="w-8 h-8" />}
-              title="Certification"
-              description="Recognized certifications that validate your expertise and boost your credentials"
-            />
-            <ServiceCard
-              icon={<TrendingUp className="w-8 h-8" />}
-              title="Career Analytics"
-              description="Data-driven insights to track your progress and optimize your career path"
-            />
-            <ServiceCard
-              icon={<Target className="w-8 h-8" />}
-              title="Placement Support"
-              description="Dedicated placement assistance with our network of 500+ partner companies"
-            />
-            <ServiceCard
-              icon={<Briefcase className="w-8 h-8" />}
-              title="Interview Prep"
-              description="Comprehensive interview preparation and mock sessions with real feedback"
-            />
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <BookOpen className="w-6 h-6 text-blue-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Career Training</h3>
+              <p className="text-gray-600">
+                Industry-leading training programs designed to enhance your professional skills and market value
+              </p>
+            </div>
+            
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                <Users className="w-6 h-6 text-green-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Mentorship Program</h3>
+              <p className="text-gray-600">
+                One-on-one guidance from industry experts to accelerate your career growth
+              </p>
+            </div>
+            
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <Award className="w-6 h-6 text-purple-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Certification</h3>
+              <p className="text-gray-600">
+                Recognized certifications that validate your expertise and boost your credentials
+              </p>
+            </div>
+            
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-orange-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Career Analytics</h3>
+              <p className="text-gray-600">
+                Data-driven insights to track your progress and optimize your career path
+              </p>
+            </div>
+            
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                <Target className="w-6 h-6 text-red-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Placement Support</h3>
+              <p className="text-gray-600">
+                Dedicated placement assistance with our network of 500+ partner companies
+              </p>
+            </div>
+            
+            <div className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                <Briefcase className="w-6 h-6 text-teal-600" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Interview Prep</h3>
+              <p className="text-gray-600">
+                Comprehensive interview preparation and mock sessions with real feedback
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 relative overflow-hidden scroll-reveal">
-        <div className="absolute inset-0 bg-gradient-to-b from-muted/30 to-background" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-16 scroll-reveal">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Performance <span className="gradient-text">Feedback</span>
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Visual insights into our training excellence
-            </p>
-          </div>
-
-          <ImageGallery />
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-32 relative overflow-hidden scroll-reveal">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-glow" />
-        
-        <div className="container mx-auto px-6 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            Ready to <span className="gradient-text">Transform</span> Your Career?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join thousands of professionals who have achieved their career goals with Syasan's
-          </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg px-8 py-6 group shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-            Start Your Journey Today
-            <ArrowRight className="ml-2 group-hover:translate-x-2 transition-transform" />
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-12 border-t border-border/50 relative bg-muted/30">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-muted-foreground text-center md:text-left">
-              © 2024 Created with SYASAN'S Career Analytics
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Student Success Stories
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Visual insights into our training excellence and student achievements
             </p>
-            <div className="flex items-center gap-4">
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-primary transition-colors hover:scale-110 transform">
-                <Mail className="w-5 h-5" />
-              </a>
-            </div>
           </div>
+
+          <div className="mb-16">
+            <ImageGallery />
+          </div>
+          
+          
         </div>
-      </footer>
+      </section>
+
+      
+      <Footer />
     </div>
   );
 };

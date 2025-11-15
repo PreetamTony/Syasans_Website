@@ -5,55 +5,71 @@ import { Footer } from "@/components/Footer";
 
 const teamMembers = [
   {
-    name: "Youghessh S",
-    role: "Director & Founder",
-    image: "https://syasans.com/wp-content/uploads/2024/09/1.png"
+    name: "Sankar E",
+    role: "Founder Chairman",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.31_cf2a39ae.jpg"
   },
   {
     name: "Devibalan M",
-    role: "Director & Co-Founder",
-    image: "https://syasans.com/wp-content/uploads/2024/09/7.png"
+    role: "Executive Director",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.27_bfa4dacf.jpg"
   },
   {
-    name: "Suriya Narayanan TC",
+    name: "Youghessh S",
+    role: "Executive Director",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.30_89cddc78.jpg"
+  },
+  {
+    name: "Suriya Narayana Prabu",
     role: "General Manager",
-    image: "https://syasans.com/wp-content/uploads/2024/09/9.png"
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.30_1073edbb.jpg"
   },
   {
     name: "Vishnu Priyan R",
-    role: "Delivery Head",
-    image: "https://syasans.com/wp-content/uploads/2024/09/8.png"
-  },
-  {
-    name: "Sakthi Priya G",
-    role: "Head HR",
-    image: "https://syasans.com/wp-content/uploads/2024/09/10.png"
+    role: "Vice President",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.29_71e069d3.jpg"
   },
   {
     name: "Kanimozhi D",
-    role: "Head-Operations",
-    image: "https://syasans.com/wp-content/uploads/2024/09/3.png"
+    role: "Head Operations",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.28_da91a518.jpg"
   },
   {
     name: "Parthiban M",
     role: "Technology Head",
-    image: "https://syasans.com/wp-content/uploads/2024/09/6.png"
+    image: "/assets/Designer.png"
   },
   {
-    name: "Kamala P",
-    role: "SME-CodeKrack",
-    image: "https://syasans.com/wp-content/uploads/2024/09/2.png"
+    name: "Sakthi Priya G",
+    role: "Head HR",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.30_43ad6145.jpg"
   },
   {
     name: "Nithya Priya G",
-    role: "SME-Soft Skills",
-    image: "https://syasans.com/wp-content/uploads/2024/09/4.png"
+    role: "Asst Manager",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.29_6af2987e.jpg"
   },
   {
     name: "Gokula Krishnan G",
-    role: "Business Craftsman",
-    image: "https://syasans.com/wp-content/uploads/2024/09/5.png"
+    role: "Team Lead",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.29_ffecee31.jpg"
+  },
+  {
+    name: "Kamala P",
+    role: "Subject Matter Expert",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.28_1841a85a.jpg"
+  },
+  {
+    name: "Vanitha Purushothaman",
+    role: "Subject Matter Expert",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.28_04790d2f.jpg"
+  },
+  {
+    name: "Suganya S",
+    role: "Subject Matter Expert",
+    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.28_df0b7d87.jpg"
   }
+  
 ];
 
 export default function CoreTeam() {
@@ -133,11 +149,11 @@ export default function CoreTeam() {
                   key={index} 
                   className="group bg-card p-4 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 text-center hover:-translate-y-1"
                 >
-                  <div className="relative w-48 h-48 mx-auto mb-5 overflow-hidden rounded-full border-4 border-primary/10 group-hover:border-primary/30 transition-all duration-300">
+                  <div className="relative w-full h-48 mx-auto mb-5 overflow-hidden rounded-lg shadow-lg group-hover:shadow-xl transition-all duration-300">
                     <img 
                       src={member.image} 
                       alt={member.name}
-                      className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105 p-1"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.onerror = null;
