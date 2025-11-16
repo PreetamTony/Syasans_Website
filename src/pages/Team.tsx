@@ -7,32 +7,32 @@ const teamMembers = [
   {
     name: "Sankar E",
     role: "Founder Chairman",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.31_cf2a39ae.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.31_cf2a39ae.jpg"
   },
   {
     name: "Devibalan M",
     role: "Executive Director",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.27_bfa4dacf.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.27_bfa4dacf.jpg"
   },
   {
     name: "Youghessh S",
     role: "Executive Director",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.30_89cddc78.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.30_89cddc78.jpg"
   },
   {
     name: "Suriya Narayana Prabu",
     role: "General Manager",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.30_1073edbb.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.30_1073edbb.jpg"
   },
   {
     name: "Vishnu Priyan R",
     role: "Vice President",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.29_71e069d3.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.29_71e069d3.jpg"
   },
   {
     name: "Kanimozhi D",
     role: "Head Operations",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.28_da91a518.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.28_da91a518.jpg"
   },
   {
     name: "Parthiban M",
@@ -42,32 +42,32 @@ const teamMembers = [
   {
     name: "Sakthi Priya G",
     role: "Head HR",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.30_43ad6145.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.30_43ad6145.jpg"
   },
   {
     name: "Nithya Priya G",
     role: "Asst Manager",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.29_6af2987e.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.29_6af2987e.jpg"
   },
   {
     name: "Gokula Krishnan G",
     role: "Team Lead",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.29_ffecee31.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.29_ffecee31.jpg"
   },
   {
     name: "Kamala P",
     role: "Subject Matter Expert",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.28_1841a85a.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.28_1841a85a.jpg"
   },
   {
     name: "Vanitha Purushothaman",
     role: "Subject Matter Expert",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.28_04790d2f.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.28_04790d2f.jpg"
   },
   {
     name: "Suganya S",
     role: "Subject Matter Expert",
-    image: "/assets/WhatsApp Image 2025-11-14 at 14.40.28_df0b7d87.jpg"
+    image: "/assets/WhatsApp-Image-2025-11-14-at-14.40.28_df0b7d87.jpg"
   }
   
 ];
