@@ -47,29 +47,48 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100">
-        <div className="container mx-auto px-6 text-center">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-8">
-              <span className="inline-block px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold">
-                CAREER ANALYTICS SOLUTIONS
-              </span>
+        <div className="container mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="mb-6">
+                <span className="inline-block px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-semibold">
+                  CAREER ANALYTICS SOLUTIONS
+                </span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+                SYASAN'S
+              </h1>
+              <p className="text-2xl md:text-3xl font-semibold text-gray-800 mb-8">
+                Transform Your Career with Expert Training
+              </p>
+              <p className="text-lg text-gray-600 mb-8 max-w-lg">
+                Professional career development programs designed by industry experts to help you achieve your goals and excel in your chosen field
+              </p>
+              <div className="flex items-center space-x-8">
+                <div>
+                  <div className="text-3xl font-bold text-blue-600">250K+</div>
+                  <div className="text-sm text-gray-600">Students Trained</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-green-600">9+</div>
+                  <div className="text-sm text-gray-600">Years Experience</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-purple-600">99%</div>
+                  <div className="text-sm text-gray-600">Success Rate</div>
+                </div>
+              </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              SYASAN'S
-            </h1>
-            <p className="text-2xl md:text-3xl font-semibold text-gray-800 mb-8">
-              Transform Your Career with Expert Training
-            </p>
-            <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-              Professional career development programs designed by industry experts to help you achieve your goals
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
-                Get Started Today
-              </button>
-              <button className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg border-2 border-blue-600 hover:bg-blue-50 transition-colors">
-                View Programs
-              </button>
+            <div className="relative">
+              <div className="relative z-10">
+                <img 
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&crop=center&auto=format"
+                  alt="Professional Career Training"
+                  className="rounded-2xl shadow-2xl w-full h-auto"
+                />
+              </div>
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-600 rounded-full opacity-20 blur-xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-purple-600 rounded-full opacity-20 blur-xl"></div>
             </div>
           </div>
         </div>
@@ -87,7 +106,7 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">
                 <StatsCounter end={9} label="" suffix="+" />
@@ -96,21 +115,75 @@ const Index = () => {
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-green-600 mb-2">
-                <StatsCounter end={250} label="" suffix="K+" />
-              </div>
-              <p className="text-gray-600 font-medium">Students Trained</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-purple-600 mb-2">
                 <StatsCounter end={100} label="" suffix="+" />
               </div>
               <p className="text-gray-600 font-medium">Expert Mentors</p>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-orange-600 mb-2">
-                <StatsCounter end={88} label="" suffix="%" />
+              <div className="text-4xl font-bold text-purple-600 mb-2">
+                <StatsCounter end={50} label="" suffix="+" />
               </div>
-              <p className="text-gray-600 font-medium">Success Rate</p>
+              <p className="text-gray-600 font-medium">Corporate Clients</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-orange-600 mb-2">
+                <StatsCounter end={5} label="" suffix="K+" />
+              </div>
+              <p className="text-gray-600 font-medium">Training Batches</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-bold text-yellow-600 mb-1">
+                <StatsCounter end={88} label="" suffix="K" />
+              </div>
+              <p className="text-gray-600 font-medium">Rated 4.5/5.0</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-teal-600 mb-2">
+                <StatsCounter end={99} label="" suffix="%" />
+              </div>
+              <p className="text-gray-600 font-medium">Project Success</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-indigo-600 mb-2">
+                <StatsCounter end={94} label="" suffix="%" />
+              </div>
+              <p className="text-gray-600 font-medium">Client Retention</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-pink-600 mb-2">
+                <StatsCounter end={30} label="" suffix="K+" />
+              </div>
+              <p className="text-gray-600 font-medium">Training Hours</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-cyan-600 mb-2">
+                <StatsCounter end={250} label="" suffix="K+" />
+              </div>
+              <p className="text-gray-600 font-medium">Students Trained</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-emerald-600 mb-2">
+                <StatsCounter end={20} label="" suffix="+" />
+              </div>
+              <p className="text-gray-600 font-medium">Learning Centers</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-violet-600 mb-2">
+                <StatsCounter end={50} label="" suffix="+" />
+              </div>
+              <p className="text-gray-600 font-medium">Pool Drives</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-amber-600 mb-2">
+                <StatsCounter end={30} label="" suffix="+" />
+              </div>
+              <p className="text-gray-600 font-medium">MoU's</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-rose-600 mb-2">
+                <StatsCounter end={89} label="" suffix="%" />
+              </div>
+              <p className="text-gray-600 font-medium">Career Success</p>
             </div>
           </div>
         </div>
@@ -197,7 +270,7 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Student Success Stories
+              Performance Feedback
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Visual insights into our training excellence and student achievements
@@ -206,6 +279,21 @@ const Index = () => {
 
           <div className="mb-16">
             <ImageGallery />
+          </div>
+          
+          <div className="text-center">
+            <p className="text-gray-600 mb-4">
+              Want to see more detailed feedback and reviews from our students?
+            </p>
+            <a 
+              href="https://share.google/YM7CbquwDRyPw2qRg" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              View Additional Feedback
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </a>
           </div>
           
           
