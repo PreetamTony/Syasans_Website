@@ -6,6 +6,7 @@ import { ServiceCard } from "@/components/ServiceCard";
 import { ImageGallery } from "@/components/ImageGallery";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -66,15 +67,15 @@ const Index = () => {
               </p>
               <div className="flex items-center space-x-8">
                 <div>
-                  <div className="text-3xl font-bold text-blue-600">250K+</div>
+                  <div className="text-3xl font-bold text-black-600">250K+</div>
                   <div className="text-sm text-gray-600">Students Trained</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-green-600">9+</div>
+                  <div className="text-3xl font-bold text-black-600">9+</div>
                   <div className="text-sm text-gray-600">Years Experience</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-purple-600">99%</div>
+                  <div className="text-3xl font-bold text-black-600">99%</div>
                   <div className="text-sm text-gray-600">Success Rate</div>
                 </div>
               </div>
@@ -302,6 +303,7 @@ const Index = () => {
 
       
       <Footer />
+      <ChatBot />
     </div>
   );
 };
