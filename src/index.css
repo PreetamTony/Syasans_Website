@@ -2,6 +2,113 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Cursor and Smooth Scrolling */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+  
+  /* Interactive elements with hover effect */
+  a,
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  [role="button"],
+  [role="tab"] {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* Account for fixed header */
+  }
+
+  /* Better focus states */
+  *:focus-visible {
+    outline: 2px solid hsl(221, 83%, 53%);
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  /* Smooth transitions for interactive elements */
+  a,
+  button,
+  input,
+  textarea,
+  select {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(0, 0%, 98%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(221, 83%, 53%);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(221, 83%, 45%);
+  }
+}
+
+/* Smooth page transitions */
+.page-transition {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Better focus states for keyboard navigation */
+:focus-visible {
+  outline: 2px solid hsl(221, 83%, 53%);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Smooth hover effects for interactive elements */
+a,
+button,
+[role="button"] {
+  position: relative;
+  overflow: hidden;
+}
+
+a::after,
+button::after,
+[role="button"]::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: hsl(221, 83%, 53%);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover::after,
+button:hover::after,
+[role="button"]:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
