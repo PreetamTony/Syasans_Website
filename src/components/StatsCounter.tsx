@@ -1,14 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 
 interface StatsCounterProps {
-  end: number;
+  end: number | string;
   label: string;
   suffix?: string;
   decimals?: number;
 }
 
 export const StatsCounter = ({ end, label, suffix = "", decimals = 0 }: StatsCounterProps) => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number | string>(0);
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -31,6 +31,11 @@ export const StatsCounter = ({ end, label, suffix = "", decimals = 0 }: StatsCou
 
   useEffect(() => {
     if (!isVisible) return;
+
+    if (typeof end === 'string') {
+      setCount(end);
+      return;
+    }
 
     const duration = 2000;
     const steps = 60;
@@ -56,8 +61,8 @@ export const StatsCounter = ({ end, label, suffix = "", decimals = 0 }: StatsCou
       ref={ref}
       className="glass p-6 rounded-xl text-center bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 border border-primary/20 hover:border-primary/40 hover:shadow-lg transition-all duration-300 hover:scale-105 scroll-reveal"
     >
-      <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
-        {decimals > 0 ? count.toFixed(decimals) : count.toLocaleString()}{suffix}
+      <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-primary">
+        {typeof count === 'number' ? count.toLocaleString() : count}{suffix}
       </div>
       <div className="text-xs md:text-sm text-muted-foreground font-medium">{label}</div>
     </div>
