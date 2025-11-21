@@ -6,8 +6,10 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "Referring To", path: "/referring-to" },
   { name: "Inquiries Into", path: "/inquiries" },
+  { name: "Our Products", path: "/products" },
   { name: "Endorsement", path: "/endorsement" },
   { name: "Core Team", path: "/team" },
+  { name: "Feedbacks", path: "/feedback" },
   { name: "Join us", path: "/join" },
 ];
 

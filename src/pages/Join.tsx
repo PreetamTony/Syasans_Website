@@ -6,6 +6,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import { motion } from "framer-motion";
+import { useState } from "react";
+
+const RECIPIENT_EMAIL = 'askus@syasans.com';
 
 const features = [
   {
@@ -39,6 +42,42 @@ const testimonials = [
 ];
 
 export default function JoinUs() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [submitStatus, setSubmitStatus] = useState<{success: boolean; message: string} | null>(null);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const subject = 'New Job Application from Website';
+    const body = `Name: ${formData.name}%0D%0A` +
+                 `Email: ${formData.email}%0D%0A` +
+                 `Phone: ${formData.phone}%0D%0A` +
+                 `Message: ${formData.message}`;
+    
+    window.location.href = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    
+    // Show success message
+    setSubmitStatus({
+      success: true,
+      message: 'Your email client is opening with a pre-filled message. Please send it to submit your application.'
+    });
+    
+    // Reset form
+    setFormData({ name: '', email: '', phone: '', message: '' });
+  };
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -98,14 +137,17 @@ export default function JoinUs() {
                   <p className="text-muted-foreground mt-2">Fill out the form and our team will get back to you within 24 hours.</p>
                 </div>
                 
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">Full Name</label>
                     <Input
                       id="name"
+                      name="name"
                       type="text"
                       placeholder="John Doe"
                       className="w-full"
+                      value={formData.name}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -114,9 +156,12 @@ export default function JoinUs() {
                     <label htmlFor="email" className="text-sm font-medium">Email Address</label>
                     <Input
                       id="email"
+                      name="email"
                       type="email"
                       placeholder="your.email@example.com"
                       className="w-full"
+                      value={formData.email}
+                      onChange={handleChange}
                       required
                     />
                   </div>
@@ -125,9 +170,12 @@ export default function JoinUs() {
                     <label htmlFor="phone" className="text-sm font-medium">Phone Number</label>
                     <Input
                       id="phone"
+                      name="phone"
                       type="tel"
                       placeholder="+91 98765 43210"
                       className="w-full"
+                      value={formData.phone}
+                      onChange={handleChange}
                     />
                   </div>
                   
@@ -135,17 +183,30 @@ export default function JoinUs() {
                     <label htmlFor="message" className="text-sm font-medium">Your Message</label>
                     <Textarea
                       id="message"
+                      name="message"
                       placeholder="Tell us about your interests and goals..."
                       rows={4}
                       className="w-full"
+                      value={formData.message}
+                      onChange={handleChange}
                       required
                     />
                   </div>
                   
-                  <Button type="submit" className="w-full group">
-                    Submit Application
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
+                  <div className="space-y-4">
+                    <Button type="submit" className="w-full group">
+                      Open Email Application
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Button>
+                    {submitStatus && (
+                      <div className={`p-4 rounded-lg text-sm ${submitStatus.success ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'}`}>
+                        {submitStatus.message}
+                      </div>
+                    )}
+                    <p className="text-sm text-muted-foreground text-center">
+                      Your default email client will open with a pre-filled message.
+                    </p>
+                  </div>
                 </form>
               </motion.div>
 
