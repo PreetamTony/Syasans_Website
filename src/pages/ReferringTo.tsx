@@ -96,7 +96,7 @@ export default function AboutUs() {
             </div>
             <div className="flex justify-center">
               <img 
-                src="public/assets/Group.jpg" 
+                src="assets/Group.jpg" 
                 alt="SYASAN'S About Us"
                 className="rounded-2xl shadow-lg w-full max-w-md h-auto"
                 loading="lazy"
