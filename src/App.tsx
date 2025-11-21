@@ -11,6 +11,8 @@ import InquiriesInto from "./pages/Inquiries";
 import Endorsement from "./pages/Endorsement";
 import CoreTeam from "./pages/Team";
 import JoinUs from "./pages/Join";
+import Feedback from "./pages/Feedback";
+import Products from "./pages/Products";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +29,9 @@ const App = () => (
           <Route path="/inquiries" element={<InquiriesInto />} />
           <Route path="/endorsement" element={<Endorsement />} />
           <Route path="/team" element={<CoreTeam />} />
+          <Route path="/feedback" element={<Feedback />} />
           <Route path="/join" element={<JoinUs />} />
+          <Route path="/products" element={<Products />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

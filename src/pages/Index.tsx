@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Users, Award, TrendingUp, Target, Briefcase } from "lucide-react";
 import { StatsCounter } from "@/components/StatsCounter";
 import { ServiceCard } from "@/components/ServiceCard";
-import { ImageGallery } from "@/components/ImageGallery";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
@@ -126,7 +125,7 @@ const Index = () => {
                 Transform Your Career with Expert Training
               </p>
               <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8 max-w-lg mx-auto md:mx-0">
-                Professional career development programs designed by industry experts to help you achieve your goals and excel in your chosen field
+                To provide experiential learning through research-based pedagogy and mentor energetic minds to propel a better tomorrow
               </p>
               <div className="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-6 md:gap-8 mb-8 md:mb-0">
                 <div className="text-center">
@@ -143,17 +142,22 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="relative order-first md:order-last mb-10 md:mb-0">
-              <div className="relative z-10">
+            <div className="relative order-first md:order-last mb-10 md:mb-0 w-full max-w-lg mx-auto">
+              <div className="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&crop=center&auto=format"
+                  src="src/assets/Coaching_place.jpg"
                   alt="Professional Career Training"
-                  className="rounded-2xl shadow-2xl w-full h-auto max-w-2xl mx-auto"
+                  className="w-full h-auto object-cover"
                   loading="lazy"
+                  style={{
+                    maxHeight: '400px',
+                    width: '100%',
+                    objectPosition: 'center'
+                  }}
                 />
               </div>
-              <div className="absolute -top-4 -right-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-blue-600 rounded-full opacity-20 blur-xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-purple-600 rounded-full opacity-20 blur-xl"></div>
+              <div className="absolute -top-4 -right-4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-blue-600 rounded-full opacity-20 blur-xl"></div>
+              <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-purple-600 rounded-full opacity-20 blur-xl"></div>
             </div>
           </div>
         </div>
@@ -188,69 +192,51 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-16 md:py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
-              Our Services
+          <div className="text-center max-w-4xl mx-auto mb-12">
+            <h2 className="text-4xl sm:text-4xl font-bold mb-4">
+              <span className="text-gray-900">Our </span>
+              <span className="text-blue-600">Services</span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              Comprehensive career development solutions tailored to your success
+            <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Comprehensive career development solutions tailored to your success and growth in the professional world.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div 
-                key={index} 
-                className="bg-white border border-gray-200 rounded-lg p-4 sm:p-5 md:p-6 hover:shadow-lg transition-all duration-300"
+                key={index}
+                className="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-blue-100"
               >
-                <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-${service.color}-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4`}>
-                  {service.icon}
+                <div className="p-7 sm:p-8">
+                  <div 
+                    className={`w-12 h-12 flex items-center justify-center rounded-lg mb-4 transition-all duration-300 ${
+                      service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
+                      service.color === 'green' ? 'bg-green-50 text-green-600' :
+                      service.color === 'purple' ? 'bg-purple-50 text-purple-600' :
+                      service.color === 'orange' ? 'bg-orange-50 text-orange-600' :
+                      service.color === 'red' ? 'bg-red-50 text-red-600' :
+                      'bg-blue-50 text-blue-600'
+                    }`}
+                  >
+                    {React.cloneElement(service.icon, { className: 'w-7 h-7' })}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-800 mb-3" style={{ fontFamily: 'Times New Roman, serif' }}>
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {service.description}
+                  </p>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">{service.title}</h3>
-                <p className="text-sm sm:text-base text-gray-600">
-                  {service.description}
-                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-12 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
-              Performance Feedback
-            </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              Visual insights into our training excellence and student achievements
-            </p>
-          </div>
-
-          <div className="mb-12 md:mb-16">
-            <ImageGallery />
-          </div>
-          
-          <div className="text-center">
-            <p className="text-gray-600 mb-4 text-sm sm:text-base">
-              Want to see more detailed feedback and reviews from our students?
-            </p>
-            <a 
-              href="https://share.google/LTpS8XBL4ftVERNIZ" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-blue-700 transition-colors"
-            >
-              View Additional Feedback
-              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-            </a>
-          </div>
-        </div>
-      </section>
-      
       <Footer />
       <ChatBot />
     </div>

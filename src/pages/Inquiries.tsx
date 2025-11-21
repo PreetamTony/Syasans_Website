@@ -92,14 +92,14 @@ const courses = [
 
 const services = [
   {
-    title: "10+ Learning Centres",
+    title: "20+ Learning Centres",
     icon: <GraduationCap className="w-8 h-8 mb-4 text-primary" />,
     description: "Achieve guaranteed success with our 100% project completion rate, offering tailored solutions and expert guidance to ensure every project meets your career and organizational goals."
   },
   {
     title: "100% Client Retention",
     icon: <Users className="w-8 h-8 mb-4 text-primary" />,
-    description: "Empower your career with our extensive network of over 10 learning centers, providing personalized training and development programs to help you achieve your professional goals."
+    description: "Empower your career with our extensive network of over 20+ learning centers, providing personalized training and development programs to help you achieve your professional goals."
   },
   {
     title: "100% Projects Success",
@@ -198,7 +198,7 @@ export default function InquiriesInto() {
               </div>
               <div className="flex justify-center">
                 <img 
-                  src="https://syasans.com/wp-content/uploads/2024/07/Untitled-design-1-2048x2048.png" 
+                  src="src/assets/Discussion.jpg" 
                   alt="Software Development"
                   className="rounded-2xl shadow-xl max-w-[80%] h-auto"
                 />
@@ -211,14 +211,7 @@ export default function InquiriesInto() {
         <section className="py-20 relative">
           <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.8))] -z-10" />
           <div className="container mx-auto px-6">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-center mb-16"
-            >
-              Our <span className="text-primary">Services</span>
-            </motion.h2>
+           
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {services.map((service, index) => (
                 <AnimatedCard key={`service-${index}`} index={index} {...service} />
@@ -227,286 +220,10 @@ export default function InquiriesInto() {
           </div>
         </section>
 
-        {/* Bank & SSC Coaching */}
-        <section className="py-20">
-          <div className="container mx-auto px-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Bank & SSC <span className="text-primary">Coaching</span></h2>
-              <p className="text-xl text-black">
-                Comprehensive coaching programs for various competitive exams to help you achieve your career goals
-              </p>
-            </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-              <motion.div 
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10"
-              >
-                <h3 className="text-2xl font-bold mb-6 text-primary">Bank Coaching</h3>
-                <ul className="space-y-3 text-black text-left">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>IBPS Exams: Clerk, PO, RRB, Specialist Officer</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>SBI Exams: Clerk, PO, SO</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>RBI Exams: Grade B, Assistant</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>NABARD: Assistant Manager & Assistant Exams</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Insurance Exams: LIC, UIIC, NICL, NIACL, GIC, IRDA</span>
-                  </li>
-                </ul>
-              </motion.div>
+        
 
-              <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10"
-              >
-                <h3 className="text-2xl font-bold mb-6 text-primary">SSC Coaching</h3>
-                <ul className="space-y-3 text-black text-left">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>SSC Exams: CGL, CPO, CHSL, MTS, Stenographer</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Railway Exams: NTPC, Ticket Collector, RRC</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>ESIC: LDC & UDC</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>FCI: Assistant Grade – III</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Intelligence Bureau: ACIO</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>India Post: Postman, Mail Guard & MTS</span>
-                  </li>
-                </ul>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* DO - Handcrafting Aptitude */}
-        <section className="py-20 bg-gradient-to-r from-primary/5 to-secondary/5">
-          <div className="container mx-auto px-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center mb-12"
-            >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">DO - Handcrafting Aptitude for <span className="text-primary">Institutions</span></h2>
-              <p className="text-xl text-black">
-                Customized learning solutions to enhance aptitude skills for campus placements and competitive exams
-              </p>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 max-w-4xl mx-auto"
-            >
-              <ul className="space-y-4 text-black text-left">
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">•</span>
-                  <span>Customized Hand-book for aspirants targeting Campus Placements</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">•</span>
-                  <span>400+ core concepts with examples, twists, tricks, choices & diluted solution</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">•</span>
-                  <span>Graded problems with lateral solution focusing on the Dreams & Super Dream offers</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">•</span>
-                  <span>Exam Focus: Bank PO, UPSC, GATE, CAT, TANSET, TNPSC</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">•</span>
-                  <span>Industry 5.0 specific concepts for Quantitative, Reasoning and Logical Ability</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2">•</span>
-                  <span>3500+ Actual Questions with Answers</span>
-                </li>
-              </ul>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* D'LAN QUANTUM SERVER */}
-        <section className="py-20 bg-gradient-to-br from-background to-muted/20">
-          <div className="container mx-auto px-6">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center mb-16"
-            >
-              <div className="inline-block px-4 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full mb-4">
-                Advanced Assessment
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">D'LAN <span className="text-primary">QUANTUM SERVER</span></h2>
-              <p className="text-xl text-black">
-                Comprehensive evaluation with our advanced test engine
-              </p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="mt-12 rounded-2xl overflow-hidden shadow-xl max-w-4xl mx-auto"
-            >
-              <div className="w-full">
-                <img
-                  src="https://syasans.com/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-27-at-8.54.40-AM-1-1536x825.jpeg"
-                  alt="D'LAN QUANTUM SERVER Interface"
-                  className="w-full h-auto rounded-2xl"
-                />
-              </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10 max-w-5xl mx-auto"
-            >
-              <h3 className="text-2xl font-bold text-center mb-10 text-black">Salient Features of the Test Engine</h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {/* Row 1 */}
-                <div className="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-primary/20 transition-colors h-full">
-                  <div className="flex items-center mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg mr-4">
-                      <Server className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Infrastructure</h3>
-                  </div>
-                  <ul className="space-y-3 pl-14 text-black">
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>LAN Based with minimal infrastructure</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>User-friendly interface for seamless navigation</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>5000+ actual questions with detailed solutions</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-primary/20 transition-colors h-full">
-                  <div className="flex items-center mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg mr-4">
-                      <Settings className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Features</h3>
-                  </div>
-                  <ul className="space-y-3 pl-14 text-black">
-                    <li className="flex items-start">
-                      <Check className="w-5 h-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Fully customizable exam patterns</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Check className="w-5 h-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Classified score reports</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Check className="w-5 h-5 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>ISO audit compliant</span>
-                    </li>
-                  </ul>
-                </div>
-
-                {/* Row 2 */}
-                <div className="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-primary/20 transition-colors h-full">
-                  <div className="flex items-center mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg mr-4">
-                      <BarChart2 className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Performance</h3>
-                  </div>
-                  <ul className="space-y-3 pl-14 text-black">
-                    <li className="flex items-start">
-                      <Zap className="w-5 h-5 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Lightning-fast report generation (0.25s)</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Zap className="w-5 h-5 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Unlimited test attempts</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Zap className="w-5 h-5 text-yellow-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>10 years of question bank (2012-2022)</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="p-6 bg-white/5 rounded-xl border border-white/5 hover:border-primary/20 transition-colors h-full">
-                  <div className="flex items-center mb-3">
-                    <div className="p-2 bg-primary/10 rounded-lg mr-4">
-                      <Shield className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold">Support</h3>
-                  </div>
-                  <ul className="space-y-3 pl-14 text-black">
-                    <li className="flex items-start">
-                      <Clock className="w-5 h-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Lifetime validity</span>
-                    </li>
-                    <li className="flex items-start">
-                      <RefreshCw className="w-5 h-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Complimentary annual updates</span>
-                    </li>
-                    <li className="flex items-start">
-                      <Wrench className="w-5 h-5 text-purple-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Zero maintenance required</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-            </motion.div>
-            
-          </div>
-        </section>
+        
 
         
       </main>
