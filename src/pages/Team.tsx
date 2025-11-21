@@ -7,67 +7,67 @@ const teamMembers = [
   {
     name: "Sankar E",
     role: "Founder Chairman",
-    image: "src/assets/E_Sankar.jpg"
+    image: "/assets/E_Sankar.jpg"
   },
   {
     name: "Youghessh S",
     role: "Executive Director",
-    image: "src/assets/Youghessh_S.jpg"
+    image: "/assets/Youghessh_S.jpg"
   },
   {
     name: "Devibalan M",
     role: "Executive Director",
-    image: "src/assets/Devibalan_M.jpg"
+    image: "/assets/Devibalan_M.jpg"
   },
   {
     name: "Suriya Narayana Prabu",
     role: "General Manager",
-    image: "src/assets/Surya_narayana_Prabu.jpg"
+    image: "/assets/Surya_narayana_Prabu.jpg"
   },
   {
     name: "Vishnu Priyan R",
     role: "Vice President",
-    image: "src/assets/Vishnu_Priyan_R.jpg"
+    image: "/assets/Vishnu_Priyan_R.jpg"
   },
   {
     name: "Kanimozhi D",
     role: "Head Operations",
-    image: "src/assets/Kanimozhi.jpg"
+    image: "/assets/Kanimozhi.jpg"
   },
   {
     name: "Parthiban M",
     role: "Technology Head",
-    image: "src/assets/Parthiban_M.jpg"
+    image: "/assets/Parthiban_M.jpg"
   },
   {
     name: "Sakthi Priya G",
     role: "Head HR",
-    image: "src/assets/Sakthi_Priya_G.jpg"
+    image: "/assets/Sakthi_Priya_G.jpg"
   },
   {
     name: "Nithya Priya G",
     role: "Asst Manager",
-    image: "src/assets/Nithya_Priya_G.jpg"
+    image: "/assets/Nithya_Priya_G.jpg"
   },
   {
     name: "Gokula Krishnan G",
     role: "Team Lead",
-    image: "src/assets/Gokula_Krishnan.jpg"
+    image: "/assets/Gokula_Krishnan.jpg"
   },
   {
     name: "Kamala P",
     role: "Subject Matter Expert",
-    image: "src/assets/Kamala.jpg"
+    image: "/assets/Kamala.jpg"
   },
   {
     name: "Vanitha Purushothaman",
     role: "Subject Matter Expert",
-    image: "src/assets/Vanitha.jpg"
+    image: "/assets/Vanitha.jpg"
   },
   {
     name: "Suganya S",
     role: "Subject Matter Expert",
-    image: "src/assets/Suganya.jpg"
+    image: "/assets/Suganya.jpg"
   }
   
 ];
