@@ -96,7 +96,7 @@ export default function AboutUs() {
             </div>
             <div className="flex justify-center">
               <img 
-                src="https://syasans.com/wp-content/uploads/2024/07/Untitled-design-1-1536x1536.png" 
+                src="public/assets/Group.jpg" 
                 alt="SYASAN'S About Us"
                 className="rounded-2xl shadow-lg w-full max-w-md h-auto"
                 loading="lazy"
