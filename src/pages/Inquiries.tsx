@@ -198,7 +198,7 @@ export default function InquiriesInto() {
               </div>
               <div className="flex justify-center">
                 <img 
-                  src="src/assets/Discussion.jpg" 
+                  src="/assets/Discussion.jpg" 
                   alt="Software Development"
                   className="rounded-2xl shadow-xl max-w-[80%] h-auto"
                 />

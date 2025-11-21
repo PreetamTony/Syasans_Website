@@ -145,7 +145,7 @@ const Index = () => {
             <div className="relative order-first md:order-last mb-10 md:mb-0 w-full max-w-lg mx-auto">
               <div className="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
                 <img 
-                  src="src/assets/Coaching_place.jpg"
+                  src="/assets/Coaching_place.jpg"
                   alt="Professional Career Training"
                   className="w-full h-auto object-cover"
                   loading="lazy"

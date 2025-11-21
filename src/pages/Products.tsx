@@ -145,7 +145,7 @@ const Products = () => {
               >
                 <div className="relative overflow-hidden rounded-xl shadow-xl group-hover:shadow-2xl transition-all duration-300 w-full max-w-[400px]">
                   <img 
-                    src="/src/assets/Books.jpg" 
+                    src="/assets/Books.jpg" 
                     alt="Handcrafting Aptitude Materials" 
                     className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
                   />
