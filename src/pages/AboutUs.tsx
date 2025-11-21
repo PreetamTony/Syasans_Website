@@ -130,12 +130,7 @@ export default function AboutUs() {
           background: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
         }}
       >
-        <div className="absolute inset-0 opacity-10">
-          <div 
-            className="absolute inset-0 bg-[url('@/assets/pattern-dark.svg')]"
-            style={parallaxStyle(0.2)}
-          />
-        </div>
+        <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 opacity-10" />
         <div className="container mx-auto px-6 relative z-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
             Join Us in Our Mission
