@@ -5,8 +5,67 @@ import { Facebook, Twitter, Mail } from "lucide-react";
 import { Award, Trophy, Medal, Star, Target, Award as AwardIcon, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/HeroSection";
-import { motion } from "framer-motion";
+import { motion, useTransform, useScroll } from "framer-motion";
 import { Footer } from "@/components/Footer";
+
+// Component for individual association card with parallax effect
+const AssociationCard = ({ index, src, alt, title }) => {
+  const ref = useRef(null);
+  const isEven = index % 2 === 0;
+  
+  // Animation variants for a clean spread effect from center
+  const cardVariants = {
+    hidden: {
+      scale: 0.8,
+      opacity: 0,
+      y: 20
+    },
+    visible: (i) => ({
+      scale: 1,
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 15,
+        stiffness: 100,
+        delay: i * 0.08, // Staggered delay based on index
+        duration: 0.5
+      }
+    }),
+    hover: {
+      y: -5,
+      boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+      transition: { duration: 0.2 }
+    }
+  };
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      whileHover="hover"
+      custom={index}
+      variants={cardVariants}
+      className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 h-full"
+    >
+      <div className="flex flex-col items-center">
+        <div className="w-32 h-32 md:w-40 md:h-40 relative mb-4">
+          <img 
+            src={src} 
+            alt={alt}
+            className="w-full h-full object-contain"
+            loading="lazy"
+          />
+        </div>
+        <p className="text-center text-sm md:text-base font-medium text-gray-700 mt-2">
+          {title}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
 
 export default function AboutUs() {
   const [scrollY, setScrollY] = useState(0);
@@ -175,71 +234,68 @@ export default function AboutUs() {
       </section>
 
       {/* Associations Section */}
-      <section className="pt-1 pb-20 bg-gray-50 -mt-8">
-        <div className="container mx-auto px-6">
+      <section className="relative py-20 bg-gray-50 overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute w-1/2 h-1/2 bg-primary/5 rounded-full filter blur-3xl opacity-70 -translate-y-1/2 -translate-x-1/2"></div>
+        </div>
+        
+        <div className="container mx-auto px-6 relative">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-12"
+            className="text-center mb-16 relative z-10"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            <div className="inline-block px-6 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+              Trusted By
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Our <span className="text-primary">Associations</span>
             </h2>
-            <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-            <p className="text-muted-foreground max-w-3xl mx-auto">
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto mb-6 rounded-full"></div>
+            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Proudly associated with leading organizations and certifications
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                src: "/assets/iso_cert.png",
-                alt: "ISO 9001:2015 Certified",
-                title: "ISO 9001:2015 Certified"
-              },
-              {
-                src: "/assets/msme.png",
-                alt: "MSME Registered",
-                title: "MSME Registered"
-              },
-              {
-                src: "/assets/tamilnadu-logo.png",
-                alt: "Approved by TN Text Book Corporation",
-                title: "Approved by TN Text Book Corporation"
-              },
-              {
-                src: "/assets/tnskills.jpg",
-                alt: "TN Skills Development Corporation",
-                title: "TN Skills Development Corporation"
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center justify-center h-full transition-all duration-300 hover:shadow-md"
-              >
-                <div className="flex flex-col items-center">
-                  <div className="w-32 h-32 md:w-40 md:h-40 relative mb-4">
-                    <img 
-                      src={item.src} 
-                      alt={item.alt}
-                      className="w-full h-full object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                  <p className="text-center text-sm md:text-base font-medium text-gray-700 mt-2">
-                    {item.title}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-64 h-64 bg-primary/5 rounded-full filter blur-3xl"></div>
+            </div>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto relative z-10">
+              {[
+                {
+                  src: "/assets/iso_cert.png",
+                  alt: "ISO 9001:2015 Certified",
+                  title: "ISO 9001:2015"
+                },
+                {
+                  src: "/assets/msme.png",
+                  alt: "MSME Registered",
+                  title: "MSME Registered"
+                },
+                {
+                  src: "/assets/tamilnadu-logo.png",
+                  alt: "Approved by TN Text Book Corporation",
+                  title: "TN Text Book Approved"
+                },
+                {
+                  src: "/assets/tnskills.jpg",
+                  alt: "TN Skills Development Corporation",
+                  title: "TN Skills Certified"
+                }
+              ].map((item, index) => (
+                <AssociationCard 
+                  key={index} 
+                  index={index} 
+                  src={item.src} 
+                  alt={item.alt} 
+                  title={item.title}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
