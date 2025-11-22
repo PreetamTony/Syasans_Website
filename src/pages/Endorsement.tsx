@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/Navigation";
-import { Facebook, Twitter, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
+import { useState, useRef, useEffect } from "react";
 
 export default function Endorsement() {
   const certificates = [
@@ -10,6 +10,9 @@ export default function Endorsement() {
     "https://syasans.com/wp-content/uploads/2024/08/1-1086x1536.png",
     "https://syasans.com/wp-content/uploads/2024/08/2-1086x1536.png"
   ];
+
+  // Simple ref for the container
+  const pdfContainerRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -86,6 +89,61 @@ export default function Endorsement() {
           </div>
         </section>
 
+        {/* Government Endorsement Section */}
+        <section className="py-20 bg-gradient-to-br from-background to-muted/10">
+          <div className="container mx-auto px-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                Government <span className="text-primary">Recognition</span>
+              </h2>
+              <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+              <p className="text-muted-foreground max-w-3xl mx-auto">
+                Official endorsement from the Government of Tamil Nadu
+              </p>
+            </motion.div>
+
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
+                {/* PDF Header */}
+                <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-3">
+                  <h3 className="text-white text-center font-medium">Government Endorsement</h3>
+                </div>
+                
+                {/* PDF Container */}
+                <div 
+                  className="relative w-full bg-gray-100"
+                  style={{ height: '70vh' }}
+                  ref={pdfContainerRef}
+                >
+                  <iframe 
+                    src="/assets/Rec_Letters_-_Govt_of_TN[1].pdf#page=1&view=FitH&zoom=100"
+                    className="w-full h-full"
+                    frameBorder="0"
+                    title="Government of Tamil Nadu Recommendation Letter"
+                  >
+                    <p className="p-8 text-center">
+                      Your browser does not support PDFs. 
+                      <a 
+                        href="/assets/Rec_Letters_-_Govt_of_TN[1].pdf" 
+                        className="text-primary hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        View the PDF
+                      </a>.
+                    </p>
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>

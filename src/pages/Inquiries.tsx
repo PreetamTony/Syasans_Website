@@ -1,6 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { motion } from "framer-motion";
-import { useRef } from "react";
+import React from 'react';
 import { useInView } from "react-intersection-observer";
 import { Facebook, Twitter, Mail, ArrowRight, BookOpen, Cpu, Figma, Code, Cloud, Smartphone, Database, FileCode, Rocket, BarChart2, Brain, Users, Award, Briefcase, GraduationCap, FileText, Book, Server, CheckCircle, Zap, Check, Clock, RefreshCw, Wrench, Shield, Settings } from "lucide-react";
 import { HeroSection } from "@/components/HeroSection";
@@ -117,19 +117,37 @@ const AnimatedCard = ({ title, description, icon, index }) => {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-white/5 backdrop-blur-lg rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-white/10 hover:border-primary/30"
+      initial={{ opacity: 0, y: 30, scale: 0.98 }}
+      animate={inView ? { 
+        opacity: 1, 
+        y: 0, 
+        scale: 1,
+        transition: { 
+          duration: 0.6, 
+          ease: [0.16, 1, 0.3, 1],
+          delay: index * 0.05
+        } 
+      } : { opacity: 0, y: 30, scale: 0.98 }}
+      whileHover={{
+        y: -8,
+        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        transition: { duration: 0.3, ease: 'easeOut' }
+      }}
+      className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/20"
     >
-      <div className="flex flex-col items-center text-center">
-        {icon}
-        <h3 className="text-xl font-bold mb-3 text-primary">{title}</h3>
-        <p className="text-black">{description}</p>
-      </div>
-      <div className="mt-4 flex items-center justify-center text-primary font-medium group">
-        <span>Learn more</span>
-        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <div className="relative p-8">
+        <motion.div 
+          className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center mb-6 text-primary"
+          whileHover={{ rotate: 5, scale: 1.05 }}
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          {React.cloneElement(icon, { className: 'w-7 h-7' })}
+        </motion.div>
+        <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
+          {title}
+        </h3>
+        <p className="text-gray-600 leading-relaxed">{description}</p>
       </div>
     </motion.div>
   );
