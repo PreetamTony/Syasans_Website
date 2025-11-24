@@ -1,13 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Facebook, Twitter, Mail } from "lucide-react";
 import { Award, Trophy, Medal, Star, Target, Award as AwardIcon, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/HeroSection";
-import { motion, useTransform, useScroll } from "framer-motion";
+import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
-
 // Component for individual association card with parallax effect
 const AssociationCard = ({ index, src, alt, title }) => {
   const ref = useRef(null);
@@ -230,73 +228,6 @@ export default function AboutUs() {
           </div>
 
        
-        </div>
-      </section>
-
-      {/* Associations Section */}
-      <section className="relative py-20 bg-gray-50 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="absolute w-1/2 h-1/2 bg-primary/5 rounded-full filter blur-3xl opacity-70 -translate-y-1/2 -translate-x-1/2"></div>
-        </div>
-        
-        <div className="container mx-auto px-6 relative">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16 relative z-10"
-          >
-            <div className="inline-block px-6 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
-              Trusted By
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our <span className="text-primary">Associations</span>
-            </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto mb-6 rounded-full"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Proudly associated with leading organizations and certifications
-            </p>
-          </motion.div>
-
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-64 h-64 bg-primary/5 rounded-full filter blur-3xl"></div>
-            </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto relative z-10">
-              {[
-                {
-                  src: "/assets/iso_cert.png",
-                  alt: "ISO 9001:2015 Certified",
-                  title: "ISO 9001:2015"
-                },
-                {
-                  src: "/assets/msme.png",
-                  alt: "MSME Registered",
-                  title: "MSME Registered"
-                },
-                {
-                  src: "/assets/tamilnadu-logo.png",
-                  alt: "Approved by TN Text Book Corporation",
-                  title: "TN Text Book Approved"
-                },
-                {
-                  src: "/assets/tnskills.jpg",
-                  alt: "TN Skills Development Corporation",
-                  title: "TN Skills Certified"
-                }
-              ].map((item, index) => (
-                <AssociationCard 
-                  key={index} 
-                  index={index} 
-                  src={item.src} 
-                  alt={item.alt} 
-                  title={item.title}
-                />
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

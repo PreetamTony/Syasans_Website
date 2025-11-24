@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Facebook, Twitter, Mail } from "lucide-react";
 import { HeroSection } from "@/components/HeroSection";
@@ -55,6 +56,11 @@ const teamMembers = [
     image: "/assets/Gokula_Krishnan.jpg"
   },
   {
+    name: "Geetha V",
+    role: "Head of English (TOEFL, IELTS)",
+    image: "/assets/Geetha_V.jpg"
+  },
+  {
     name: "Kamala P",
     role: "Subject Matter Expert",
     image: "/assets/Kamala.jpg"
@@ -68,6 +74,11 @@ const teamMembers = [
     name: "Suganya S",
     role: "Subject Matter Expert",
     image: "/assets/Suganya.jpg"
+  },
+  {
+    name: "Arthi Shree",
+    role: "Subject Matter Expert",
+    image: "/assets/Arthi_Shree.jpg"
   }
   
 ];
@@ -161,34 +172,90 @@ export default function CoreTeam() {
         </section>
 
         {/* SYASANITES Section */}
-        <section className="py-20 bg-gradient-to-b from-background to-muted/5">
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1NiIgaGVpZ2h0PSIxMDAiPgo8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgo8cGF0aCBkPSJNMjggMzR2NDZoMjhWODRIMzRjLTMuMzE0IDAtNi0yLjY4Ni02LTZ2LTQ0aDB6IiBmaWxsPSJub25lIiBzdHJva2U9IiNlZWVlZWUiIHN0cm9rZS13aWR0aD0iMSIvPgo8cGF0aCBkPSJNMjggMTB2NDZoMjhWNTZIMzRjLTMuMzE0IDAtNi0yLjY4Ni02LTZWMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2VlZWVlZSIgc3Ryb2tlLXdpZHRoPSIxIi8+CjwvZz4KPC9zdmc+')] opacity-10"></div>
+        <section className="relative py-24 overflow-hidden bg-gradient-to-br from-background via-background to-muted/10">
+          {/* Animated background elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAiIGhlaWdodD0iMzAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0dGVybiBpZD0icGF0dGVybi1iYXNlIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFucm9ybT0icm90YXRlKDEzNSkiPjxyZWN0IGlkPSJwYXR0ZXJuLWJnIiB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJvaWx2ZXJjaGlkZSI+PC9yZWN0PjxyZWN0IGlkPSJwYXR0ZXJuLWZvcmVncm91bmQiIHg9IjAiIHk9IjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIgZmlsbC1ydWxlPSJldmVub2RkIj48L3JlY3Q+PC9wYXR0ZXJuPjxyZWN0IGlkPSJwYXR0ZXJuLXN2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuLWJhc2UpIiBvcGFjaXR5PSIwLjEiPjwvcmVjdD48L3N2Zz4=')] opacity-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/5"></div>
+            <div className="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+            <div className="absolute -left-20 -bottom-20 w-72 h-72 bg-primary/10 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-4000"></div>
+          </div>
+          
           <div className="container mx-auto px-6 relative z-10">
-            <div className="text-center mb-12">
-              
-              <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            <motion.div 
+              className="text-center mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <motion.span 
+                className="text-primary font-medium mb-3 text-sm uppercase tracking-wider inline-block"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                Our Community
+              </motion.span>
+              <motion.h2 
+                className="text-3xl font-bold mb-4"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+              >
                 SYASANITES ARE
-              </h2>
-              <div className="w-20 h-1 bg-primary mx-auto"></div>
-            </div>
+              </motion.h2>
+              <motion.div 
+                className="w-20 h-1 bg-primary mx-auto mb-6"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+              />
+            </motion.div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {[
                 "Alumni of prestigious institutions like NIT, BITS, IIM(Trichy), Sathyabama University & MSSW",
                 "Industry Experts carrying professional experience from Deloitte, UNICEF, BNP Paribas, Symantec, Bosch, Flextronics, HTC, Electronic Arts & many more",
-                "Mentors with excellent track record – Cracked SBI, IBPS, SSC, RRB, CAT, TOEFL, GMAT, GATE & BEC Exams",
+                "Mentors with excellent track record - Cracked SBI, IBPS, SSC, RRB, CAT, TOEFL, GMAT, GATE & BEC Exams",
                 "Expert Coders with immense knowledge in AI, Augmented Reality, UI/UX, Block Chain, Full Stack & BIG Data",
                 "On Average each Mentor have oriented about 25000+ students across geographies of INDIA on various domain specific modules"
               ].map((item, index) => (
-                <div 
-                  key={index} 
-                  className="bg-card p-6 rounded-xl shadow-sm border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-md group"
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 30, scale: 0.98 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: index * 0.1,
+                    ease: [0.16, 1, 0.3, 1]
+                  }}
+                  whileHover={{ 
+                    y: -5,
+                    transition: { duration: 0.2 }
+                  }}
+                  className="relative group"
                 >
-                  <div className="w-10 h-1 bg-primary mb-4 group-hover:w-16 transition-all duration-500"></div>
-                  <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">{item}</p>
-                </div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/30 to-primary/10 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+                  <div className="relative h-full bg-card/80 backdrop-blur-sm p-6 rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/5">
+                    <div className="flex items-start space-x-4">
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-3 h-3 rounded-full bg-primary/80 group-hover:bg-primary transition-colors duration-300"></div>
+                      </div>
+                      <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-300">{item}</p>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
+          
+          {/* Decorative elements */}
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none"></div>
         </section>
 
       </main>

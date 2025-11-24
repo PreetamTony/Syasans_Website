@@ -94,12 +94,12 @@ const services = [
   {
     title: "20+ Learning Centres",
     icon: <GraduationCap className="w-8 h-8 mb-4 text-primary" />,
-    description: "Achieve guaranteed success with our 100% project completion rate, offering tailored solutions and expert guidance to ensure every project meets your career and organizational goals."
+    description: "Empower your career with our extensive network of over 20+ learning centers, providing personalized training and development programs to help you achieve your professional goals."
   },
   {
     title: "100% Client Retention",
     icon: <Users className="w-8 h-8 mb-4 text-primary" />,
-    description: "Empower your career with our extensive network of over 20+ learning centers, providing personalized training and development programs to help you achieve your professional goals."
+    description: "Achieve guaranteed success with our 100% project completion rate, offering tailored solutions and expert guidance to ensure every project meets your career and organizational goals."
   },
   {
     title: "100% Projects Success",
