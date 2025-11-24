@@ -188,14 +188,7 @@ export default function InquiriesInto() {
         <section className="py-20 relative">
           <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.8))] -z-10" />
           <div className="container mx-auto px-6">
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold text-center mb-16"
-            >
-              Our <span className="text-primary">Courses</span>
-            </motion.h2>
+            
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {courses.map((course, index) => (
                 <AnimatedCard key={index} index={index} {...course} />
