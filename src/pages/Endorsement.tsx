@@ -3,8 +3,55 @@ import { motion } from "framer-motion";
 import { Footer } from "@/components/Footer";
 import { useState, useRef, useEffect } from "react";
 
+// Component for individual association card with parallax effect
+const AssociationCard = ({ index, src, alt, title }) => {
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      whileHover={{ 
+        y: -5,
+        boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1)',
+        transition: { duration: 0.2 }
+      }}
+      variants={{
+        hidden: { scale: 0.8, opacity: 0, y: 20 },
+        visible: {
+          scale: 1,
+          opacity: 1,
+          y: 0,
+          transition: {
+            type: "spring",
+            damping: 15,
+            stiffness: 100,
+            delay: index * 0.08,
+            duration: 0.5
+          }
+        }
+      }}
+      className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 h-full"
+    >
+      <div className="flex flex-col items-center">
+        <div className="w-32 h-32 md:w-40 md:h-40 relative mb-4">
+          <img 
+            src={src} 
+            alt={alt}
+            className="w-full h-full object-contain"
+            loading="lazy"
+          />
+        </div>
+        <p className="text-center text-sm md:text-base font-medium text-gray-700 mt-2">
+          {title}
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function Endorsement() {
   const certificates = [
+    "/assets/Certificate.jpg",
     "https://syasans.com/wp-content/uploads/2024/08/4-1086x1536.png",
     "https://syasans.com/wp-content/uploads/2024/08/5-1086x1536.png",
     "https://syasans.com/wp-content/uploads/2024/08/1-1086x1536.png",
@@ -89,57 +136,68 @@ export default function Endorsement() {
           </div>
         </section>
 
-        {/* Government Endorsement Section */}
-        <section className="py-20 bg-gradient-to-br from-background to-muted/10">
-          <div className="container mx-auto px-6">
+        {/* Associations Section */}
+        <section className="relative py-20 bg-gray-50 overflow-hidden">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute w-1/2 h-1/2 bg-primary/5 rounded-full filter blur-3xl opacity-70 -translate-y-1/2 -translate-x-1/2"></div>
+          </div>
+          
+          <div className="container mx-auto px-6 relative">
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
+              className="text-center mb-16 relative z-10"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Government <span className="text-primary">Recognition</span>
+              <div className="inline-block px-6 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium mb-4">
+                Trusted By
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Our <span className="text-primary">Associations</span>
               </h2>
-              <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-              <p className="text-muted-foreground max-w-3xl mx-auto">
-                Official endorsement from the Government of Tamil Nadu
+              <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/50 mx-auto mb-6 rounded-full"></div>
+              <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                Proudly associated with leading organizations and certifications
               </p>
             </motion.div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden">
-                {/* PDF Header */}
-                <div className="bg-gradient-to-r from-blue-600 to-blue-700 p-3">
-                  <h3 className="text-white text-center font-medium">Government Endorsement</h3>
-                </div>
-                
-                {/* PDF Container */}
-                <div 
-                  className="relative w-full bg-gray-100"
-                  style={{ height: '70vh' }}
-                  ref={pdfContainerRef}
-                >
-                  <iframe 
-                    src="/assets/Rec_Letters_-_Govt_of_TN[1].pdf#page=1&view=FitH&zoom=100"
-                    className="w-full h-full"
-                    frameBorder="0"
-                    title="Government of Tamil Nadu Recommendation Letter"
-                  >
-                    <p className="p-8 text-center">
-                      Your browser does not support PDFs. 
-                      <a 
-                        href="/assets/Rec_Letters_-_Govt_of_TN[1].pdf" 
-                        className="text-primary hover:underline"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        View the PDF
-                      </a>.
-                    </p>
-                  </iframe>
-                </div>
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-64 h-64 bg-primary/5 rounded-full filter blur-3xl"></div>
+              </div>
+              
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto relative z-10">
+                {[
+                  {
+                    src: "/assets/iso_cert.png",
+                    alt: "ISO 9001:2015 Certified",
+                    title: "ISO 9001:2015"
+                  },
+                  {
+                    src: "/assets/msme.png",
+                    alt: "MSME Registered",
+                    title: "MSME Registered"
+                  },
+                  {
+                    src: "/assets/tamilnadu-logo.png",
+                    alt: "Approved by TN Text Book Corporation",
+                    title: "TN Text Book Approved"
+                  },
+                  {
+                    src: "/assets/tnskills.jpg",
+                    alt: "TN Skills Development Corporation",
+                    title: "TN Skills Certified"
+                  }
+                ].map((item, index) => (
+                  <AssociationCard 
+                    key={index} 
+                    index={index} 
+                    src={item.src} 
+                    alt={item.alt} 
+                    title={item.title}
+                  />
+                ))}
               </div>
             </div>
           </div>

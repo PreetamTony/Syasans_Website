@@ -70,37 +70,43 @@ const Index = () => {
       icon: <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />, 
       title: "Career Training", 
       description: "Industry-leading training programs designed to enhance your professional skills and market value",
-      color: 'blue'
+      color: 'blue',
+      image: "/assets/Classroom_setting.png"
     },
     { 
       icon: <Users className="w-5 h-5 sm:w-6 sm:h-6" />, 
       title: "Mentorship Program", 
       description: "One-on-one guidance from industry experts to accelerate your career growth",
-      color: 'green'
+      color: 'green',
+      image: "/assets/mentorship.png"
     },
     { 
       icon: <Award className="w-5 h-5 sm:w-6 sm:h-6" />, 
-      title: "Certification", 
+      title: "Certification Support", 
       description: "Recognized certifications that validate your expertise and boost your credentials",
-      color: 'purple'
+      color: 'purple',
+      image: "/assets/certifications_support.png"
     },
     { 
       icon: <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />, 
       title: "Career Analytics", 
       description: "Data-driven insights to track your progress and optimize your career path",
-      color: 'orange'
+      color: 'orange',
+      image: "/assets/career_analytics.png"
     },
     { 
       icon: <Target className="w-5 h-5 sm:w-6 sm:h-6" />, 
       title: "Placement Support", 
       description: "Dedicated placement assistance with our network of 500+ partner companies",
-      color: 'red'
+      color: 'red',
+      image: "/assets/Job_offer.png"
     },
     { 
       icon: <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" />, 
       title: "Interview Prep", 
       description: "Comprehensive interview preparation and mock sessions with real feedback",
-      color: 'teal'
+      color: 'teal',
+      image: "/assets/Interview_setting.png"
     },
   ];
 
@@ -192,9 +198,9 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-20 bg-white relative overflow-hidden">
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-4xl mx-auto mb-12">
+          <div className="text-center max-w-4xl mx-auto mb-8 px-4">
             <h2 className="text-4xl sm:text-4xl font-bold mb-4">
               <span className="text-gray-900">Our </span>
               <span className="text-blue-600">Services</span>
@@ -205,15 +211,16 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
             {services.map((service, index) => (
               <div 
                 key={index}
-                className="group relative bg-white rounded-lg shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-blue-100"
+                className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-100 flex flex-col h-full"
               >
-                <div className="p-7 sm:p-8">
+                {/* Icon Badge */}
+                <div className="absolute top-4 right-4 z-10">
                   <div 
-                    className={`w-12 h-12 flex items-center justify-center rounded-lg mb-4 transition-all duration-300 ${
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-sm ${
                       service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
                       service.color === 'green' ? 'bg-green-50 text-green-600' :
                       service.color === 'purple' ? 'bg-purple-50 text-purple-600' :
@@ -222,12 +229,34 @@ const Index = () => {
                       'bg-blue-50 text-blue-600'
                     }`}
                   >
-                    {React.cloneElement(service.icon, { className: 'w-7 h-7' })}
+                    {React.cloneElement(service.icon, { className: 'w-5 h-5' })}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-3" style={{ fontFamily: 'Times New Roman, serif' }}>
+                </div>
+                
+                {/* Image Container */}
+                <div className="relative h-52 w-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="h-full w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                      style={{
+                        maxHeight: '100%',
+                        maxWidth: '100%',
+                        objectFit: 'contain',
+                        objectPosition: 'center center'
+                      }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="p-5 flex-1 flex flex-col">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2" style={{ fontFamily: 'Times New Roman, serif' }}>
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
+                  <p className="text-gray-600 text-base leading-relaxed">
                     {service.description}
                   </p>
                 </div>
