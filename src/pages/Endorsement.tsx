@@ -132,7 +132,7 @@ export default function Endorsement() {
                   {
                     src: "/assets/tamilnadu-logo.png",
                     alt: "Approved by TN Text Book Corporation",
-                    title: "TN Text Book Approved"
+                    title: "Approved by TN Text Book Corporation"
                   },
                   {
                     src: "/assets/Government-Of-Tamil-Nadu-Logo-Vector.svg--1397x1536.png",
