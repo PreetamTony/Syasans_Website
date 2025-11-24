@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, BookOpen, Users, Award, TrendingUp, Target, Briefcase } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Timeline } from '@/components/Timeline';
 import { StatsCounter } from "@/components/StatsCounter";
 import { ServiceCard } from "@/components/ServiceCard";
 import { Navigation } from "@/components/Navigation";
@@ -133,20 +136,7 @@ const Index = () => {
               <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8 max-w-lg mx-auto md:mx-0">
                 To provide experiential learning through research-based pedagogy and mentor energetic minds to propel a better tomorrow
               </p>
-              <div className="flex flex-wrap justify-center md:justify-start gap-4 sm:gap-6 md:gap-8 mb-8 md:mb-0">
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-900">250K+</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Students Trained</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-900">9+</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Years Experience</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-900">99%</div>
-                  <div className="text-xs sm:text-sm text-gray-600">Success Rate</div>
-                </div>
-              </div>
+             
             </div>
             <div className="relative order-first md:order-last mb-10 md:mb-0 w-full max-w-lg mx-auto">
               <div className="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
@@ -169,10 +159,19 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Timeline Section - Moved to appear before Stats */}
+      <Timeline />
+
       {/* Stats Section */}
       <section className="py-12 md:py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center mb-12 md:mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
+          {/* Background gradient */}
+          <div className="absolute inset-0 -z-10 overflow-hidden">
+            <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
+            <div className="absolute top-40 -right-20 w-96 h-96 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div className="absolute -bottom-20 left-1/3 w-96 h-96 bg-pink-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
+          </div>
+          <div className="text-center mb-16 relative">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
               Proven Track Record
             </h2>
@@ -211,55 +210,65 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+          <style jsx global>{`
+            @keyframes blob {
+              0% { transform: translate(0px, 0px) scale(1); }
+              33% { transform: translate(30px, -50px) scale(1.1); }
+              66% { transform: translate(-20px, 20px) scale(0.9); }
+              100% { transform: translate(0px, 0px) scale(1); }
+            }
+            .animate-blob {
+              animation: blob 7s infinite;
+            }
+            .animation-delay-2000 {
+              animation-delay: 2s;
+            }
+            .animation-delay-4000 {
+              animation-delay: 4s;
+            }
+          `}</style>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12 relative z-10 px-4">
             {services.map((service, index) => (
-              <div 
-                key={index}
-                className="group relative bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-100 flex flex-col h-full"
-              >
-                {/* Icon Badge */}
-                <div className="absolute top-4 right-4 z-10">
-                  <div 
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-sm ${
-                      service.color === 'blue' ? 'bg-blue-50 text-blue-600' :
-                      service.color === 'green' ? 'bg-green-50 text-green-600' :
-                      service.color === 'purple' ? 'bg-purple-50 text-purple-600' :
-                      service.color === 'orange' ? 'bg-orange-50 text-orange-600' :
-                      service.color === 'red' ? 'bg-red-50 text-red-600' :
-                      'bg-blue-50 text-blue-600'
-                    }`}
-                  >
-                    {React.cloneElement(service.icon, { className: 'w-5 h-5' })}
-                  </div>
-                </div>
-                
-                {/* Image Container */}
-                <div className="relative h-52 w-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
-                  <div className="w-full h-full flex items-center justify-center">
+              <div key={index} className="relative group">
+                {/* Main Card */}
+                <div className="relative z-10 bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl h-full flex flex-col">
+                  {/* Image Container */}
+                  <div className="relative h-48 overflow-hidden">
                     <img 
-                      src={service.image} 
+                      src={service.image}
                       alt={service.title}
-                      className="h-full w-auto max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       loading="lazy"
-                      style={{
-                        maxHeight: '100%',
-                        maxWidth: '100%',
-                        objectFit: 'contain',
-                        objectPosition: 'center center'
-                      }}
                     />
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                    {/* Icon */}
+                    <div className={`absolute bottom-4 right-4 w-12 h-12 rounded-full flex items-center justify-center ${
+                      service.color === 'blue' ? 'bg-blue-600 text-white' :
+                      service.color === 'green' ? 'bg-green-600 text-white' :
+                      service.color === 'purple' ? 'bg-purple-600 text-white' :
+                      service.color === 'orange' ? 'bg-orange-600 text-white' :
+                      service.color === 'red' ? 'bg-red-600 text-white' :
+                      'bg-blue-600 text-white'
+                    } shadow-lg`}>
+                      {React.cloneElement(service.icon, { className: 'w-6 h-6' })}
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-6 flex-1 flex flex-col">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {service.description}
+                    </p>
                   </div>
                 </div>
                 
-                {/* Content */}
-                <div className="p-5 flex-1 flex flex-col">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2" style={{ fontFamily: 'Times New Roman, serif' }}>
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 text-base leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
+                {/* Decorative Elements */}
+                <div className="absolute -bottom-2 -right-2 w-full h-full bg-gray-100 rounded-xl -z-10 group-hover:bg-gray-200 transition-colors duration-300"></div>
+                <div className="absolute -bottom-1 -right-1 w-16 h-16 bg-primary/5 rounded-full -z-20"></div>
               </div>
             ))}
           </div>
