@@ -51,18 +51,22 @@ const Products = () => {
                 transition={{ duration: 0.5 }}
                 className="relative group flex justify-center w-full"
               >
-                <div className="relative overflow-hidden rounded-xl shadow-xl group-hover:shadow-2xl transition-all duration-300 w-full max-w-[400px]">
-                  <img 
-                    src={QuantumServerImage} 
-                    alt="D'LAN Quantum Server" 
-                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                    <div className="text-white">
-                      <h3 className="text-xl font-bold mb-1">Quantum Computing Power</h3>
-                      <p className="text-sm opacity-90">Next-generation server technology</p>
+                <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 w-full max-w-[420px] border-4 border-white dark:border-gray-800">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={QuantumServerImage} 
+                      alt="D'LAN Quantum Server" 
+                      className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 className="text-xl font-bold text-white mb-1">Quantum Computing Power</h3>
+                        <p className="text-sm text-gray-200">Next-generation server technology</p>
+                      </div>
                     </div>
                   </div>
+                  <div className="absolute inset-0 border-2 border-white/20 rounded-xl pointer-events-none group-hover:border-blue-400/30 transition-all duration-500"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               </motion.div>
               <div className="space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
@@ -141,14 +145,39 @@ const Products = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5 }}
-                className="relative group flex justify-center w-full"
+                className="relative group flex justify-center w-full h-full"
               >
-                <div className="relative overflow-hidden rounded-xl shadow-xl group-hover:shadow-2xl transition-all duration-300 w-full max-w-[400px]">
-                  <img 
-                    src="/assets/Books.jpg" 
-                    alt="Handcrafting Aptitude Materials" 
-                    className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
-                  />
+                <div className="relative w-full max-w-[420px] h-full flex flex-col justify-center">
+                  <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 border-4 border-white dark:border-gray-800 h-full flex flex-col">
+                    {/* Main Image Container - Now flexible height */}
+                    <div className="relative flex-grow overflow-hidden bg-gray-100">
+                      <img 
+                        src="/assets/Books.jpg" 
+                        alt="Handcrafting Aptitude Materials" 
+                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                      />
+                      {/* Hover Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                        <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                          <h3 className="text-xl font-bold text-white mb-1">Comprehensive Materials</h3>
+                          <p className="text-sm text-gray-200">Expertly crafted for success</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Decorative Frame Elements */}
+                    <div className="absolute inset-0 border-2 border-white/30 rounded-xl pointer-events-none group-hover:border-blue-400/40 transition-all duration-500"></div>
+                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    {/* Corner Accents */}
+                    <div className="absolute -top-1 -left-1 w-8 h-8 border-t-2 border-l-2 border-blue-500 rounded-tl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute -top-1 -right-1 w-8 h-8 border-t-2 border-r-2 border-blue-500 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute -bottom-1 -left-1 w-8 h-8 border-b-2 border-l-2 border-blue-500 rounded-bl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute -bottom-1 -right-1 w-8 h-8 border-b-2 border-r-2 border-blue-500 rounded-br-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+                  
+                  {/* Subtle Drop Shadow */}
+                  <div className="absolute -bottom-4 -right-4 w-full h-full bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-2xl -z-10 group-hover:opacity-70 opacity-0 transition-all duration-500"></div>
                 </div>
               </motion.div>
               <div className="space-y-6 bg-white p-6 rounded-xl shadow-sm border border-gray-100">
