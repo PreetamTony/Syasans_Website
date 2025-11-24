@@ -31,6 +31,11 @@ const teamMembers = [
     image: "/assets/Vishnu_Priyan_R.jpg"
   },
   {
+    name: "Sakthi Priya G",
+    role: "Head HR",
+    image: "/assets/Sakthi_Priya_G.jpg"
+  },
+  {
     name: "Kanimozhi D",
     role: "Head Operations",
     image: "/assets/Kanimozhi.jpg"
@@ -39,11 +44,6 @@ const teamMembers = [
     name: "Parthiban M",
     role: "Technology Head",
     image: "/assets/Parthiban_M.jpg"
-  },
-  {
-    name: "Sakthi Priya G",
-    role: "Head HR",
-    image: "/assets/Sakthi_Priya_G.jpg"
   },
   {
     name: "Nithya Priya G",
