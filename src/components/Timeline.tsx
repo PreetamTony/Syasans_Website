@@ -32,7 +32,7 @@ const milestones: Milestone[] = [
   {
     year: '2016',
     title: 'Government Collaboration',
-    description: 'Partnered with the Govt for the "Sathanai Selvangal" Initiative to train the students on competitiive exams across the remote areas of Tamil Nadu.',
+    description: 'Partnered with the Govt for the "Sathanai Selvangal" Initiative to train the students on competitive exams across the remote areas of Tamil Nadu.',
     icon: Handshake,
     image: '/assets/Sathanai_selvangal.png',
     tags: ['Govt', 'Sathanai Selvangal']
@@ -40,7 +40,7 @@ const milestones: Milestone[] = [
   {
     year: '2017',
     title: 'Career Analytics Program',
-    description: 'Launch of a Career analytics-driven program to help students target super-dream offers.',
+    description: 'Launch of a Career analytics-driven program to help students targetting super-dream offers.',
     icon: BarChart3,
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
     tags: ['Launch', 'Analytics']
@@ -48,7 +48,7 @@ const milestones: Milestone[] = [
   {
     year: '2018',
     title: 'State-Level Endorsement',
-    description: 'Received official endorsement at the state level, for providining talents Pan-India.',
+    description: 'Received official endorsement at the state level, for providing talents Pan-India.',
     icon: Award,
     image: '/assets/state_level_endorsement.png',
     tags: ['Recognition', 'State Level']
@@ -80,7 +80,7 @@ const milestones: Milestone[] = [
   {
     year: '2022',
     title: 'Integrated Learning Centres',
-    description: 'Deployment of Integrated Learning Centres across 20 institutions.',
+    description: 'Deployment of Integrated Learning Centres across 20+ institutions.',
     icon: Building2,
     image: '/assets/Classroom_setting.png',
     tags: ['Infrastructure', 'Learning']
@@ -96,7 +96,7 @@ const milestones: Milestone[] = [
   {
     year: '2024',
     title: 'Social Responsibility Honour',
-    description: 'Honoured for profound Social Responsibility contributions in the field of Education by Ministry of Rural Industries by Government of Tamil Nadu.',
+    description: 'Honoured for profound Social Responsibility contributions in the field of Education by Ministry of Rural Industries (Government of Tamil Nadu).',
     icon: Heart,
     image: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=800',
     tags: ['CSR', 'Impact']
