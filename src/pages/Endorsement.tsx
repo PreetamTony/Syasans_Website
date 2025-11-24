@@ -137,7 +137,7 @@ export default function Endorsement() {
                   {
                     src: "/assets/Government-Of-Tamil-Nadu-Logo-Vector.svg--1397x1536.png",
                     alt: "Government of Tamil Nadu",
-                    title: "Govt. of Tamil Nadu"
+                    title: "Govt. of Tamil Nadu Recognised"
                   },
                   {
                     src: "/assets/Nsdc.png",
