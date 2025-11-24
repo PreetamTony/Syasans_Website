@@ -24,7 +24,7 @@ const milestones: Milestone[] = [
   {
     year: '2015',
     title: 'Establishment and Vision',
-    description: 'The foundation of Syasan\'s Career Analytics was laid with a vision to revolutionize career guidance and Employability skills.',
+    description: 'The foundation of Syasan\'s Career Analytics was laid with a vision to revolutionize Career Guidance and Employability skills.',
     icon: Rocket,
     image: '/assets/syasans-logo.png',
     tags: ['Founding', 'Vision']
