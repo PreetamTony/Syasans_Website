@@ -54,7 +54,9 @@ export default function Endorsement() {
     "/assets/Certificate.jpg",
     "/assets/Picture1.jpg",
     "/assets/Picture2.jpg",
-    "/assets/Picture3.jpg"
+    "/assets/Picture3.jpg",
+    "/assets/Picture4.jpg"
+
    
   ];
 
