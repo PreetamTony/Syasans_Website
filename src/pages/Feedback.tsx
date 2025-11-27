@@ -34,7 +34,7 @@ export default function Feedback() {
               <div className="aspect-w-16 aspect-h-9">
                 <iframe
                   className="w-full h-[500px]"
-                  src="https://www.youtube.com/embed/T-MXkCum3Yk"
+                  src="https://www.youtube.com/embed/AGfOa90l1CA?si=VWG5WiVFftkwaxN1"
                   title="Syasan's Career Analytics - Success Stories"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -223,39 +223,7 @@ export default function Feedback() {
           </div>
         </section>
 
-        {/* Performance Feedback Section */}
-        <section className="py-12 md:py-20 bg-white">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-3xl font-bold mb-4">
-                Performance <span className="text-primary">Feedback</span>
-              </h2>
-              <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                Visual insights into our training excellence and student achievements
-              </p>
-            </div>
-
-            <div className="mb-12 md:mb-16">
-              <ImageGallery />
-            </div>
-            
-            <div className="text-center">
-              <p className="text-muted-foreground mb-4 text-sm sm:text-base">
-                Want to see more detailed feedback and reviews from our students?
-              </p>
-              <a 
-                href="https://share.google/LTpS8XBL4ftVERNIZ" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-primary text-white text-sm sm:text-base font-semibold rounded-lg hover:bg-primary/90 transition-colors"
-              >
-                View Additional Feedback
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-              </a>
-            </div>
-          </div>
-        </section>
+        
       </main>
       <Footer />
     </div>

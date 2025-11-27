@@ -52,10 +52,10 @@ const AssociationCard = ({ index, src, alt, title }) => {
 export default function Endorsement() {
   const certificates = [
     "/assets/Certificate.jpg",
-    "https://syasans.com/wp-content/uploads/2024/08/4-1086x1536.png",
-    "https://syasans.com/wp-content/uploads/2024/08/5-1086x1536.png",
-    "https://syasans.com/wp-content/uploads/2024/08/1-1086x1536.png",
-    "https://syasans.com/wp-content/uploads/2024/08/2-1086x1536.png"
+    "/assets/Picture1.jpg",
+    "/assets/Picture2.jpg",
+    "/assets/Picture3.jpg"
+   
   ];
 
   // Simple ref for the container

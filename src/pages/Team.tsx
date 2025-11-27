@@ -146,7 +146,7 @@ export default function CoreTeam() {
         <div className="container mx-auto px-6 py-12 max-w-5xl">
           <div className="relative w-full aspect-video max-w-5xl mx-auto rounded-xl overflow-hidden shadow-xl">
             <img 
-              src="https://syasans.com/wp-content/uploads/2024/09/WhatsApp-Image-2024-09-12-at-9.43.49-PM.jpeg" 
+              src="/assets/Group_Photo.jpeg" 
               alt="SYASAN'S Team Group Photo" 
               className="w-full h-full object-cover"
               width={1200}
