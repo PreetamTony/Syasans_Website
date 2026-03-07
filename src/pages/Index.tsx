@@ -1,14 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, BookOpen, Users, Award, TrendingUp, Target, Briefcase } from "lucide-react";
-import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Timeline } from '@/components/Timeline';
-import { StatsCounter } from "@/components/StatsCounter";
-import { ServiceCard } from "@/components/ServiceCard";
-import { Navigation } from "@/components/Navigation";
-import { Footer } from "@/components/Footer";
 import ChatBot from "@/components/ChatBot";
+import { Footer } from "@/components/Footer";
+import { Navigation } from "@/components/Navigation";
+import { StatsCounter } from "@/components/StatsCounter";
+import { Timeline } from '@/components/Timeline';
+import { Award, BookOpen, Briefcase, Target, TrendingUp, Users } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -20,13 +16,13 @@ const Index = () => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     // Initial check
     checkIfMobile();
-    
+
     // Add event listener for window resize
     window.addEventListener('resize', checkIfMobile);
-    
+
     // Cleanup
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
@@ -34,13 +30,13 @@ const Index = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      
+
       // Scroll-triggered animations
       const reveals = document.querySelectorAll('.scroll-reveal');
       reveals.forEach((element) => {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        
+
         if (elementTop < windowHeight - 100) {
           element.classList.add('revealed');
         }
@@ -53,15 +49,15 @@ const Index = () => {
   }, []);
 
   const stats = [
-    { value: 9, label: 'Years Experience', color: 'blue', suffix: '+' },
+    { value: 10, label: 'Years Experience', color: 'blue', suffix: '+' },
     { value: 100, label: 'Expert Mentors', color: 'green', suffix: '+' },
     { value: 50, label: 'Corporate Clients', color: 'purple', suffix: '+' },
-    { value: 5, label: 'Training Batches', color: 'orange', suffix: 'K+' },
+    { value: 6, label: 'Training Batches', color: 'orange', suffix: 'K+' },
     { value: '88K', label: 'Rated 4.5/5.0', color: 'yellow' },
     { value: 99, label: 'Project Success', color: 'teal', suffix: '%' },
     { value: 94, label: 'Client Retention', color: 'indigo', suffix: '%' },
     { value: 30, label: 'Training Hours', color: 'pink', suffix: 'K+' },
-    { value: 250, label: 'Students Trained', color: 'cyan', suffix: 'K+' },
+    { value: 300, label: 'Students Trained', color: 'cyan', suffix: 'K+' },
     { value: 20, label: 'Learning Centers', color: 'emerald', suffix: '+' },
     { value: 50, label: 'Pool Drives', color: 'violet', suffix: '+' },
     { value: 30, label: "MoU's", color: 'amber', suffix: '+' },
@@ -69,44 +65,44 @@ const Index = () => {
   ];
 
   const services = [
-    { 
-      icon: <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />, 
-      title: "Career Training", 
+    {
+      icon: <BookOpen className="w-5 h-5 sm:w-6 sm:h-6" />,
+      title: "Career Training",
       description: "Industry-leading training programs designed to enhance your professional skills and market value",
       color: 'blue',
       image: "/assets/Classroom_setting.png"
     },
-    { 
-      icon: <Users className="w-5 h-5 sm:w-6 sm:h-6" />, 
-      title: "Mentorship Program", 
+    {
+      icon: <Users className="w-5 h-5 sm:w-6 sm:h-6" />,
+      title: "Mentorship Program",
       description: "One-on-one guidance from industry experts to accelerate your career growth",
       color: 'green',
       image: "/assets/mentorship.png"
     },
-    { 
-      icon: <Award className="w-5 h-5 sm:w-6 sm:h-6" />, 
-      title: "Certification Support", 
+    {
+      icon: <Award className="w-5 h-5 sm:w-6 sm:h-6" />,
+      title: "Certification Support",
       description: "Recognized certifications that validate your expertise and boost your credentials",
       color: 'purple',
       image: "/assets/certifications_support.png"
     },
-    { 
-      icon: <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />, 
-      title: "Career Analytics", 
+    {
+      icon: <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />,
+      title: "Career Analytics",
       description: "Data-driven insights to track your progress and optimize your career path",
       color: 'orange',
       image: "/assets/career_analytics.png"
     },
-    { 
-      icon: <Target className="w-5 h-5 sm:w-6 sm:h-6" />, 
-      title: "Placement Support", 
+    {
+      icon: <Target className="w-5 h-5 sm:w-6 sm:h-6" />,
+      title: "Placement Support",
       description: "Dedicated placement assistance with our network of 500+ partner companies",
       color: 'red',
       image: "/assets/Job_offer.png"
     },
-    { 
-      icon: <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" />, 
-      title: "Interview Prep", 
+    {
+      icon: <Briefcase className="w-5 h-5 sm:w-6 sm:h-6" />,
+      title: "Interview Prep",
       description: "Comprehensive interview preparation and mock sessions with real feedback",
       color: 'teal',
       image: "/assets/Interview_setting.png"
@@ -116,7 +112,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="relative pt-24 md:pt-0 md:min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 px-4 sm:px-6">
         <div className="container mx-auto">
@@ -136,11 +132,11 @@ const Index = () => {
               <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8 max-w-lg mx-auto md:mx-0">
                 To provide experiential learning through research-based pedagogy and mentor energetic minds to propel a better tomorrow
               </p>
-             
+
             </div>
             <div className="relative order-first md:order-last mb-10 md:mb-0 w-full max-w-lg mx-auto">
               <div className="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
-                <img 
+                <img
                   src="/assets/Coaching_place.jpg"
                   alt="Professional Career Training"
                   className="w-full h-auto object-cover"
@@ -158,10 +154,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-
-      {/* Timeline Section - Moved to appear before Stats */}
-      <Timeline />
-
       {/* Stats Section */}
       <section className="py-12 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
@@ -179,11 +171,11 @@ const Index = () => {
               Numbers that speak to our commitment to excellence
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6 md:gap-8">
             {stats.map((stat, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className="bg-white p-3 sm:p-4 md:p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"
               >
                 <div className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-1 md:mb-2 text-${stat.color}-600`}>
@@ -195,6 +187,10 @@ const Index = () => {
           </div>
         </div>
       </section>
+      {/* Timeline Section - Moved to appear before Stats */}
+      <Timeline />
+
+
 
       {/* Services Section */}
       <section className="py-16 md:py-24 bg-white relative overflow-hidden">
@@ -234,7 +230,7 @@ const Index = () => {
                 <div className="relative z-10 bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl h-full flex flex-col">
                   {/* Image Container */}
                   <div className="relative h-48 overflow-hidden">
-                    <img 
+                    <img
                       src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -243,18 +239,17 @@ const Index = () => {
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     {/* Icon */}
-                    <div className={`absolute bottom-4 right-4 w-12 h-12 rounded-full flex items-center justify-center ${
-                      service.color === 'blue' ? 'bg-blue-600 text-white' :
+                    <div className={`absolute bottom-4 right-4 w-12 h-12 rounded-full flex items-center justify-center ${service.color === 'blue' ? 'bg-blue-600 text-white' :
                       service.color === 'green' ? 'bg-green-600 text-white' :
-                      service.color === 'purple' ? 'bg-purple-600 text-white' :
-                      service.color === 'orange' ? 'bg-orange-600 text-white' :
-                      service.color === 'red' ? 'bg-red-600 text-white' :
-                      'bg-blue-600 text-white'
-                    } shadow-lg`}>
+                        service.color === 'purple' ? 'bg-purple-600 text-white' :
+                          service.color === 'orange' ? 'bg-orange-600 text-white' :
+                            service.color === 'red' ? 'bg-red-600 text-white' :
+                              'bg-blue-600 text-white'
+                      } shadow-lg`}>
                       {React.cloneElement(service.icon, { className: 'w-6 h-6' })}
                     </div>
                   </div>
-                  
+
                   {/* Content */}
                   <div className="p-6 flex-1 flex flex-col">
                     <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -265,7 +260,7 @@ const Index = () => {
                     </p>
                   </div>
                 </div>
-                
+
                 {/* Decorative Elements */}
                 <div className="absolute -bottom-2 -right-2 w-full h-full bg-gray-100 rounded-xl -z-10 group-hover:bg-gray-200 transition-colors duration-300"></div>
                 <div className="absolute -bottom-1 -right-1 w-16 h-16 bg-primary/5 rounded-full -z-20"></div>
