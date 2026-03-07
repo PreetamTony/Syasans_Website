@@ -1,10 +1,10 @@
+import { Footer } from "@/components/Footer";
+import { HeroSection } from "@/components/HeroSection";
 import { Navigation } from "@/components/Navigation";
 import { motion } from "framer-motion";
+import { Award, BarChart2, Book, BookOpen, Brain, Briefcase, Cloud, Code, Cpu, Database, Figma, FileCode, GraduationCap, Rocket, Server, Settings, Shield, Smartphone, Users, Zap } from "lucide-react";
 import React from 'react';
 import { useInView } from "react-intersection-observer";
-import { Facebook, Twitter, Mail, ArrowRight, BookOpen, Cpu, Figma, Code, Cloud, Smartphone, Database, FileCode, Rocket, BarChart2, Brain, Users, Award, Briefcase, GraduationCap, FileText, Book, Server, CheckCircle, Zap, Check, Clock, RefreshCw, Wrench, Shield, Settings } from "lucide-react";
-import { HeroSection } from "@/components/HeroSection";
-import { Footer } from "@/components/Footer";
 // Using standard img tag instead of next/image
 
 const courses = [
@@ -19,13 +19,28 @@ const courses = [
     description: "Machine learning is a subset of artificial intelligence that enables systems to learn from data, identify patterns, and make decisions with minimal human intervention."
   },
   {
+    title: "Agentic AI",
+    icon: <Cpu className="w-8 h-8 mb-4 text-primary" />,
+    description: "Agentic AI refers to autonomous AI systems capable of perceiving their environment, reasoning about goals, and taking independent actions to achieve them."
+  },
+  {
+    title: "Cybersecurity",
+    icon: <Shield className="w-8 h-8 mb-4 text-primary" />,
+    description: "Cybersecurity involves protecting computer systems, networks, and data from digital attacks, unauthorized access, and damage through various security measures."
+  },
+  {
+    title: "DevOps",
+    icon: <Settings className="w-8 h-8 mb-4 text-primary" />,
+    description: "DevOps is a set of practices that combines software development and IT operations to shorten the systems development life cycle and provide high-quality continuous delivery."
+  },
+  {
     title: "UI/UX Design - (Figma)",
     icon: <Figma className="w-8 h-8 mb-4 text-primary" />,
     description: "Figma is a collaborative interface design tool that enables teams to design, prototype, and develop products together in a shared design file"
   },
   {
     title: "Angular 9.0",
-    icon: <Cpu className="w-8 h-8 mb-4 text-primary" />,
+    icon: <Zap className="w-8 h-8 mb-4 text-primary" />,
     description: "Angular 9.0 introduces the Ivy compiler and runtime by default, offering smaller bundle sizes, faster testing, better debugging, and improved internationalization."
   },
   {
@@ -118,15 +133,15 @@ const AnimatedCard = ({ title, description, icon, index }) => {
     <motion.div
       ref={ref}
       initial={{ opacity: 0, y: 30, scale: 0.98 }}
-      animate={inView ? { 
-        opacity: 1, 
-        y: 0, 
+      animate={inView ? {
+        opacity: 1,
+        y: 0,
         scale: 1,
-        transition: { 
-          duration: 0.6, 
+        transition: {
+          duration: 0.6,
           ease: [0.16, 1, 0.3, 1],
           delay: index * 0.05
-        } 
+        }
       } : { opacity: 0, y: 30, scale: 0.98 }}
       whileHover={{
         y: -8,
@@ -137,7 +152,7 @@ const AnimatedCard = ({ title, description, icon, index }) => {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
       <div className="relative p-8">
-        <motion.div 
+        <motion.div
           className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center mb-6 text-primary"
           whileHover={{ rotate: 5, scale: 1.05 }}
           transition={{ type: 'spring', stiffness: 300 }}
@@ -188,7 +203,7 @@ export default function InquiriesInto() {
         <section className="py-20 relative">
           <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.8))] -z-10" />
           <div className="container mx-auto px-6">
-            
+
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {courses.map((course, index) => (
                 <AnimatedCard key={index} index={index} {...course} />
@@ -208,8 +223,8 @@ export default function InquiriesInto() {
                 </p>
               </div>
               <div className="flex justify-center">
-                <img 
-                  src="/assets/Discussion.jpg" 
+                <img
+                  src="/assets/Discussion.jpg"
                   alt="Software Development"
                   className="rounded-2xl shadow-xl max-w-[80%] h-auto"
                 />
@@ -222,7 +237,7 @@ export default function InquiriesInto() {
         <section className="py-20 relative">
           <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.8))] -z-10" />
           <div className="container mx-auto px-6">
-           
+
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
               {services.map((service, index) => (
                 <AnimatedCard key={`service-${index}`} index={index} {...service} />
@@ -232,11 +247,11 @@ export default function InquiriesInto() {
         </section>
 
 
-        
 
-        
 
-        
+
+
+
       </main>
       <Footer />
     </div>
