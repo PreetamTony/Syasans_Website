@@ -96,7 +96,7 @@ const Index = () => {
     {
       icon: <Target className="w-5 h-5 sm:w-6 sm:h-6" />,
       title: "Placement Support",
-      description: "Dedicated placement assistance with our network of 500+ partner companies",
+      description: "Dedicated placement assistance with our network of 100+ partner companies",
       color: 'red',
       image: "/assets/Job_offer.png"
     },
@@ -106,6 +106,13 @@ const Index = () => {
       description: "Comprehensive interview preparation and mock sessions with real feedback",
       color: 'teal',
       image: "/assets/Interview_setting.png"
+    },
+    {
+      icon: <Users className="w-5 h-5 sm:w-6 sm:h-6" />,
+      title: "Pool Campus Drives",
+      description: "Large-scale recruitment events connecting multiple colleges with top-tier corporate recruiters",
+      color: 'indigo',
+      image: "/assets/Discussion.jpg"
     },
   ];
 

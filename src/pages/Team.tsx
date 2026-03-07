@@ -45,6 +45,11 @@ const teamMembers = [
     image: "/assets/Nithya_Priya_G.jpg"
   },
   {
+    name: "Selvaraj",
+    role: "Training Manager",
+    image: "/assets/Selvaraj.jpeg"
+  },
+  {
     name: "Gokula Krishnan G",
     role: "Team Lead",
     image: "/assets/Gokula_Krishnan.jpg"
