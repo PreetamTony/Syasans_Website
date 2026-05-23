@@ -8,63 +8,69 @@ const institutions = [
   {
     name: "Sathyabama University",
     location: "Chennai",
-    type: "University",
     image: "/assets/Sathyabama.png",
   },
   {
     name: "Dhanalakshmi Srinivasan University",
     location: "Trichy",
-    type: "University",
     image: "/assets/Dhanalakshmi.png",
   },
   {
     name: "BSA Abdur Rahman Crescent University",
     location: "Vandalur, Chennai",
-    type: "University",
     image: "/assets/Crescent_college.png",
   },
   {
     name: "Jeppiaar University",
     location: "Chennai",
-    type: "University",
-    image: "/assets/jeppiar.png",
+    image: "/assets/jeppiarcollege.png",
   },
   {
     name: "Amity Global Business School",
     location: "Chennai",
-    type: "Business School",
     image: "/assets/amity.png",
   },
   {
     name: "Sairam Group of Institutions",
     location: "West Tambaram, Chennai",
-    type: "Group of Institutions",
     image: "/assets/Sairam.png",
   },
   {
     name: "St. Joseph's College of Engineering",
     location: "Chennai",
-    type: "Engineering College",
     image: "/assets/StJosephscollege.png",
+  },
+  {
+    name: "Mepco Schlenk Engineering College",
+    location: "Sivakasi",
+    image: "/assets/mepco.png",
   },
   {
     name: "Vels University",
     location: "Pallavaram, Chennai",
-    type: "University",
     image: "/assets/vels.png",
   },
   {
     name: "SRM University",
     location: "Kattankulathur, Chennai",
-    type: "University",
     image: "/assets/srm.png",
   },
   {
     name: "Velammal Group of Engineering Colleges",
     location: "Chennai / Madurai",
-    type: "Group of Colleges",
     image: "/assets/vellamal.png",
   },
+  {
+    name: "Dr.MGR University",
+    location: "Chennai",
+    image: "/assets/mgr.png",
+  },
+  {
+    name: "Kalasalingam University",
+    location: "Virudhunagar",
+    image: "/assets/kalasalingam.png",
+  },
+
 ];
 
 const companyLogos = [
@@ -177,12 +183,7 @@ export default function Partners() {
                       {/* Top shimmer line */}
                       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
-                      {/* Type chip — bottom left on image */}
-                      <div className="absolute bottom-3 left-3">
-                        <span className="inline-block px-2.5 py-1 rounded-lg bg-white/15 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold uppercase tracking-widest shadow-sm">
-                          {inst.type}
-                        </span>
-                      </div>
+
 
                       {/* Active dot — bottom right */}
                       <div className="absolute bottom-3.5 right-3.5 flex items-center gap-1.5">
@@ -211,20 +212,7 @@ export default function Partners() {
               ))}
             </div>
 
-            {/* Footer badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6, duration: 0.5 }}
-              className="flex items-center justify-center gap-3 mt-16"
-            >
-              <Building2 className="w-4 h-4 text-slate-400" />
-              <p className="text-xs text-slate-400 dark:text-slate-600 uppercase tracking-widest font-semibold">
-                {institutions.length} Partner Institutions Across South India
-              </p>
-              <Building2 className="w-4 h-4 text-slate-400" />
-            </motion.div>
+
           </div>
         </section>
 

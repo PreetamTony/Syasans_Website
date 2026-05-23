@@ -310,10 +310,10 @@ export default function TrainingJourney() {
               Syasan's Blueprint
             </MotionDiv>
             <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6">
-              Our <span className="gradient-text">Training Journey</span>
+              The <span className="gradient-text">14X Learning Framework</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Explore our structured 14-step delivery pipeline. From training needs analysis to hands-on pedagogy and post-training mentorship, we ensure unmatched educational outcomes.
+              An end-to-end methodology designed to transform learning through research-driven training, practical application, continuous assessment, and measurable outcomes.
             </p>
           </div>
 

@@ -13,7 +13,7 @@ import syasansLogo from "/assets/syasans-logo.png";
 const AssociationCard = ({ index, src, alt, title }) => {
   const ref = useRef(null);
   const isEven = index % 2 === 0;
-  
+
   // Animation variants for a clean spread effect from center
   const cardVariants = {
     hidden: {
@@ -53,8 +53,8 @@ const AssociationCard = ({ index, src, alt, title }) => {
     >
       <div className="flex flex-col items-center">
         <div className="w-32 h-32 md:w-40 md:h-40 relative mb-4">
-          <img 
-            src={src} 
+          <img
+            src={src}
             alt={alt}
             className="w-full h-full object-contain"
             loading="lazy"
@@ -75,13 +75,13 @@ export default function AboutUs() {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
-      
+
       // Scroll-triggered animations
       const reveals = document.querySelectorAll('.scroll-reveal');
       reveals.forEach((element) => {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        
+
         if (elementTop < windowHeight - 100) {
           element.classList.add('revealed');
         }
@@ -99,7 +99,7 @@ export default function AboutUs() {
 
   const achievements = [
     {
-      text: "SYASANITES - Quality Certified by Min. of Higher Education | 2018",
+      text: "SYASAN'S - Quality Certified by Min. of Higher Education | 2018",
       icon: <Trophy className="w-5 h-5" />
     },
     {
@@ -132,18 +132,18 @@ export default function AboutUs() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation />
       <main className="pt-20">
-        <HeroSection 
+        <HeroSection
           tag="Journey of Excellence"
           title="Referring"
           highlight="To"
           subtitle="Discover our credentials, certifications, and partnerships that endorse our standards of career training and analytics."
         />
-        
+
         {/* Main Content Section */}
         <section className="py-20 relative">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-center mb-24 scroll-reveal">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
@@ -152,13 +152,13 @@ export default function AboutUs() {
               >
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full -z-10"></div>
                 <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-secondary/5 rounded-full -z-10"></div>
-                
+
                 <span className="inline-block text-primary font-medium mb-3 text-sm uppercase tracking-wider">Who We Are</span>
                 <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                   About SYASAN'S
                 </h2>
                 <div className="w-20 h-1 bg-primary mb-6"></div>
-                
+
                 <div className="space-y-6">
                   <p className="text-lg leading-relaxed text-gray-700">
                     Syasan's Career Analytics has emerged as a frontrunner in the employability training landscape, offering a comprehensive, data-driven framework that equips students with essential skills required to thrive in today's job market. Employers expect behavioural maturity, digital proficiency, and workplace readiness — and Syasan delivers all of these with precision.
@@ -168,8 +168,8 @@ export default function AboutUs() {
                   </p>
                 </div>
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -177,7 +177,7 @@ export default function AboutUs() {
                 className="relative"
               >
                 <div className="relative z-10">
-                  <img 
+                  <img
                     src={groupImage}
                     alt="Syasan's Team"
                     className="rounded-2xl shadow-2xl w-full max-w-lg mx-auto border-4 border-white"
@@ -186,7 +186,7 @@ export default function AboutUs() {
                   <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary/10 rounded-2xl -z-10"></div>
                 </div>
                 <div className="absolute -top-6 -left-6 w-32 h-32">
-                  
+
                 </div>
               </motion.div>
             </div>
@@ -194,7 +194,7 @@ export default function AboutUs() {
             {/* Training Modules Section with Assessment Image */}
             <div className="py-20 relative">
               <div className="container mx-auto px-6">
-                <motion.div 
+                <motion.div
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -223,8 +223,8 @@ export default function AboutUs() {
                         )
                       },
                       {
-                        title: "Software Training",
-                        description: "Digital skills, logic building, industry-relevant computing fundamentals.",
+                        title: "Think with No Ink",
+                        description: "Tech Global evaluation platform using Hackerrank, LeetCode and Hackerearth",
                         icon: (
                           <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
@@ -232,8 +232,8 @@ export default function AboutUs() {
                         )
                       },
                       {
-                        title: "Aptitude Skills",
-                        description: "Quantitative reasoning, analytics, logical problem solving.",
+                        title: "Aptitude Assessment",
+                        description: "Advanced assessment engine for aptitude, reasoning, and performance benchmarking.",
                         icon: (
                           <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
@@ -253,13 +253,13 @@ export default function AboutUs() {
                       <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                        whileInView={{ 
-                          opacity: 1, 
-                          y: 0, 
+                        whileInView={{
+                          opacity: 1,
+                          y: 0,
                           scale: 1,
-                          transition: { 
-                            type: 'spring', 
-                            stiffness: 100, 
+                          transition: {
+                            type: 'spring',
+                            stiffness: 100,
                             damping: 15,
                             delay: index * 0.1
                           }
@@ -272,13 +272,13 @@ export default function AboutUs() {
                         className="group relative overflow-hidden p-6 rounded-2xl backdrop-blur-lg bg-white/70 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] transition-all duration-500"
                       >
                         {/* Animated background highlight on hover */}
-                        <motion.div 
+                        <motion.div
                           className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 -z-10"
                           transition={{ duration: 0.6, ease: 'easeOut' }}
                         />
-                        
+
                         {/* Icon with floating animation */}
-                        <motion.div 
+                        <motion.div
                           className="w-12 h-12 rounded-xl bg-white/80 backdrop-blur-sm shadow-sm flex items-center justify-center mb-5 text-primary"
                           whileHover={{
                             rotate: [0, 5, -5, 0],
@@ -287,8 +287,8 @@ export default function AboutUs() {
                         >
                           {item.icon}
                         </motion.div>
-                        
-                        <motion.h3 
+
+                        <motion.h3
                           className="text-lg font-semibold mb-3 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
                           whileHover={{
                             scale: 1.02,
@@ -298,8 +298,8 @@ export default function AboutUs() {
                         >
                           {item.title}
                         </motion.h3>
-                        
-                        <motion.p 
+
+                        <motion.p
                           className="text-gray-600 text-sm leading-relaxed"
                           initial={{ opacity: 0.8 }}
                           whileHover={{
@@ -310,17 +310,17 @@ export default function AboutUs() {
                         >
                           {item.description}
                         </motion.p>
-                        
+
                         {/* Subtle border highlight on hover */}
-                        <motion.div 
+                        <motion.div
                           className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/20 -z-20"
                           transition={{ duration: 0.4 }}
                         />
                       </motion.div>
                     ))}
                   </div>
-                  
-                  <motion.div 
+
+                  <motion.div
                     className="relative"
                     initial={{ opacity: 0, x: 30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -328,7 +328,7 @@ export default function AboutUs() {
                     viewport={{ once: true }}
                   >
                     <div className="relative z-10">
-                      <img 
+                      <img
                         src={assessment}
                         alt="Training Ecosystem"
                         className="rounded-2xl shadow-2xl w-full max-w-lg mx-auto border-4 border-white"
@@ -345,7 +345,7 @@ export default function AboutUs() {
             <div className="py-16 bg-primary/5 rounded-2xl p-8 my-12">
               <h2 className="text-3xl font-bold mb-6 text-center">Industry Leadership & Excellence</h2>
               <p className="text-lg max-w-4xl mx-auto leading-relaxed text-center">
-                Syasan has established itself as one of the most trusted players in the employability training 
+                Syasan has established itself as one of the most trusted players in the employability training
                 sector, known for high-quality curriculum, measurable outcomes, and industry-aligned methodologies.
                 Backed by real-time labour market insights and global best practices, our solutions empower institutions
                 to elevate their student success and placement performance.
@@ -356,7 +356,7 @@ export default function AboutUs() {
             <div className="relative py-20 overflow-hidden">
               <div className="container mx-auto px-6">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <motion.div 
+                  <motion.div
                     className="order-2 md:order-1"
                     initial={{ opacity: 0, x: -30 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -387,17 +387,17 @@ export default function AboutUs() {
                       ))}
                     </div>
                   </motion.div>
-                  
-                  <motion.div 
+
+                  <motion.div
                     className="relative order-1 md:order-2 group"
                     initial={{ opacity: 0, y: 30, scale: 0.98 }}
-                    whileInView={{ 
-                      opacity: 1, 
-                      y: 0, 
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
                       scale: 1,
-                      transition: { 
-                        type: 'spring', 
-                        stiffness: 100, 
+                      transition: {
+                        type: 'spring',
+                        stiffness: 100,
                         damping: 15,
                         delay: 0.3
                       }
@@ -406,7 +406,7 @@ export default function AboutUs() {
                   >
                     {/* Simple container matching assessment image style */}
                     <div className="relative z-10">
-                      <img 
+                      <img
                         src="/assets/Dashboard.png"
                         alt="Syasan's Analytics Dashboard"
                         className="rounded-2xl shadow-2xl w-full max-w-lg mx-auto border-4 border-white"
@@ -414,13 +414,13 @@ export default function AboutUs() {
                       />
                       <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary/10 rounded-2xl -z-10"></div>
                     </div>
-                    
+
                     {/* Floating decorative elements */}
                     <div className="absolute -top-4 -right-4 w-32 h-32 bg-primary/10 rounded-full -z-10 group-hover:scale-110 transition-all duration-700 group-hover:rotate-12"></div>
                     <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-secondary/10 rounded-full -z-10 group-hover:scale-110 transition-all duration-700 group-hover:-rotate-12"></div>
-                    
+
                     {/* Subtle border highlight */}
-                    <motion.div 
+                    <motion.div
                       className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/20 -z-20"
                       transition={{ duration: 0.4 }}
                     />
@@ -444,124 +444,124 @@ export default function AboutUs() {
             {/* Summary Section */}
             <div className="py-12 text-center px-6 bg-white rounded-2xl shadow-sm">
               <p className="max-w-4xl mx-auto text-xl text-foreground font-medium leading-relaxed">
-                In summary, Syasan offers behavioural assessment, software training, aptitude enhancement 
+                In summary, Syasan offers behavioural assessment, software training, aptitude enhancement
                 and soft skill development — creating well-rounded, future-ready professionals.
               </p>
             </div>
 
-          {/* Achievements Grid */}
-          <div className="relative py-16 mb-20 overflow-hidden">
-            {/* Animated background elements */}
-            <div className="absolute inset-0 -z-10">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgo8ZGVmcz4KICA8cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj4KICAgIDxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiIGZpbGw9InJnYmEoMCwgMCwgMCwgMC4wNSkiLz4KICA8L3BhdHRlcm4+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPgo8L3N2Zz4=')] opacity-30"></div>
-            </div>
+            {/* Achievements Grid */}
+            <div className="relative py-16 mb-20 overflow-hidden">
+              {/* Animated background elements */}
+              <div className="absolute inset-0 -z-10">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5"></div>
+                <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPgo8ZGVmcz4KICA8cGF0dGVybiBpZD0icGF0dGVybiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj4KICAgIDxjaXJjbGUgY3g9IjIwIiBjeT0iMjAiIHI9IjEiIGZpbGw9InJnYmEoMCwgMCwgMCwgMC4wNSkiLz4KICA8L3BhdHRlcm4+CjwvZGVmcz4KPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPgo8L3N2Zz4=')] opacity-30"></div>
+              </div>
 
-            <div className="container mx-auto px-6 relative">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="text-center mb-16"
-              >
-                <span className="inline-block text-primary font-medium mb-3 text-sm uppercase tracking-wider">Our Journey</span>
-                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                  Accomplishments
-                </h2>
-                <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Celebrating our journey of excellence and innovation in education
-                </p>
-              </motion.div>
+              <div className="container mx-auto px-6 relative">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="text-center mb-16"
+                >
+                  <span className="inline-block text-primary font-medium mb-3 text-sm uppercase tracking-wider">Our Journey</span>
+                  <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                    Accomplishments
+                  </h2>
+                  <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                  <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                    Celebrating our journey of excellence and innovation in education
+                  </p>
+                </motion.div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {achievements.map((achievement, index) => {
-                  const parts = achievement.text.split('|');
-                  const mainText = parts[0].trim();
-                  const yearTag = parts[1] ? parts[1].trim() : null;
-                  
-                  const isISO = mainText.includes("ISO 9001:2008");
-                  const isAptitude = mainText.includes("Aptitude assessment");
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {achievements.map((achievement, index) => {
+                    const parts = achievement.text.split('|');
+                    const mainText = parts[0].trim();
+                    const yearTag = parts[1] ? parts[1].trim() : null;
 
-                  return (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                      whileInView={{ 
-                        opacity: 1, 
-                        y: 0, 
-                        scale: 1,
-                        transition: { 
-                          type: 'spring', 
-                          stiffness: 80, 
-                          damping: 12,
-                          delay: index * 0.08
-                        } 
-                      }}
-                      viewport={{ once: true, margin: "-50px" }}
-                      whileHover={{ 
-                        y: -10,
-                        transition: { duration: 0.3, ease: "easeOut" }
-                      }}
-                      className="group relative h-full"
-                    >
-                      {/* Background glow on hover */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
-                      
-                      <Card className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-100/80 dark:border-slate-800/80 h-full rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-500 group-hover:border-primary/20 group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col justify-between">
-                        <div className="p-8 relative flex-1 flex flex-col justify-between h-full">
-                          {/* Top row: Icon and tags */}
-                          <div className="flex justify-between items-start mb-6">
-                            <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary/10 to-primary/5 dark:from-primary/20 dark:to-transparent flex items-center justify-center text-primary group-hover:from-primary group-hover:to-accent group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-primary/30 group-hover:scale-110">
-                              {achievement.icon}
+                    const isISO = mainText.includes("ISO 9001:2008");
+                    const isAptitude = mainText.includes("Aptitude assessment");
+
+                    return (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                        whileInView={{
+                          opacity: 1,
+                          y: 0,
+                          scale: 1,
+                          transition: {
+                            type: 'spring',
+                            stiffness: 80,
+                            damping: 12,
+                            delay: index * 0.08
+                          }
+                        }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        whileHover={{
+                          y: -10,
+                          transition: { duration: 0.3, ease: "easeOut" }
+                        }}
+                        className="group relative h-full"
+                      >
+                        {/* Background glow on hover */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
+
+                        <Card className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-100/80 dark:border-slate-800/80 h-full rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-500 group-hover:border-primary/20 group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col justify-between">
+                          <div className="p-8 relative flex-1 flex flex-col justify-between h-full">
+                            {/* Top row: Icon and tags */}
+                            <div className="flex justify-between items-start mb-6">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary/10 to-primary/5 dark:from-primary/20 dark:to-transparent flex items-center justify-center text-primary group-hover:from-primary group-hover:to-accent group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-primary/30 group-hover:scale-110">
+                                {achievement.icon}
+                              </div>
+
+                              <div className="flex items-center gap-2">
+                                {yearTag && (
+                                  <span className="bg-primary/5 text-primary text-xs font-semibold px-2.5 py-1 rounded-full border border-primary/10 dark:bg-primary/20 dark:text-primary-foreground group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                    {yearTag}
+                                  </span>
+                                )}
+                                {isISO && (
+                                  <span className="bg-amber-500/10 text-amber-600 text-xs font-semibold px-2.5 py-1 rounded-full border border-amber-500/20 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                                    ISO Certified
+                                  </span>
+                                )}
+                                {isAptitude && (
+                                  <span className="bg-emerald-500/10 text-emerald-600 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+                                    Practice Tests
+                                  </span>
+                                )}
+                                <span className="text-4xl font-extrabold text-slate-100 dark:text-slate-800 select-none group-hover:text-primary/10 transition-colors duration-300 font-serif leading-none ml-2">
+                                  0{index + 1}
+                                </span>
+                              </div>
                             </div>
-                            
-                            <div className="flex items-center gap-2">
-                              {yearTag && (
-                                <span className="bg-primary/5 text-primary text-xs font-semibold px-2.5 py-1 rounded-full border border-primary/10 dark:bg-primary/20 dark:text-primary-foreground group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                                  {yearTag}
-                                </span>
-                              )}
-                              {isISO && (
-                                <span className="bg-amber-500/10 text-amber-600 text-xs font-semibold px-2.5 py-1 rounded-full border border-amber-500/20 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
-                                  ISO Certified
-                                </span>
-                              )}
-                              {isAptitude && (
-                                <span className="bg-emerald-500/10 text-emerald-600 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
-                                  Practice Tests
-                                </span>
-                              )}
-                              <span className="text-4xl font-extrabold text-slate-100 dark:text-slate-800 select-none group-hover:text-primary/10 transition-colors duration-300 font-serif leading-none ml-2">
-                                0{index + 1}
-                              </span>
+
+                            {/* Content text */}
+                            <div className="flex-1 mt-2">
+                              <p className="text-gray-700 dark:text-gray-300 font-medium text-base md:text-lg leading-relaxed group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                                {mainText}
+                              </p>
                             </div>
                           </div>
 
-                          {/* Content text */}
-                          <div className="flex-1 mt-2">
-                            <p className="text-gray-700 dark:text-gray-300 font-medium text-base md:text-lg leading-relaxed group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
-                              {mainText}
-                            </p>
-                          </div>
-                        </div>
-
-                        {/* Bottom colored accent strip */}
-                        <div className="h-1.5 w-full bg-gradient-to-r from-primary/20 to-accent/20 group-hover:from-primary group-hover:to-accent transition-all duration-500" />
-                      </Card>
-                    </motion.div>
-                  );
-                })}
+                          {/* Bottom colored accent strip */}
+                          <div className="h-1.5 w-full bg-gradient-to-r from-primary/20 to-accent/20 group-hover:from-primary group-hover:to-accent transition-all duration-500" />
+                        </Card>
+                      </motion.div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
+
+
           </div>
+        </section>
 
-       
-        </div>
-      </section>
-
-      <style jsx global>{`
+        <style jsx global>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;

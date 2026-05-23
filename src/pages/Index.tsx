@@ -179,7 +179,7 @@ const Index = () => {
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Left Column: Heading and Text */}
             <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
-              
+
               {/* Premium Pill Tag */}
               <motion.div
                 initial={{ opacity: 0, y: -15 }}
@@ -198,7 +198,7 @@ const Index = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1, type: "spring", stiffness: 90 }}
-                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.2] mb-6 font-sans min-h-[80px]"
+                className="text-xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-slate-900 dark:text-white leading-[1.2] mb-6 font-sans min-h-[80px]"
               >
                 <style>
                   {`
@@ -222,7 +222,7 @@ const Index = () => {
                 </style>
                 <TypeAnimation
                   sequence={[
-                    "Transform Your Career with Expert Training",
+                    "Tamil Nadu’s Largest AI Integrated Industry 5.0 Learning Ecosystem",
                   ]}
                   wrapper="span"
                   speed={50}
@@ -248,26 +248,7 @@ const Index = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
               >
-                <Link to="/inquiries" className="w-full sm:w-auto">
-                  <motion.button
-                    whileHover={{ scale: 1.03, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-[0_4px_20px_rgba(37,99,235,0.2)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.3)] flex items-center justify-center gap-2 transition-all duration-300 group"
-                  >
-                    <span>Explore Our Programs</span>
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-                  </motion.button>
-                </Link>
-                
-                <Link to="/referring-to" className="w-full sm:w-auto">
-                  <motion.button
-                    whileHover={{ scale: 1.03, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="w-full sm:w-auto px-8 py-4 bg-slate-100/90 dark:bg-slate-900/90 hover:bg-slate-200/90 dark:hover:bg-slate-800/90 backdrop-blur-md text-slate-900 dark:text-slate-200 font-bold rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-350 dark:hover:border-slate-700 flex items-center justify-center gap-2 shadow-sm transition-all duration-300"
-                  >
-                    <span>View Accomplishments</span>
-                  </motion.button>
-                </Link>
+
               </motion.div>
             </div>
 
@@ -362,118 +343,7 @@ const Index = () => {
 
 
       {/* Services Section */}
-      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="text-center max-w-4xl mx-auto mb-8 px-4">
-            <h2 className="text-4xl sm:text-4xl font-bold mb-4">
-              <span className="text-gray-900">Our </span>
-              <span className="text-blue-600">Services</span>
-            </h2>
-            <div className="w-16 h-1 bg-blue-600 mx-auto mb-6"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive career development solutions tailored to your success and growth in the professional world.
-            </p>
-          </div>
 
-          <style jsx global>{`
-            @keyframes blob {
-              0% { transform: translate(0px, 0px) scale(1); }
-              33% { transform: translate(30px, -50px) scale(1.1); }
-              66% { transform: translate(-20px, 20px) scale(0.9); }
-              100% { transform: translate(0px, 0px) scale(1); }
-            }
-            .animate-blob {
-              animation: blob 7s infinite;
-            }
-            .animation-delay-2000 {
-              animation-delay: 2s;
-            }
-            .animation-delay-4000 {
-              animation-delay: 4s;
-            }
-          `}</style>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 relative z-10 px-4">
-            {services.map((service, index) => {
-              const colors = getColorClasses(service.color);
-              return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    transition: {
-                      type: 'spring',
-                      stiffness: 80,
-                      damping: 14,
-                      delay: index * 0.08
-                    }
-                  }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  whileHover={{
-                    y: -10,
-                    transition: { duration: 0.3 }
-                  }}
-                  className="relative group h-full"
-                >
-                  {/* Dynamic background glow matching service theme */}
-                  <div className={`absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-500/5 dark:to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 -z-10`} />
-
-                  {/* Card Container */}
-                  <div className="relative z-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.02)] group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] group-hover:border-primary/20 transition-all duration-500 h-full flex flex-col justify-between">
-
-                    {/* Image Container with Custom Shaped Overlay */}
-                    <div className="relative h-48 overflow-hidden">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                        loading="lazy"
-                      />
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/20 to-transparent"></div>
-
-                      {/* Floating Category Badge */}
-                      <div className="absolute top-4 left-4">
-                        <span className={`inline-block px-3 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm ${colors.text} border ${colors.border} rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm`}>
-                          {service.color}
-                        </span>
-                      </div>
-
-                      {/* Floating Circle Icon */}
-                      <motion.div
-                        whileHover={{ rotate: 15, scale: 1.1 }}
-                        className={`absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/20`}
-                      >
-                        {React.cloneElement(service.icon, { className: 'w-5 h-5' })}
-                      </motion.div>
-                    </div>
-
-                    {/* Content Section */}
-                    <div className="p-6 flex-1 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
-                          {service.title}
-                        </h3>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 font-medium">
-                          {service.description}
-                        </p>
-                      </div>
-
-                      {/* Interactive Footer Link */}
-                      <div className="flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
-                        <span>Learn More</span>
-                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       <Footer />
       <ChatBot />

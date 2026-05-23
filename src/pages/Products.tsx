@@ -8,7 +8,7 @@ const Products = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      
+
       <main className="flex-grow">
         {/* Hero Section */}
         <section className="pt-32 pb-20 bg-gradient-to-br from-blue-50 to-white">
@@ -28,7 +28,7 @@ const Products = () => {
         {/* D'LAN QUANTUM SERVER */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -44,7 +44,7 @@ const Products = () => {
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-12 items-start">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -53,9 +53,9 @@ const Products = () => {
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 w-full max-w-[420px] border-4 border-white dark:border-gray-800">
                   <div className="relative aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={QuantumServerImage} 
-                      alt="D'LAN Quantum Server" 
+                    <img
+                      src={QuantumServerImage}
+                      alt="D'LAN Quantum Server"
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
@@ -122,10 +122,104 @@ const Products = () => {
           </div>
         </section>
 
+        {/* MOBILE TRAINING INSTITUTE */}
+        <section className="py-20 bg-gray-50/50">
+          <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto text-center mb-16"
+            >
+
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                MOBILE <span className="text-blue-600">TRAINING INSTITUTE</span>
+              </h2>
+              <p className="text-xl text-gray-600">
+                India's First Mobile Training Institute under the Rural Connect Program
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              {/* Content side (Left on desktop) */}
+              <div className="lg:col-span-7 space-y-8 order-2 lg:order-1 text-center lg:text-left">
+                <div className="space-y-4">
+                  <p className="text-xl leading-relaxed text-gray-800 font-semibold">
+                    India’s First Mobile Training Institute by Syasan’s Career Analytics under the Rural Connect Program, Ministry of Rural Industries, Government of Tamil Nadu.
+                  </p>
+                  <p className="text-base leading-relaxed text-gray-600">
+                    A pioneering initiative designed to bridge the digital divide. We bring top-tier career coaching, computational laboratories, and employability readiness programs directly to rural regions using state-of-the-art mobile learning labs.
+                  </p>
+                </div>
+
+                <div className="space-y-6 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm shadow-slate-100/50 text-left">
+                  <h3 className="text-2xl font-extrabold text-gray-900 mb-6">Program Features</h3>
+                  <ul className="space-y-6">
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mr-4">
+                        <Users className="w-5 h-5 text-blue-600" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-bold text-gray-800">Rural Connectivity</h4>
+                        <p className="text-sm text-gray-600 mt-1">Empowering rural youth by offering high-tech education and software diagnostics directly in their villages.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mr-4">
+                        <Cpu className="w-5 h-5 text-blue-600" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-bold text-gray-800">State-of-the-Art Labs</h4>
+                        <p className="text-sm text-gray-600 mt-1">Equipped with local server systems, coding sandboxes, digital aids, and interactive visual displays.</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mr-4">
+                        <Award className="w-5 h-5 text-blue-600" />
+                      </div>
+                      <div>
+                        <h4 className="text-lg font-bold text-gray-800">Government Endorsed</h4>
+                        <p className="text-sm text-gray-600 mt-1">Executed as a flagship skill development project in close coordination with the Ministry of Rural Industries, Government of Tamil Nadu.</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Image side (Right on desktop) */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="lg:col-span-5 relative group flex justify-center w-full order-1 lg:order-2"
+              >
+                <div className="relative overflow-hidden rounded-3xl shadow-3xl group-hover:shadow-4xl transition-all duration-500 w-full max-w-[500px] border-8 border-white dark:border-gray-800">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-gray-50">
+                    <img
+                      src="/assets/mobile.png"
+                      alt="Mobile Training Institute Bus"
+                      className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 className="text-xl font-bold text-white mb-1">Mobile Training Lab</h3>
+                        <p className="text-sm text-gray-200">Flagship Skill Development Vehicle</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 border-2 border-white/20 rounded-2xl pointer-events-none group-hover:border-blue-400/30 transition-all duration-500"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Handcrafting Aptitude Section */}
         <section className="py-20 bg-white">
           <div className="container mx-auto px-6">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -140,7 +234,7 @@ const Products = () => {
             </motion.div>
 
             <div className="grid md:grid-cols-2 gap-12 items-start">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -151,9 +245,9 @@ const Products = () => {
                   <div className="relative overflow-hidden rounded-2xl shadow-2xl group-hover:shadow-3xl transition-all duration-500 border-4 border-white dark:border-gray-800 h-full flex flex-col">
                     {/* Main Image Container - Now flexible height */}
                     <div className="relative flex-grow overflow-hidden bg-gray-100">
-                      <img 
-                        src="/assets/Books.jpg" 
-                        alt="Handcrafting Aptitude Materials" 
+                      <img
+                        src="/assets/Books.jpg"
+                        alt="Handcrafting Aptitude Materials"
                         className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                       />
                       {/* Hover Overlay */}
@@ -164,18 +258,18 @@ const Products = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Decorative Frame Elements */}
                     <div className="absolute inset-0 border-2 border-white/30 rounded-xl pointer-events-none group-hover:border-blue-400/40 transition-all duration-500"></div>
                     <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
+
                     {/* Corner Accents */}
                     <div className="absolute -top-1 -left-1 w-8 h-8 border-t-2 border-l-2 border-blue-500 rounded-tl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="absolute -top-1 -right-1 w-8 h-8 border-t-2 border-r-2 border-blue-500 rounded-tr-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="absolute -bottom-1 -left-1 w-8 h-8 border-b-2 border-l-2 border-blue-500 rounded-bl-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div className="absolute -bottom-1 -right-1 w-8 h-8 border-b-2 border-r-2 border-blue-500 rounded-br-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-                  
+
                   {/* Subtle Drop Shadow */}
                   <div className="absolute -bottom-4 -right-4 w-full h-full bg-gradient-to-br from-blue-200/30 to-purple-200/30 rounded-2xl -z-10 group-hover:opacity-70 opacity-0 transition-all duration-500"></div>
                 </div>
@@ -216,7 +310,7 @@ const Products = () => {
         {/* Enhanced Features Section */}
         <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4 sm:px-6">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -278,7 +372,7 @@ const Products = () => {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   whileHover={{ y: -5 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ 
+                  transition={{
                     duration: 0.4,
                     delay: index * 0.05,
                     type: "spring",
@@ -299,15 +393,15 @@ const Products = () => {
                 </motion.div>
               ))}
             </div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
               className="mt-16 text-center"
             >
-              
+
             </motion.div>
           </div>
         </section>
