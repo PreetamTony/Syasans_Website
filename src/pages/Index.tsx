@@ -3,8 +3,30 @@ import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { StatsCounter } from "@/components/StatsCounter";
 import { Timeline } from '@/components/Timeline';
-import { Award, BookOpen, Briefcase, Target, TrendingUp, Users } from "lucide-react";
+import { Award, BookOpen, Briefcase, Target, TrendingUp, Users, ArrowRight } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
+const getColorClasses = (color: string) => {
+  const mapping: Record<string, { text: string; bg: string; border: string; hoverBorder: string; hoverBg: string; textHover: string }> = {
+    blue: { text: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50/50 dark:bg-blue-950/20", border: "border-blue-100 dark:border-blue-900/30", hoverBorder: "group-hover:border-blue-300 dark:group-hover:border-blue-800", hoverBg: "group-hover:bg-blue-500", textHover: "group-hover:text-blue-500" },
+    green: { text: "text-green-600 dark:text-green-400", bg: "bg-green-50/50 dark:bg-green-950/20", border: "border-green-100 dark:border-green-900/30", hoverBorder: "group-hover:border-green-300 dark:group-hover:border-green-800", hoverBg: "group-hover:bg-green-500", textHover: "group-hover:text-green-500" },
+    purple: { text: "text-purple-600 dark:text-purple-400", bg: "bg-purple-50/50 dark:bg-purple-950/20", border: "border-purple-100 dark:border-purple-900/30", hoverBorder: "group-hover:border-purple-300 dark:group-hover:border-purple-800", hoverBg: "group-hover:bg-purple-500", textHover: "group-hover:text-purple-500" },
+    orange: { text: "text-orange-600 dark:text-orange-400", bg: "bg-orange-50/50 dark:bg-orange-950/20", border: "border-orange-100 dark:border-orange-900/30", hoverBorder: "group-hover:border-orange-300 dark:group-hover:border-orange-800", hoverBg: "group-hover:bg-orange-500", textHover: "group-hover:text-orange-500" },
+    yellow: { text: "text-yellow-600 dark:text-yellow-400", bg: "bg-yellow-50/50 dark:bg-yellow-950/20", border: "border-yellow-100 dark:border-yellow-900/30", hoverBorder: "group-hover:border-yellow-300 dark:group-hover:border-yellow-800", hoverBg: "group-hover:bg-yellow-500", textHover: "group-hover:text-yellow-500" },
+    teal: { text: "text-teal-600 dark:text-teal-400", bg: "bg-teal-50/50 dark:bg-teal-950/20", border: "border-teal-100 dark:border-teal-900/30", hoverBorder: "group-hover:border-teal-300 dark:group-hover:border-teal-800", hoverBg: "group-hover:bg-teal-500", textHover: "group-hover:text-teal-500" },
+    indigo: { text: "text-indigo-600 dark:text-indigo-400", bg: "bg-indigo-50/50 dark:bg-indigo-950/20", border: "border-indigo-100 dark:border-indigo-900/30", hoverBorder: "group-hover:border-indigo-300 dark:group-hover:border-indigo-800", hoverBg: "group-hover:bg-indigo-500", textHover: "group-hover:text-indigo-500" },
+    pink: { text: "text-pink-600 dark:text-pink-400", bg: "bg-pink-50/50 dark:bg-pink-950/20", border: "border-pink-100 dark:border-pink-900/30", hoverBorder: "group-hover:border-pink-300 dark:group-hover:border-pink-800", hoverBg: "group-hover:bg-pink-500", textHover: "group-hover:text-pink-500" },
+    cyan: { text: "text-cyan-600 dark:text-cyan-400", bg: "bg-cyan-50/50 dark:bg-cyan-950/20", border: "border-cyan-100 dark:border-cyan-900/30", hoverBorder: "group-hover:border-cyan-300 dark:group-hover:border-cyan-800", hoverBg: "group-hover:bg-cyan-500", textHover: "group-hover:text-cyan-500" },
+    emerald: { text: "text-emerald-600 dark:text-emerald-400", bg: "bg-emerald-50/50 dark:bg-emerald-950/20", border: "border-emerald-100 dark:border-emerald-900/30", hoverBorder: "group-hover:border-emerald-300 dark:group-hover:border-emerald-800", hoverBg: "group-hover:bg-emerald-500", textHover: "group-hover:text-emerald-500" },
+    violet: { text: "text-violet-600 dark:text-violet-400", bg: "bg-violet-50/50 dark:bg-violet-950/20", border: "border-violet-100 dark:border-violet-900/30", hoverBorder: "group-hover:border-violet-300 dark:group-hover:border-violet-800", hoverBg: "group-hover:bg-violet-500", textHover: "group-hover:text-violet-500" },
+    amber: { text: "text-amber-600 dark:text-amber-400", bg: "bg-amber-50/50 dark:bg-amber-950/20", border: "border-amber-100 dark:border-amber-900/30", hoverBorder: "group-hover:border-amber-300 dark:group-hover:border-amber-800", hoverBg: "group-hover:bg-amber-500", textHover: "group-hover:text-amber-500" },
+    rose: { text: "text-rose-600 dark:text-rose-400", bg: "bg-rose-50/50 dark:bg-rose-950/20", border: "border-rose-100 dark:border-rose-900/30", hoverBorder: "group-hover:border-rose-300 dark:group-hover:border-rose-800", hoverBg: "group-hover:bg-rose-500", textHover: "group-hover:text-rose-500" },
+    red: { text: "text-red-600 dark:text-red-400", bg: "bg-red-50/50 dark:bg-red-950/20", border: "border-red-100 dark:border-red-900/30", hoverBorder: "group-hover:border-red-300 dark:group-hover:border-red-800", hoverBg: "group-hover:bg-red-500", textHover: "group-hover:text-red-500" },
+  };
+  return mapping[color] || { text: "text-blue-600 dark:text-blue-400", bg: "bg-blue-50/50 dark:bg-blue-950/20", border: "border-blue-100 dark:border-blue-900/30", hoverBorder: "group-hover:border-blue-300 dark:group-hover:border-blue-800", hoverBg: "group-hover:bg-blue-500", textHover: "group-hover:text-blue-500" };
+};
 
 const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -121,76 +143,216 @@ const Index = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative pt-24 md:pt-0 md:min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 px-4 sm:px-6">
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            <div className="text-center md:text-left">
-              <div className="mb-4 md:mb-6">
-                <span className="inline-block px-3 py-1.5 text-xs sm:text-sm md:px-4 md:py-2 bg-blue-600 text-white rounded-full font-semibold">
-                  CAREER ANALYTICS SOLUTIONS
-                </span>
-              </div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
-                SYASAN'S
-              </h1>
-              <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-gray-800 mb-4 md:mb-8">
-                Transform Your Career with Expert Training
-              </p>
-              <p className="text-base sm:text-lg text-gray-600 mb-6 md:mb-8 max-w-lg mx-auto md:mx-0">
-                To provide experiential learning through research-based pedagogy and mentor energetic minds to propel a better tomorrow
-              </p>
+      <section className="relative pt-28 pb-16 md:pt-20 md:min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950 overflow-hidden px-4 sm:px-6 bg-grid-pattern">
+        {/* Animated Background Blobs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <motion.div
+            animate={{
+              x: [0, 40, -20, 0],
+              y: [0, -50, 30, 0],
+              scale: [1, 1.15, 0.9, 1]
+            }}
+            transition={{
+              duration: 25,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            className="absolute top-1/4 left-1/4 w-[350px] h-[350px] md:w-[500px] md:h-[500px] bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl"
+          />
+          <motion.div
+            animate={{
+              x: [0, -30, 40, 0],
+              y: [0, 40, -50, 0],
+              scale: [1, 0.9, 1.1, 1]
+            }}
+            transition={{
+              duration: 20,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2
+            }}
+            className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] md:w-[450px] md:h-[450px] bg-purple-400/15 dark:bg-purple-600/10 rounded-full blur-3xl"
+          />
+        </div>
 
-            </div>
-            <div className="relative order-first md:order-last mb-10 md:mb-0 w-full max-w-lg mx-auto">
-              <div className="relative z-10 overflow-hidden rounded-2xl shadow-2xl">
-                <img
-                  src="/assets/Coaching_place.jpg"
-                  alt="Professional Career Training"
-                  className="w-full h-auto object-cover"
-                  loading="lazy"
-                  style={{
-                    maxHeight: '400px',
-                    width: '100%',
-                    objectPosition: 'center'
-                  }}
+        <div className="container mx-auto relative z-10">
+          <div className="grid lg:grid-cols-12 gap-12 items-center">
+            {/* Left Column: Heading and Text */}
+            <div className="lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start">
+              
+              {/* Premium Pill Tag */}
+              <motion.div
+                initial={{ opacity: 0, y: -15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+                className="mb-6"
+              >
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-50/85 to-indigo-50/85 dark:from-blue-950/30 dark:to-indigo-950/30 border border-blue-100/60 dark:border-blue-900/40 text-blue-600 dark:text-blue-400 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md shadow-[0_2px_12px_rgba(37,99,235,0.03)] select-none">
+                  <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                  Career Analytics Solutions
+                </span>
+              </motion.div>
+
+              {/* Main Slogan Headline */}
+              <motion.h1
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1, type: "spring", stiffness: 90 }}
+                className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.2] mb-6 font-sans min-h-[80px]"
+              >
+                <style>
+                  {`
+                    .custom-typewriter-cursor::after {
+                      content: '';
+                      display: inline-block;
+                      width: 0.6em;
+                      height: 0.12em;
+                      background-color: #3b82f6;
+                      margin-left: 0.15em;
+                      vertical-align: -0.1em;
+                      animation: underscoreBlink 1s step-end infinite;
+                      border-radius: 4px;
+                      box-shadow: 0 0 12px rgba(59,130,246,0.7);
+                    }
+                    @keyframes underscoreBlink {
+                      0%, 100% { opacity: 1; }
+                      50% { opacity: 0; }
+                    }
+                  `}
+                </style>
+                <TypeAnimation
+                  sequence={[
+                    "Transform Your Career with Expert Training",
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  cursor={false}
+                  className="custom-typewriter-cursor"
                 />
-              </div>
-              <div className="absolute -top-4 -right-4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-blue-600 rounded-full opacity-20 blur-xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-purple-600 rounded-full opacity-20 blur-xl"></div>
+              </motion.h1>
+
+              {/* Pedagogy Subtext */}
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-base sm:text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-xl leading-relaxed font-medium"
+              >
+                Providing experiential learning through research-based pedagogy and mentoring energetic minds to propel a better tomorrow.
+              </motion.p>
+
+              {/* CTA Action Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+              >
+                <Link to="/inquiries" className="w-full sm:w-auto">
+                  <motion.button
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold rounded-xl shadow-[0_4px_20px_rgba(37,99,235,0.2)] hover:shadow-[0_8px_30px_rgba(37,99,235,0.3)] flex items-center justify-center gap-2 transition-all duration-300 group"
+                  >
+                    <span>Explore Our Programs</span>
+                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                  </motion.button>
+                </Link>
+                
+                <Link to="/referring-to" className="w-full sm:w-auto">
+                  <motion.button
+                    whileHover={{ scale: 1.03, y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="w-full sm:w-auto px-8 py-4 bg-slate-100/90 dark:bg-slate-900/90 hover:bg-slate-200/90 dark:hover:bg-slate-800/90 backdrop-blur-md text-slate-900 dark:text-slate-200 font-bold rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-350 dark:hover:border-slate-700 flex items-center justify-center gap-2 shadow-sm transition-all duration-300"
+                  >
+                    <span>View Accomplishments</span>
+                  </motion.button>
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Right Column: Visual Showcase Frame */}
+            <div className="lg:col-span-5 relative flex justify-center items-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, type: "spring", stiffness: 60, delay: 0.2 }}
+                className="relative z-10 w-full max-w-md md:max-w-lg aspect-square lg:aspect-auto"
+              >
+                {/* Double frame highlight layers */}
+                <div className="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-blue-600 to-purple-600 opacity-20 blur-2xl z-0 animate-pulse" />
+                <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-blue-500 to-purple-600 opacity-30 z-0" />
+
+                {/* Image Container with shadow and rounded-3xl */}
+                <div className="relative z-10 overflow-hidden rounded-3xl border-4 border-white dark:border-slate-900 shadow-2xl bg-white dark:bg-slate-950">
+                  <video
+                    src="/assets/ai_office_indiamp_.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-80 md:h-[420px] object-cover transition-transform duration-700 hover:scale-105"
+                  />
+                  {/* Subtle color grading layer overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
       {/* Stats Section */}
-      <section className="py-12 md:py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
-          {/* Background gradient */}
-          <div className="absolute inset-0 -z-10 overflow-hidden">
-            <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-            <div className="absolute top-40 -right-20 w-96 h-96 bg-purple-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
-            <div className="absolute -bottom-20 left-1/3 w-96 h-96 bg-pink-200/30 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
-          </div>
-          <div className="text-center mb-16 relative">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
+      <section className="py-16 md:py-24 bg-slate-50 dark:bg-slate-900 relative overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-100/50 dark:bg-blue-900/10 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-normal opacity-70" />
+          <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-indigo-100/50 dark:bg-indigo-900/10 rounded-full blur-3xl mix-blend-multiply dark:mix-blend-normal opacity-70" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-blue-600 dark:text-blue-400 font-bold uppercase tracking-widest text-xs mb-3 inline-block">Institutional Excellence</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
               Proven Track Record
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-              Numbers that speak to our commitment to excellence
+            <div className="w-16 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mb-6 rounded-full" />
+            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+              Numbers that speak to our commitment to high-impact career analytics, training pedagogy and student achievements.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 sm:gap-6 md:gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="bg-white p-3 sm:p-4 md:p-5 rounded-lg shadow-sm hover:shadow-md transition-shadow text-center"
-              >
-                <div className={`text-2xl sm:text-3xl md:text-4xl font-bold mb-1 md:mb-2 text-${stat.color}-600`}>
-                  <StatsCounter end={stat.value} label="" suffix={stat.suffix || ''} />
-                </div>
-                <p className="text-xs sm:text-sm text-gray-600 font-medium">{stat.label}</p>
-              </div>
-            ))}
+            {stats.map((stat, index) => {
+              const colors = getColorClasses(stat.color);
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.04 }}
+                  whileHover={{ y: -6, scale: 1.03 }}
+                  className={`bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 sm:p-5 rounded-2xl border ${colors.border} ${colors.hoverBorder} shadow-sm hover:shadow-xl transition-all duration-300 text-center flex flex-col justify-center items-center h-full relative overflow-hidden group`}
+                >
+                  {/* Micro-glow indicator dot */}
+                  <div className={`absolute top-2 right-2 w-2 h-2 rounded-full ${colors.text} bg-current opacity-30 group-hover:scale-125 transition-transform duration-300`} />
+
+                  <div className={`text-2xl sm:text-3xl md:text-4xl font-extrabold mb-1.5 ${colors.text} tracking-tight font-sans`}>
+                    <StatsCounter end={stat.value} label="" suffix={stat.suffix || ''} />
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 font-semibold tracking-wide mt-1 leading-snug">
+                    {stat.label}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -230,49 +392,85 @@ const Index = () => {
               animation-delay: 4s;
             }
           `}</style>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-12 relative z-10 px-4">
-            {services.map((service, index) => (
-              <div key={index} className="relative group">
-                {/* Main Card */}
-                <div className="relative z-10 bg-white rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl h-full flex flex-col">
-                  {/* Image Container */}
-                  <div className="relative h-48 overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-                    {/* Icon */}
-                    <div className={`absolute bottom-4 right-4 w-12 h-12 rounded-full flex items-center justify-center ${service.color === 'blue' ? 'bg-blue-600 text-white' :
-                      service.color === 'green' ? 'bg-green-600 text-white' :
-                        service.color === 'purple' ? 'bg-purple-600 text-white' :
-                          service.color === 'orange' ? 'bg-orange-600 text-white' :
-                            service.color === 'red' ? 'bg-red-600 text-white' :
-                              'bg-blue-600 text-white'
-                      } shadow-lg`}>
-                      {React.cloneElement(service.icon, { className: 'w-6 h-6' })}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 relative z-10 px-4">
+            {services.map((service, index) => {
+              const colors = getColorClasses(service.color);
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                  whileInView={{
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    transition: {
+                      type: 'spring',
+                      stiffness: 80,
+                      damping: 14,
+                      delay: index * 0.08
+                    }
+                  }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  whileHover={{
+                    y: -10,
+                    transition: { duration: 0.3 }
+                  }}
+                  className="relative group h-full"
+                >
+                  {/* Dynamic background glow matching service theme */}
+                  <div className={`absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 dark:from-blue-500/5 dark:to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 -z-10`} />
+
+                  {/* Card Container */}
+                  <div className="relative z-10 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.02)] group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.1)] group-hover:border-primary/20 transition-all duration-500 h-full flex flex-col justify-between">
+
+                    {/* Image Container with Custom Shaped Overlay */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        loading="lazy"
+                      />
+                      {/* Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/20 to-transparent"></div>
+
+                      {/* Floating Category Badge */}
+                      <div className="absolute top-4 left-4">
+                        <span className={`inline-block px-3 py-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm ${colors.text} border ${colors.border} rounded-full text-[10px] font-bold uppercase tracking-wider shadow-sm`}>
+                          {service.color}
+                        </span>
+                      </div>
+
+                      {/* Floating Circle Icon */}
+                      <motion.div
+                        whileHover={{ rotate: 15, scale: 1.1 }}
+                        className={`absolute bottom-4 right-4 w-12 h-12 rounded-2xl flex items-center justify-center bg-gradient-to-tr from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/20`}
+                      >
+                        {React.cloneElement(service.icon, { className: 'w-5 h-5' })}
+                      </motion.div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="p-6 flex-1 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                          {service.title}
+                        </h3>
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 font-medium">
+                          {service.description}
+                        </p>
+                      </div>
+
+                      {/* Interactive Footer Link */}
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-colors">
+                        <span>Learn More</span>
+                        <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                      </div>
                     </div>
                   </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute -bottom-2 -right-2 w-full h-full bg-gray-100 rounded-xl -z-10 group-hover:bg-gray-200 transition-colors duration-300"></div>
-                <div className="absolute -bottom-1 -right-1 w-16 h-16 bg-primary/5 rounded-full -z-20"></div>
-              </div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>

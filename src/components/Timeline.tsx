@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Lightbulb, 
@@ -12,8 +12,9 @@ import {
   Server, 
   Heart, 
   Zap,
-  Calendar,
-  Rocket
+  Rocket,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import { Milestone } from '@/types';
 
@@ -112,192 +113,205 @@ const milestones: Milestone[] = [
 ];
 
 const TimelineCard: React.FC<{ data: Milestone; index: number }> = ({ data, index }) => {
-  const isEven = index % 2 === 0;
-
   return (
     <MotionDiv
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.6, delay: 0.1 }}
-      className={`relative flex items-center justify-between md:justify-normal w-full mb-12 right-timeline ${
-        isEven ? 'md:flex-row-reverse' : ''
-      }`}
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "0px" }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      className="flex-shrink-0 w-[290px] sm:w-[320px] snap-center flex flex-col items-center pt-[70px] relative group"
     >
-      {/* Center Line Dot */}
-      <div className="order-1 absolute left-[22px] md:left-1/2 transform md:-translate-x-1/2 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm shadow-xl z-20 flex items-center justify-center group-hover:scale-110 transition-all duration-500 border-2 border-white/40">
-        {/* Main Gradient Background */}
-        <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${
+      {/* Node Dot on Timeline Line */}
+      <div className="absolute top-[20px] w-8 h-8 rounded-full bg-white backdrop-blur-sm shadow-md z-20 flex items-center justify-center border-2 border-slate-200 group-hover:border-blue-600 group-hover:scale-110 transition-all duration-300">
+        <div className={`w-3.5 h-3.5 rounded-full bg-gradient-to-br ${
           data.year === '2025' 
-            ? 'from-yellow-400 via-orange-500 to-red-500' 
-            : 'from-blue-500 via-blue-600 to-blue-700'
-        } opacity-100 transition-all duration-500 group-hover:opacity-100`}></div>
-        
-        {/* Inner Glow */}
-        <div className={`absolute inset-0 rounded-full ${
-          data.year === '2025' 
-            ? 'bg-gradient-to-br from-yellow-200/30 to-transparent' 
-            : 'bg-gradient-to-br from-blue-200/30 to-transparent'
-        } opacity-70`}></div>
-        
-        {/* Center Dot */}
-        <div className="relative w-4 h-4 bg-white/95 rounded-full shadow-lg flex items-center justify-center">
-          <div className="w-2 h-2 bg-white rounded-full"></div>
-          {data.year === '2025' && (
-            <>
-              <div className="absolute inset-0 bg-white rounded-full animate-ping opacity-70"></div>
-              <div className="absolute -inset-1 rounded-full bg-yellow-400/40 animate-pulse"></div>
-            </>
-          )}
-        </div>
-        
-        {/* Hover Glow Effect */}
-        <div className={`absolute -inset-1 rounded-full ${
-          data.year === '2025' 
-            ? 'bg-gradient-to-br from-yellow-400/30 to-red-500/30' 
-            : 'bg-gradient-to-br from-blue-400/30 to-blue-600/30'
-        } opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10 blur-md`}></div>
-        
-        {/* Subtle Border Glow */}
-        <div className={`absolute -inset-0.5 rounded-full ${
-          data.year === '2025' 
-            ? 'border-2 border-yellow-300/50' 
-            : 'border-2 border-blue-300/50'
-        } opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
+            ? 'from-yellow-400 to-red-500 animate-pulse' 
+            : 'from-blue-500 to-indigo-600'
+        }`} />
+        {data.year === '2025' && (
+          <div className="absolute inset-0 bg-yellow-400 rounded-full animate-ping opacity-30" />
+        )}
       </div>
 
-      {/* Content Card */}
-      <div className={`order-1 w-full md:w-[45%] pl-16 md:pl-0 ${isEven ? 'md:pr-12' : 'md:pl-12'}`}>
-        <div className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border ${data.year === '2025' ? 'border-brand-orange shadow-brand-orange/20' : 'border-gray-100'} group`}>
-          
-          {/* Image Header */}
-          <div className="relative h-48 overflow-hidden bg-white flex items-center justify-center">
-            <img 
-              src={data.image} 
-              alt={data.title} 
-              className={`${data.year === '2015' ? 'h-40 w-auto object-contain' : 'w-full h-full object-cover'} transform group-hover:scale-110 transition-transform duration-500`}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex items-end p-4">
-              <div className="text-white w-full">
-                <div className="flex justify-between items-center mb-1">
-                   <span className="bg-gradient-to-r from-brand-blue to-brand-orange text-xs font-bold px-2 py-0.5 rounded text-white shadow-sm tracking-wide">
-                     {data.year}
-                   </span>
-                   {data.year === '2025' && <span className="bg-green-500 text-[10px] font-bold px-2 py-0.5 rounded text-white animate-pulse">LATEST</span>}
-                </div>
-                <h3 className="text-lg md:text-xl font-bold font-serif leading-tight text-white/95">{data.title}</h3>
+      {/* Stem connector */}
+      <div className="absolute top-[28px] h-[42px] w-0.5 bg-gradient-to-b from-blue-500/40 to-blue-500/10 group-hover:from-blue-600 group-hover:to-blue-500 transition-all duration-300 z-10" />
+
+      {/* Card Content */}
+      <div className={`w-full bg-white dark:bg-slate-900 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border ${data.year === '2025' ? 'border-orange-500 shadow-orange-500/10' : 'border-slate-100 dark:border-slate-800'} flex flex-col h-[340px]`}>
+        {/* Image Header */}
+        <div className="relative h-32 overflow-hidden bg-white flex items-center justify-center flex-shrink-0">
+          <img 
+            src={data.image} 
+            alt={data.title} 
+            className={`${data.year === '2015' ? 'h-24 w-auto object-contain' : 'w-full h-full object-cover'} transform group-hover:scale-105 transition-transform duration-500`}
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent flex items-end p-3">
+            <div className="text-white w-full">
+              <div className="flex justify-between items-center mb-0.5">
+                 <span className="bg-gradient-to-r from-blue-600 to-orange-500 text-[10px] font-extrabold px-2 py-0.5 rounded text-white shadow-sm tracking-wide">
+                   {data.year}
+                 </span>
+                 {data.year === '2025' && <span className="bg-green-500 text-[8px] font-bold px-1.5 py-0.5 rounded text-white animate-pulse">LATEST</span>}
               </div>
-            </div>
-            
-            {/* Icon Bubble */}
-            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg transition-all duration-300">
-               <data.icon 
-                 size={20} 
-                 className={`text-brand-blue group-hover:text-brand-blue group-hover:scale-110 transition-all duration-300`} 
-               />
+              <h3 className="text-sm md:text-base font-bold leading-tight text-white/95 truncate">{data.title}</h3>
             </div>
           </div>
-
-          {/* Body */}
-          <div className="p-6">
-            <p className="text-gray-600 leading-relaxed text-sm mb-4">
-              {data.description}
-            </p>
-            
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-              {data.tags?.map((tag) => (
-                <span key={tag} className="text-[10px] uppercase tracking-wider font-semibold text-slate-500 bg-slate-100 px-2 py-1 rounded-md group-hover:bg-brand-blue/5 group-hover:text-brand-blue transition-colors">
-                  #{tag}
-                </span>
-              ))}
-            </div>
+          
+          {/* Icon Bubble */}
+          <div className="absolute top-2.5 right-2.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm p-1.5 rounded-full shadow-md">
+             <data.icon 
+               size={14} 
+               className="text-blue-600 dark:text-blue-400" 
+             />
           </div>
         </div>
-      </div>
-      
-      {/* Date Label for Desktop (Opposite Side) */}
-      <div className={`hidden md:flex order-1 w-[45%] items-center ${isEven ? 'justify-start pl-12' : 'justify-end pr-12'}`}>
-         <div className="text-center group-hover:scale-105 transition-transform duration-300">
-            <span className="text-6xl font-black bg-gradient-to-r from-brand-blue to-brand-orange bg-clip-text text-transparent select-none font-serif tracking-tighter">
-                {data.year}
-            </span>
-         </div>
+
+        {/* Card Body */}
+        <div className="p-4 flex-1 flex flex-col justify-between overflow-hidden">
+          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xs mb-3 line-clamp-4">
+            {data.description}
+          </p>
+          
+          {/* Tags */}
+          <div className="flex flex-wrap gap-1.5 mt-auto">
+            {data.tags?.map((tag) => (
+              <span key={tag} className="text-[9px] uppercase tracking-wider font-bold text-slate-500 bg-slate-50 dark:bg-slate-800 dark:text-slate-400 px-2 py-0.5 rounded-md group-hover:bg-blue-500/5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </MotionDiv>
   );
 };
 
 export const Timeline: React.FC = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [showLeftBtn, setShowLeftBtn] = useState(false);
+  const [showRightBtn, setShowRightBtn] = useState(true);
+
+  const checkScrollLimits = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setShowLeftBtn(scrollLeft > 10);
+      setShowRightBtn(scrollWidth - scrollLeft - clientWidth > 10);
+    }
+  };
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) {
+      el.addEventListener('scroll', checkScrollLimits);
+      // Run once initially to set correct state
+      checkScrollLimits();
+    }
+    return () => {
+      if (el) el.removeEventListener('scroll', checkScrollLimits);
+    };
+  }, []);
+
+  const handleScroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const amount = 350;
+      scrollRef.current.scrollBy({
+        left: direction === 'left' ? -amount : amount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <div className="relative w-full py-20 px-4 md:px-0 bg-slate-50 overflow-hidden">
-      
+    <div className="relative w-full py-20 px-4 md:px-0 bg-slate-50 dark:bg-slate-950 overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-         <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl" />
-         <div className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-3xl" />
-         <div className="absolute bottom-[10%] left-[10%] w-72 h-72 bg-brand-blue/5 rounded-full blur-3xl" />
+         <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
+         <div className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-3xl" />
+         <div className="absolute bottom-[10%] left-[10%] w-72 h-72 bg-blue-500/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
-        
+      <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-24 max-w-3xl mx-auto">
+        <div className="text-center mb-16 max-w-3xl mx-auto px-4">
           <MotionDiv
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            >
+          >
             <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-brand-orange"></span>
-                <span className="text-brand-orange font-bold uppercase tracking-[0.2em] text-xs">2015 – 2025</span>
-                <span className="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-brand-orange"></span>
+                <span className="h-px w-8 md:w-16 bg-gradient-to-r from-transparent to-orange-500"></span>
+                <span className="text-orange-500 font-bold uppercase tracking-[0.2em] text-xs">2015 – 2025</span>
+                <span className="h-px w-8 md:w-16 bg-gradient-to-l from-transparent to-orange-500"></span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-slate-900 font-serif mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white font-serif mb-6 leading-tight">
               A Decade of <br className="hidden md:block" />
               <span className="text-[#2563eb] font-bold">Impact & Innovation</span>
             </h1>
-            <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto font-light">
-              Witness the evolution of <span className="font-semibold text-slate-800">Syasan's Career Analytics</span>. 
-              From a humble beginning to a record-breaking placement conversion, defining the future of education.
+            <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto font-light">
+              Witness the evolution of <span className="font-semibold text-slate-800 dark:text-slate-200">Syasan's Career Analytics</span>. 
+              Scroll through our timeline of key milestones and placement breakthroughs defining future education.
             </p>
           </MotionDiv>
         </div>
 
-        {/* Timeline Container */}
-        <div className="relative wrap overflow-hidden p-0 sm:p-10 h-full">
+        {/* Timeline Horizontal Scrollable Container Wrapper */}
+        <div className="relative px-2 sm:px-8">
           
-          {/* Vertical Center Line */}
-          <div className="absolute h-full w-1 left-[39px] md:left-1/2 transform -translate-x-1/2 z-10">
-            {/* Main Gradient Line */}
-            <div className="absolute inset-0 w-full mx-auto bg-gradient-to-b from-blue-500/0 via-blue-500/80 to-blue-500/0 rounded-full"></div>
+          {/* Scroll Navigation Buttons */}
+          {showLeftBtn && (
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => handleScroll('left')}
+              className="absolute left-0 top-[206px] -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-lg text-slate-700 dark:text-slate-300 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 backdrop-blur-md"
+              aria-label="Scroll Left"
+            >
+              <ChevronLeft size={24} />
+            </motion.button>
+          )}
+
+          {showRightBtn && (
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => handleScroll('right')}
+              className="absolute right-0 top-[206px] -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-lg text-slate-700 dark:text-slate-300 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 backdrop-blur-md"
+              aria-label="Scroll Right"
+            >
+              <ChevronRight size={24} />
+            </motion.button>
+          )}
+
+          {/* Timeline Track Content */}
+          <div className="relative overflow-hidden w-full py-4">
             
-            {/* Inner Glow */}
-            <div className="absolute inset-0 w-0.5 mx-auto bg-gradient-to-b from-white/80 via-white/40 to-white/80 rounded-full left-1/2 transform -translate-x-1/2"></div>
+            {/* Timeline continuous horizontal track line */}
+            <div className="absolute top-[40px] left-0 right-0 h-1 bg-gradient-to-r from-blue-500/20 via-blue-500/50 to-indigo-500/20 z-0" />
             
-            {/* Subtle Pulse Animation */}
-            <div className="absolute inset-0 w-full mx-auto bg-gradient-to-b from-blue-400/30 via-blue-500/30 to-blue-400/30 rounded-full animate-pulse-slow"></div>
-            
-            {/* Dotted Pattern Overlay */}
-            <div className="absolute inset-0 w-full mx-auto opacity-10" style={{
-              backgroundImage: 'radial-gradient(circle at center, white 1px, transparent 1px)',
-              backgroundSize: '4px 6px',
-              backgroundRepeat: 'repeat-y',
-              backgroundPosition: 'center'
-            }}></div>
-            
-            {/* Subtle Shadow */}
-            <div className="absolute inset-0 w-1.5 mx-auto bg-gradient-to-b from-blue-900/20 to-transparent rounded-full left-1/2 transform -translate-x-1/2 blur-[2px]"></div>
+            {/* Scrollable Track */}
+            <div 
+              ref={scrollRef}
+              className="scrollbar-none scroll-smooth flex gap-6 sm:gap-8 overflow-x-auto pb-8 px-4 sm:px-12 snap-x snap-mandatory z-10 relative"
+            >
+              {milestones.map((milestone, index) => (
+                <TimelineCard key={milestone.year} data={milestone} index={index} />
+              ))}
+            </div>
+
           </div>
-
-          {/* Render Timeline Items */}
-          {milestones.map((milestone, index) => (
-            <TimelineCard key={milestone.year} data={milestone} index={index} />
-          ))}
-
         </div>
 
-  
+        {/* CSS Styles to hide scrollbar */}
+        <style jsx>{`
+          .scrollbar-none::-webkit-scrollbar {
+            display: none;
+          }
+          .scrollbar-none {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+        `}</style>
       </div>
     </div>
   );

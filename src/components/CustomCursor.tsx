@@ -1,13 +1,23 @@
 import { useEffect, useState } from 'react';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 
 export const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
 
+  // Instant precise tracking for the inner dot
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Fluid spring tracking for the outer ring
+  const springConfig = { damping: 20, stiffness: 200, mass: 0.3 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      mouseX.set(e.clientX);
+      mouseY.set(e.clientY);
       setIsVisible(true);
     };
 
@@ -20,7 +30,8 @@ export const CustomCursor = () => {
       if (
         target.tagName === 'A' || 
         target.tagName === 'BUTTON' || 
-        target.closest('a, button, [role="button"], [role="link"]')
+        target.closest('a, button, [role="button"], [role="link"]') ||
+        window.getComputedStyle(target).cursor === 'pointer'
       ) {
         setIsHovering(true);
       } else {
@@ -34,6 +45,12 @@ export const CustomCursor = () => {
       document.addEventListener('mouseleave', handleMouseLeave);
       document.addEventListener('mouseover', handleHover);
       document.addEventListener('mouseout', () => setIsHovering(false));
+      
+      // Hide default cursor globally
+      document.body.style.cursor = 'none';
+      const css = document.createElement('style');
+      css.innerHTML = `* { cursor: none !important; }`;
+      document.head.appendChild(css);
     }
 
     return () => {
@@ -41,8 +58,9 @@ export const CustomCursor = () => {
       document.removeEventListener('mouseleave', handleMouseLeave);
       document.removeEventListener('mouseover', handleHover);
       document.removeEventListener('mouseout', () => setIsHovering(false));
+      document.body.style.cursor = 'auto';
     };
-  }, []);
+  }, [mouseX, mouseY]);
 
   // Don't render on mobile devices
   if (typeof window !== 'undefined' && window.matchMedia("(pointer: coarse)").matches) {
@@ -51,24 +69,35 @@ export const CustomCursor = () => {
 
   return (
     <>
-      <div 
-        className={`fixed left-0 top-0 w-4 h-4 rounded-full bg-primary/20 border-2 border-primary pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-[9999] transition-all duration-100 ease-out ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        } ${isHovering ? 'scale-150 bg-primary/10' : ''}`}
+      {/* Outer physics-based trailing ring */}
+      <motion.div 
+        className="fixed left-0 top-0 pointer-events-none z-[10000] mix-blend-difference rounded-full hidden sm:block"
         style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          transition: 'transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease-out, width 0.2s ease, height 0.2s ease',
+          x: smoothX,
+          y: smoothY,
+          translateX: '-50%',
+          translateY: '-50%',
+          width: isHovering ? 64 : 40,
+          height: isHovering ? 64 : 40,
+          border: isHovering ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(255, 255, 255, 0.5)',
+          backgroundColor: isHovering ? 'rgba(255,255,255,0.15)' : 'transparent',
+          opacity: isVisible ? 1 : 0,
+          transition: 'width 0.25s ease-out, height 0.25s ease-out, background-color 0.25s ease, border 0.25s ease, opacity 0.3s ease',
         }}
       />
-      <div 
-        className={`fixed left-0 top-0 w-2 h-2 rounded-full bg-primary pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-[9999] transition-all duration-200 ease-out ${
-          isVisible ? 'opacity-100' : 'opacity-0'
-        } ${isHovering ? 'scale-50' : ''}`}
+      
+      {/* Inner instant tracking dot */}
+      <motion.div 
+        className="fixed left-0 top-0 pointer-events-none z-[10000] mix-blend-difference rounded-full bg-white hidden sm:block"
         style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          transition: 'transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease-out',
+          x: mouseX,
+          y: mouseY,
+          translateX: '-50%',
+          translateY: '-50%',
+          width: isHovering ? 6 : 10,
+          height: isHovering ? 6 : 10,
+          opacity: isVisible ? 1 : 0,
+          transition: 'width 0.2s ease-out, height 0.2s ease-out, opacity 0.3s ease',
         }}
       />
     </>

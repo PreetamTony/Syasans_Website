@@ -13,6 +13,8 @@ import CoreTeam from "./pages/Team";
 import JoinUs from "./pages/Join";
 import Feedback from "./pages/Feedback";
 import Products from "./pages/Products";
+import Partners from "./pages/Partners";
+import TrainingJourney from "./pages/TrainingJourney";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +29,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/referring-to" element={<ReferringTo />} />
           <Route path="/inquiries" element={<InquiriesInto />} />
+          <Route path="/partners" element={<Partners />} />
+          <Route path="/training-journey" element={<TrainingJourney />} />
           <Route path="/endorsement" element={<Endorsement />} />
           <Route path="/team" element={<CoreTeam />} />
           <Route path="/feedback" element={<Feedback />} />

@@ -131,9 +131,13 @@ export default function AboutUs() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Navigation />
-      
       <main className="pt-20">
-        {/* Hero Section */}
+        <HeroSection 
+          tag="Journey of Excellence"
+          title="Referring"
+          highlight="To"
+          subtitle="Discover our credentials, certifications, and partnerships that endorse our standards of career training and analytics."
+        />
         
         {/* Main Content Section */}
         <section className="py-20 relative">
@@ -472,41 +476,83 @@ export default function AboutUs() {
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {achievements.map((achievement, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                    whileInView={{ 
-                      opacity: 1, 
-                      y: 0, 
-                      scale: 1,
-                      transition: { 
-                        type: 'spring', 
-                        stiffness: 100, 
-                        damping: 10,
-                        delay: index * 0.1
-                      } 
-                    }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    whileHover={{ 
-                      y: -5,
-                      boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
-                      transition: { duration: 0.3 }
-                    }}
-                    className="group"
-                  >
-                    <Card className="bg-white/90 backdrop-blur-sm border border-gray-100/50 h-full transition-all duration-300 group-hover:border-primary/20 group-hover:bg-white hover:shadow-md">
-                      <CardHeader className="relative pb-12">
-                        <div className="absolute -top-6 left-6 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                          <span className="text-xl font-bold">0{index + 1}</span>
+                {achievements.map((achievement, index) => {
+                  const parts = achievement.text.split('|');
+                  const mainText = parts[0].trim();
+                  const yearTag = parts[1] ? parts[1].trim() : null;
+                  
+                  const isISO = mainText.includes("ISO 9001:2008");
+                  const isAptitude = mainText.includes("Aptitude assessment");
+
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                      whileInView={{ 
+                        opacity: 1, 
+                        y: 0, 
+                        scale: 1,
+                        transition: { 
+                          type: 'spring', 
+                          stiffness: 80, 
+                          damping: 12,
+                          delay: index * 0.08
+                        } 
+                      }}
+                      viewport={{ once: true, margin: "-50px" }}
+                      whileHover={{ 
+                        y: -10,
+                        transition: { duration: 0.3, ease: "easeOut" }
+                      }}
+                      className="group relative h-full"
+                    >
+                      {/* Background glow on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
+                      
+                      <Card className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-100/80 dark:border-slate-800/80 h-full rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-500 group-hover:border-primary/20 group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col justify-between">
+                        <div className="p-8 relative flex-1 flex flex-col justify-between h-full">
+                          {/* Top row: Icon and tags */}
+                          <div className="flex justify-between items-start mb-6">
+                            <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary/10 to-primary/5 dark:from-primary/20 dark:to-transparent flex items-center justify-center text-primary group-hover:from-primary group-hover:to-accent group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-primary/30 group-hover:scale-110">
+                              {achievement.icon}
+                            </div>
+                            
+                            <div className="flex items-center gap-2">
+                              {yearTag && (
+                                <span className="bg-primary/5 text-primary text-xs font-semibold px-2.5 py-1 rounded-full border border-primary/10 dark:bg-primary/20 dark:text-primary-foreground group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                  {yearTag}
+                                </span>
+                              )}
+                              {isISO && (
+                                <span className="bg-amber-500/10 text-amber-600 text-xs font-semibold px-2.5 py-1 rounded-full border border-amber-500/20 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                                  ISO Certified
+                                </span>
+                              )}
+                              {isAptitude && (
+                                <span className="bg-emerald-500/10 text-emerald-600 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+                                  Practice Tests
+                                </span>
+                              )}
+                              <span className="text-4xl font-extrabold text-slate-100 dark:text-slate-800 select-none group-hover:text-primary/10 transition-colors duration-300 font-serif leading-none ml-2">
+                                0{index + 1}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Content text */}
+                          <div className="flex-1 mt-2">
+                            <p className="text-gray-700 dark:text-gray-300 font-medium text-base md:text-lg leading-relaxed group-hover:text-gray-900 dark:group-hover:text-white transition-colors duration-300">
+                              {mainText}
+                            </p>
+                          </div>
                         </div>
-                        <CardTitle className="text-lg font-semibold text-foreground pt-6 pr-6">
-                          {achievement.text}
-                        </CardTitle>
-                      </CardHeader>
-                    </Card>
-                  </motion.div>
-                ))}
+
+                        {/* Bottom colored accent strip */}
+                        <div className="h-1.5 w-full bg-gradient-to-r from-primary/20 to-accent/20 group-hover:from-primary group-hover:to-accent transition-all duration-500" />
+                      </Card>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </div>

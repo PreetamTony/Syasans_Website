@@ -6,6 +6,8 @@ const navItems = [
   { name: "Home", path: "/" },
   { name: "Referring To", path: "/referring-to" },
   { name: "Inquiries Into", path: "/inquiries" },
+  { name: "Partners", path: "/partners" },
+  { name: "Training Journey", path: "/training-journey" },
   { name: "Our Products", path: "/products" },
   { name: "Endorsement", path: "/endorsement" },
   { name: "Core Team", path: "/team" },
@@ -67,12 +69,12 @@ export const Navigation = () => {
             </div>
             
             {/* Desktop Navigation */}
-            <ul className="hidden md:flex items-center gap-4 lg:gap-8">
+            <ul className="hidden lg:flex items-center gap-2 xl:gap-4">
               {navItems.map((item) => (
                 <li key={item.path}>
                   <NavLink
                     to={item.path}
-                    className="nav-link text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+                    className="nav-link text-xs xl:text-sm font-medium text-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
                     activeClassName="active text-primary"
                   >
                     {item.name}
@@ -83,7 +85,7 @@ export const Navigation = () => {
 
             {/* Mobile menu button */}
             <button 
-              className="md:hidden p-2 -mr-2 text-foreground/80 hover:text-primary transition-colors focus:outline-none"
+              className="lg:hidden p-2 -mr-2 text-foreground/80 hover:text-primary transition-colors focus:outline-none"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
@@ -103,7 +105,7 @@ export const Navigation = () => {
 
         {/* Mobile Menu */}
         <div 
-          className={`md:hidden fixed inset-0 bg-background/95 backdrop-blur-sm transition-all duration-300 ease-in-out z-40 ${
+          className={`lg:hidden fixed inset-0 bg-background/95 backdrop-blur-sm transition-all duration-300 ease-in-out z-40 ${
             mobileMenuOpen 
               ? 'opacity-100 translate-y-0' 
               : 'opacity-0 -translate-y-full pointer-events-none'

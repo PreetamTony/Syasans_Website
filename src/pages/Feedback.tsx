@@ -2,9 +2,202 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import { ImageGallery } from "@/components/ImageGallery";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Quote } from "lucide-react";
+import { motion } from "framer-motion";
+
+const studentFeedbacks = [
+  {
+    quote: "Excellent placement-oriented training with practical learning methods and highly supportive mentors.",
+    author: "Aadhitya",
+    rating: 5,
+    gradient: "from-blue-500 to-indigo-600"
+  },
+  {
+    quote: "Highly specialized curriculum with regular assessments and outstanding trainer support.",
+    author: "Sangar Vishal",
+    rating: 5,
+    gradient: "from-indigo-500 to-purple-600"
+  },
+  {
+    quote: "Expert trainers with excellent subject knowledge and student-friendly mentoring.",
+    author: "Hilary Royson",
+    rating: 5,
+    gradient: "from-purple-500 to-pink-600"
+  },
+  {
+    quote: "The sessions were highly engaging, interactive, and professionally delivered.",
+    author: "Asma Farzana",
+    rating: 5,
+    gradient: "from-pink-500 to-rose-600"
+  },
+  {
+    quote: "Very clear explanations with excellent support throughout the training program.",
+    author: "Pooja R",
+    rating: 5,
+    gradient: "from-rose-500 to-red-600"
+  },
+  {
+    quote: "Unique teaching methodology with strong practical exposure and motivation.",
+    author: "Parveen",
+    rating: 5,
+    gradient: "from-red-500 to-orange-600"
+  },
+  {
+    quote: "Well-structured aptitude training with highly knowledgeable instructors.",
+    author: "Captain Cool",
+    rating: 5,
+    gradient: "from-orange-500 to-amber-600"
+  },
+  {
+    quote: "Professional mentoring and valuable career guidance helped improve my confidence.",
+    author: "Pushparaj Jack",
+    rating: 5,
+    gradient: "from-amber-500 to-yellow-600"
+  },
+  {
+    quote: "Excellent trainer performance with highly professional delivery methods.",
+    author: "Ragav Kumar",
+    rating: 5,
+    gradient: "from-yellow-500 to-lime-600"
+  },
+  {
+    quote: "Valuable placement guidance and excellent learning support throughout the sessions.",
+    author: "Nandhini Arul",
+    rating: 5,
+    gradient: "from-lime-500 to-green-600"
+  },
+  {
+    quote: "The training improved my interview confidence and communication skills significantly.",
+    author: "Dineshwari Venkatasubramani",
+    rating: 5,
+    gradient: "from-green-500 to-emerald-600"
+  },
+  {
+    quote: "Quality training sessions with excellent personal mentoring support.",
+    author: "Snekan",
+    rating: 5,
+    gradient: "from-emerald-500 to-teal-600"
+  },
+  {
+    quote: "Highly specialized coaching with strong placement-focused training methods.",
+    author: "Aysha Zain",
+    rating: 5,
+    gradient: "from-teal-500 to-cyan-600"
+  },
+  {
+    quote: "Very useful sessions for improving technical and communication skills.",
+    author: "Muthu Selvi K",
+    rating: 5,
+    gradient: "from-cyan-500 to-sky-600"
+  },
+  {
+    quote: "Excellent mentoring environment focused on career growth and industry readiness.",
+    author: "Joel Jashwa L.A",
+    rating: 5,
+    gradient: "from-sky-500 to-blue-600"
+  },
+  {
+    quote: "Interactive learning methodology with strong practical implementation.",
+    author: "Harish Kumar",
+    rating: 5,
+    gradient: "from-blue-600 to-violet-600"
+  },
+  {
+    quote: "Regular mock tests and assessments improved our placement confidence.",
+    author: "Keerthana S",
+    rating: 5,
+    gradient: "from-violet-600 to-purple-600"
+  },
+  {
+    quote: "Excellent integration of aptitude, coding, and communication training.",
+    author: "Mohammed Rizwan",
+    rating: 5,
+    gradient: "from-purple-600 to-fuchsia-600"
+  },
+  {
+    quote: "Motivating trainers with highly engaging classroom sessions and activities.",
+    author: "Deepika R",
+    rating: 5,
+    gradient: "from-fuchsia-600 to-pink-600"
+  },
+  {
+    quote: "Professional training ecosystem with structured learning and evaluation.",
+    author: "Santhosh Kumar",
+    rating: 5,
+    gradient: "from-pink-600 to-rose-600"
+  },
+  {
+    quote: "Real-time examples made difficult concepts easy to understand.",
+    author: "Pavithra M",
+    rating: 5,
+    gradient: "from-rose-600 to-orange-500"
+  },
+  {
+    quote: "The program enhanced my aptitude and interview preparation skills greatly.",
+    author: "Aravind Raj",
+    rating: 5,
+    gradient: "from-orange-500 to-amber-500"
+  },
+  {
+    quote: "Interactive classroom sessions with excellent trainer-student engagement.",
+    author: "Dharshini K",
+    rating: 5,
+    gradient: "from-amber-500 to-yellow-500"
+  },
+  {
+    quote: "One of the best placement training experiences with strong career guidance.",
+    author: "Naveen",
+    rating: 5,
+    gradient: "from-blue-500 to-teal-500"
+  },
+  {
+    quote: "Excellent training environment with strong focus on placements, discipline, and technical development.",
+    author: "Vishnu Priyan",
+    rating: 5,
+    gradient: "from-indigo-500 to-emerald-500"
+  },
+  {
+    quote: "The trainers explained concepts in a simple and practical manner which made learning easy.",
+    author: "Gayathri Devi",
+    rating: 5,
+    gradient: "from-purple-500 to-indigo-500"
+  },
+  {
+    quote: "Highly effective aptitude and coding sessions with continuous motivation from the mentors.",
+    author: "Rohith Krishna",
+    rating: 5,
+    gradient: "from-emerald-500 to-cyan-500"
+  },
+  {
+    quote: "The program helped me improve my communication, confidence, and interview performance.",
+    author: "Monisha R",
+    rating: 5,
+    gradient: "from-rose-500 to-pink-500"
+  },
+  {
+    quote: "Very professional training approach with real-time examples and industry-oriented teaching.",
+    author: "Siva Balaji",
+    rating: 5,
+    gradient: "from-amber-500 to-rose-500"
+  },
+  {
+    quote: "Supportive trainers and well-structured sessions helped us prepare confidently for placements.",
+    author: "Harini Prakash",
+    rating: 5,
+    gradient: "from-sky-500 to-indigo-500"
+  },
+  {
+    quote: "One of the most useful placement training programs with excellent mentoring and guidance.",
+    author: "Karthik Raman",
+    rating: 5,
+    gradient: "from-blue-600 to-indigo-500"
+  }
+];
 
 export default function Feedback() {
+  const row1 = studentFeedbacks.slice(0, 10);
+  const row2 = studentFeedbacks.slice(10, 20);
+  const row3 = studentFeedbacks.slice(20, 31);
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background/95 to-muted/5 flex flex-col">
       <Navigation />
@@ -177,6 +370,135 @@ export default function Feedback() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* Learners' Feedback Text Section */}
+        <section className="py-20 bg-slate-50 dark:bg-slate-950 overflow-hidden relative">
+          {/* Decorative floating blobs */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <div className="absolute top-1/4 left-[-10%] w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-3xl" />
+            <div className="absolute bottom-1/4 right-[-10%] w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-3xl" />
+          </div>
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mb-12 text-center">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-blue-600/10 dark:bg-blue-600/20 text-blue-600 dark:text-blue-400 rounded-full text-xs font-bold uppercase tracking-wider mb-4 border border-blue-200/40 dark:border-blue-900/30">
+              Learners' Voice
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4 leading-tight">
+              What Our Learners <span className="text-[#2563eb] font-extrabold">Say About Us</span>
+            </h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto rounded-full" />
+          </div>
+
+          {/* Marquee Viewport Container */}
+          <div className="relative w-full overflow-hidden py-4 z-10 marquee-container flex flex-col gap-6">
+            
+            {/* Fade overlays on left/right edges */}
+            <div className="absolute inset-y-0 left-0 w-24 md:w-48 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-20 pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-24 md:w-48 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-20 pointer-events-none" />
+
+            {/* Row 1: Scrolling Left */}
+            <div className="flex overflow-hidden w-full">
+              <div className="animate-marquee-left flex">
+                {[...row1, ...row1].map((feedback, idx) => (
+                  <div 
+                    key={`r1-${idx}`} 
+                    className="w-[340px] flex-shrink-0 p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-[0_4px_25px_rgba(0,0,0,0.015)] hover:shadow-lg hover:border-blue-500/20 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between h-[160px] mx-3"
+                  >
+                    <p className="text-slate-700 dark:text-slate-350 text-xs sm:text-sm font-medium leading-relaxed italic line-clamp-3">
+                      “{feedback.quote}”
+                    </p>
+                    <div className="flex items-center gap-2.5 border-t border-slate-50 dark:border-slate-800/60 pt-2.5 mt-2">
+                      <div className={`w-8 h-8 rounded-full bg-gradient-to-tr ${feedback.gradient} flex items-center justify-center text-white text-[11px] font-extrabold shadow-sm`}>
+                        {feedback.author.charAt(0)}
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-900 dark:text-white">{feedback.author}</div>
+                        <div className="text-[8px] text-slate-500 font-semibold tracking-wider uppercase">Verified Student</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Row 2: Scrolling Right */}
+            <div className="flex overflow-hidden w-full">
+              <div className="animate-marquee-right flex">
+                {[...row2, ...row2].map((feedback, idx) => (
+                  <div 
+                    key={`r2-${idx}`} 
+                    className="w-[340px] flex-shrink-0 p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-[0_4px_25px_rgba(0,0,0,0.015)] hover:shadow-lg hover:border-blue-500/20 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between h-[160px] mx-3"
+                  >
+                    <p className="text-slate-700 dark:text-slate-350 text-xs sm:text-sm font-medium leading-relaxed italic line-clamp-3">
+                      “{feedback.quote}”
+                    </p>
+                    <div className="flex items-center gap-2.5 border-t border-slate-50 dark:border-slate-800/60 pt-2.5 mt-2">
+                      <div className={`w-8 h-8 rounded-full bg-gradient-to-tr ${feedback.gradient} flex items-center justify-center text-white text-[11px] font-extrabold shadow-sm`}>
+                        {feedback.author.charAt(0)}
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-900 dark:text-white">{feedback.author}</div>
+                        <div className="text-[8px] text-slate-500 font-semibold tracking-wider uppercase">Verified Student</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Row 3: Scrolling Left */}
+            <div className="flex overflow-hidden w-full">
+              <div className="animate-marquee-left flex">
+                {[...row3, ...row3].map((feedback, idx) => (
+                  <div 
+                    key={`r3-${idx}`} 
+                    className="w-[340px] flex-shrink-0 p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-[0_4px_25px_rgba(0,0,0,0.015)] hover:shadow-lg hover:border-blue-500/20 hover:scale-[1.01] transition-all duration-300 flex flex-col justify-between h-[160px] mx-3"
+                  >
+                    <p className="text-slate-700 dark:text-slate-350 text-xs sm:text-sm font-medium leading-relaxed italic line-clamp-3">
+                      “{feedback.quote}”
+                    </p>
+                    <div className="flex items-center gap-2.5 border-t border-slate-50 dark:border-slate-800/60 pt-2.5 mt-2">
+                      <div className={`w-8 h-8 rounded-full bg-gradient-to-tr ${feedback.gradient} flex items-center justify-center text-white text-[11px] font-extrabold shadow-sm`}>
+                        {feedback.author.charAt(0)}
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-slate-900 dark:text-white">{feedback.author}</div>
+                        <div className="text-[8px] text-slate-500 font-semibold tracking-wider uppercase">Verified Student</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
+          {/* Local CSS styles for high-fidelity marquee movement */}
+          <style jsx>{`
+            @keyframes marquee-left {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            @keyframes marquee-right {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(0); }
+            }
+            .animate-marquee-left {
+              display: flex;
+              width: max-content;
+              animation: marquee-left 50s linear infinite;
+            }
+            .animate-marquee-right {
+              display: flex;
+              width: max-content;
+              animation: marquee-right 50s linear infinite;
+            }
+            .marquee-container:hover .animate-marquee-left,
+            .marquee-container:hover .animate-marquee-right {
+              animation-play-state: paused;
+            }
+          `}</style>
         </section>
 
         {/* Google Reviews Section */}

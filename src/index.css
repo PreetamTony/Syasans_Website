@@ -273,7 +273,28 @@ All colors MUST be HSL.
   .shadow-4xl {
     box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25), 0 30px 60px -30px rgba(0, 0, 0, 0.3);
   }
+
+  /* Custom high-end animations and grid patterns */
+  .animate-blob-slow {
+    animation: blob-slow 25s infinite ease-in-out;
+  }
+  .animate-blob-medium {
+    animation: blob-slow 18s infinite ease-in-out alternate-reverse;
+  }
+  @keyframes blob-slow {
+    0% { transform: translate(0px, 0px) scale(1) rotate(0deg); }
+    33% { transform: translate(30px, -50px) scale(1.15) rotate(120deg); }
+    66% { transform: translate(-20px, 30px) scale(0.9) rotate(240deg); }
+    100% { transform: translate(0px, 0px) scale(1) rotate(360deg); }
+  }
+  .bg-grid-pattern {
+    background-size: 50px 50px;
+    background-image: 
+      linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+  }
 }
+
 
 @layer base {
   * {
