@@ -5,7 +5,7 @@ import logo from "@/assets/syasans-logo.png";
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Referring To", path: "/referring-to" },
-  { name: "Inquiries Into", path: "/inquiries" },
+  { name: "Center for Emerging Technologies", path: "/inquiries" },
   { name: "Partners", path: "/partners" },
   { name: "Training Journey", path: "/training-journey" },
   { name: "Our Products", path: "/products" },
@@ -48,18 +48,17 @@ export const Navigation = () => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
             ? "glass shadow-lg py-3"
             : "bg-transparent py-6"
-        }`}
+          }`}
       >
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <img 
-                src={logo} 
-                alt="Syasan's Logo" 
+              <img
+                src={logo}
+                alt="Syasan's Logo"
                 className="h-12 sm:h-16 w-auto hover:opacity-90 transition-opacity"
               />
               <div className="ml-3 sm:ml-5">
@@ -67,7 +66,7 @@ export const Navigation = () => {
                 <div className="text-xs sm:text-base font-semibold text-muted-foreground tracking-wider mt-0.5 sm:mt-1">CAREER ANALYTICS</div>
               </div>
             </div>
-            
+
             {/* Desktop Navigation */}
             <ul className="hidden lg:flex items-center gap-2 xl:gap-4">
               {navItems.map((item) => (
@@ -84,7 +83,7 @@ export const Navigation = () => {
             </ul>
 
             {/* Mobile menu button */}
-            <button 
+            <button
               className="lg:hidden p-2 -mr-2 text-foreground/80 hover:text-primary transition-colors focus:outline-none"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -104,12 +103,11 @@ export const Navigation = () => {
         </div>
 
         {/* Mobile Menu */}
-        <div 
-          className={`lg:hidden fixed inset-0 bg-background/95 backdrop-blur-sm transition-all duration-300 ease-in-out z-40 ${
-            mobileMenuOpen 
-              ? 'opacity-100 translate-y-0' 
+        <div
+          className={`lg:hidden fixed inset-0 bg-background/95 backdrop-blur-sm transition-all duration-300 ease-in-out z-40 ${mobileMenuOpen
+              ? 'opacity-100 translate-y-0'
               : 'opacity-0 -translate-y-full pointer-events-none'
-          }`}
+            }`}
           style={{ marginTop: scrolled ? '4rem' : '6rem' }}
         >
           <div className="container mx-auto px-4 py-6">
@@ -133,7 +131,7 @@ export const Navigation = () => {
 
       {/* Overlay when mobile menu is open */}
       {mobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-background/50 backdrop-blur-sm z-30"
           onClick={closeMobileMenu}
         />

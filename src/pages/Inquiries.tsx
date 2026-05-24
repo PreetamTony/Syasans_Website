@@ -2,7 +2,7 @@ import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/HeroSection";
 import { Navigation } from "@/components/Navigation";
 import { motion } from "framer-motion";
-import { Award, BarChart2, Book, BookOpen, Brain, Briefcase, Cloud, Code, Cpu, Database, Figma, FileCode, GraduationCap, Rocket, Server, Settings, Shield, Smartphone, Users, Zap } from "lucide-react";
+import { ArrowUpRight, Award, BarChart2, Book, BookOpen, Brain, Briefcase, Cloud, Code, Cpu, Database, Figma, FileCode, GraduationCap, Rocket, Server, Settings, Shield, Smartphone, Users, Zap } from "lucide-react";
 import React from 'react';
 import { useInView } from "react-intersection-observer";
 // Using standard img tag instead of next/image
@@ -87,21 +87,6 @@ const courses = [
     title: "Power BI",
     icon: <BarChart2 className="w-8 h-8 mb-4 text-primary" />,
     description: "A Power BI course teaches how to import, transform, and analyze data using Microsoft's business intelligence platform, enabling users to create interactive reports and dashboards for data-driven decision making."
-  },
-  {
-    title: "General Aptitude",
-    icon: <Book className="w-8 h-8 mb-4 text-primary" />,
-    description: "A General Aptitude for Campus Placements/Competitive Exams course prepares students with essential skills in quantitative aptitude, logical reasoning, and verbal ability, enhancing their performance in recruitment tests and competitive examinations."
-  },
-  {
-    title: "Industry 5.0",
-    icon: <Rocket className="w-8 h-8 mb-4 text-primary" />,
-    description: "Industry 5.0 envisions a future where humans and machines collaborate seamlessly to create a more sustainable, resilient, and human-centric manufacturing ecosystem that prioritizes social welfare and environmental preservation alongside economic growth."
-  },
-  {
-    title: "Campus to Corporate Workshops",
-    icon: <Briefcase className="w-8 h-8 mb-4 text-primary" />,
-    description: "These equip students with essential skills for a smooth transition from academia to the professional world, focusing on attitude, behavior, communication, and personal effectiveness to enhance their job readiness and career growth."
   }
 ];
 
@@ -123,48 +108,104 @@ const services = [
   }
 ];
 
+const getColorTheme = (index: number) => {
+  const themes = [
+    {
+      primary: "text-blue-600 dark:text-blue-400",
+      bgLight: "bg-blue-500/10 dark:bg-blue-500/5",
+      hoverAccent: "group-hover:text-blue-600 dark:group-hover:text-blue-400",
+      glow: "from-blue-600/20 to-indigo-600/20 dark:from-blue-500/10 dark:to-purple-500/10",
+      borderHover: "group-hover:border-blue-500/30 dark:group-hover:border-blue-500/20",
+    },
+    {
+      primary: "text-purple-600 dark:text-purple-400",
+      bgLight: "bg-purple-500/10 dark:bg-purple-500/5",
+      hoverAccent: "group-hover:text-purple-600 dark:group-hover:text-purple-400",
+      glow: "from-purple-600/20 to-pink-600/20 dark:from-purple-500/10 dark:to-pink-500/10",
+      borderHover: "group-hover:border-purple-500/30 dark:group-hover:border-purple-500/20",
+    },
+    {
+      primary: "text-emerald-600 dark:text-emerald-400",
+      bgLight: "bg-emerald-500/10 dark:bg-emerald-500/5",
+      hoverAccent: "group-hover:text-emerald-600 dark:group-hover:text-emerald-400",
+      glow: "from-emerald-600/20 to-teal-600/20 dark:from-emerald-500/10 dark:to-teal-500/10",
+      borderHover: "group-hover:border-emerald-500/30 dark:group-hover:border-emerald-500/20",
+    },
+    {
+      primary: "text-rose-600 dark:text-rose-400",
+      bgLight: "bg-rose-500/10 dark:bg-rose-500/5",
+      hoverAccent: "group-hover:text-rose-600 dark:group-hover:text-rose-400",
+      glow: "from-rose-600/20 to-orange-600/20 dark:from-rose-500/10 dark:to-orange-500/10",
+      borderHover: "group-hover:border-rose-500/30 dark:group-hover:border-rose-500/20",
+    },
+    {
+      primary: "text-amber-600 dark:text-amber-400",
+      bgLight: "bg-amber-500/10 dark:bg-amber-500/5",
+      hoverAccent: "group-hover:text-amber-600 dark:group-hover:text-amber-400",
+      glow: "from-amber-600/20 to-yellow-600/20 dark:from-amber-500/10 dark:to-yellow-500/10",
+      borderHover: "group-hover:border-amber-500/30 dark:group-hover:border-amber-500/20",
+    }
+  ];
+  return themes[index % themes.length];
+};
+
 const AnimatedCard = ({ title, description, icon, index }) => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1
   });
 
+  const theme = getColorTheme(index);
+
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30, scale: 0.98 }}
-      animate={inView ? {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: {
-          duration: 0.6,
-          ease: [0.16, 1, 0.3, 1],
-          delay: index * 0.05
-        }
-      } : { opacity: 0, y: 30, scale: 0.98 }}
-      whileHover={{
-        y: -8,
-        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-        transition: { duration: 0.3, ease: 'easeOut' }
-      }}
-      className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-primary/20"
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-      <div className="relative p-8">
-        <motion.div
-          className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center mb-6 text-primary"
-          whileHover={{ rotate: 5, scale: 1.05 }}
-          transition={{ type: 'spring', stiffness: 300 }}
-        >
-          {React.cloneElement(icon, { className: 'w-7 h-7' })}
-        </motion.div>
-        <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
-          {title}
-        </h3>
-        <p className="text-gray-600 leading-relaxed">{description}</p>
-      </div>
-    </motion.div>
+    <div ref={ref} className="relative group h-full">
+      {/* Dynamic Backlight Glow Overlay */}
+      <div className={`absolute -inset-1 rounded-[24px] bg-gradient-to-r ${theme.glow} opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 -z-10 group-hover:scale-105`} />
+
+      <motion.div
+        initial={{ opacity: 0, y: 30, scale: 0.98 }}
+        animate={inView ? {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          transition: {
+            duration: 0.6,
+            ease: [0.16, 1, 0.3, 1],
+            delay: index * 0.05
+          }
+        } : { opacity: 0, y: 30, scale: 0.98 }}
+        whileHover={{
+          y: -8,
+          transition: { duration: 0.3, ease: 'easeOut' }
+        }}
+        className={`relative h-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 dark:border-slate-800/80 ${theme.borderHover} flex flex-col justify-between`}
+      >
+        {/* Top Highlight Accent Strip */}
+        <div className={`absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r ${theme.glow} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
+
+        {/* Corner Hover Arrow Indicator */}
+        <div className={`absolute top-5 right-5 opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300 ${theme.primary}`}>
+          <ArrowUpRight className="w-5 h-5" />
+        </div>
+
+        {/* Ambient Corner Blob */}
+        <div className={`absolute -right-10 -bottom-10 w-28 h-28 rounded-full bg-gradient-to-br ${theme.glow} opacity-0 group-hover:opacity-40 blur-xl transition-all duration-500 pointer-events-none -z-10`} />
+
+        <div className="p-8 flex-1 flex flex-col justify-between">
+          <div>
+            <motion.div
+              className={`w-14 h-14 rounded-xl ${theme.bgLight} flex items-center justify-center mb-6 ${theme.primary} transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-sm`}
+            >
+              {React.cloneElement(icon, { className: 'w-7 h-7 mb-0 text-current' })}
+            </motion.div>
+            <h3 className={`text-xl font-bold text-gray-800 dark:text-slate-100 mb-3 ${theme.hoverAccent} transition-colors duration-300`}>
+              {title}
+            </h3>
+            <p className="text-gray-600 dark:text-slate-400 leading-relaxed text-sm">{description}</p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
   );
 };
 
@@ -200,8 +241,13 @@ export default function InquiriesInto() {
         />
 
         {/* Courses Section */}
-        <section className="py-20 relative">
-          <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.8))] -z-10" />
+        <section className="py-20 relative overflow-hidden">
+          {/* Subtle Tech Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none -z-10" />
+
+          {/* Ambient Background Blobs */}
+          <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl -z-10 animate-blob-slow" />
+          <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -z-10 animate-blob-medium" />
           <div className="container mx-auto px-6">
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -213,29 +259,82 @@ export default function InquiriesInto() {
         </section>
 
         {/* Software Development Section */}
-        <section className="py-20 bg-gradient-to-r from-white to-gray-50">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Delivering Excellence in <span className="text-primary">Software Development</span></h2>
-                <p className="text-lg text-gray-700 mb-8">
-                  At Syasans Career Analytics, we specialize in delivering top-notch software development services. Our expert team is dedicated to providing innovative solutions, ensuring quality and efficiency in every project. Trust us to drive your software development needs with professionalism and excellence.
-                </p>
+        <section className="py-24 relative overflow-hidden bg-slate-50 dark:bg-slate-950/40 border-y border-slate-100 dark:border-slate-800/60">
+          {/* Fading Tech Grid Background */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808003_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none -z-10" />
+
+          {/* Ambient Glowing Blobs */}
+          <div className="absolute top-1/2 left-[-10%] w-[400px] h-[400px] bg-blue-500/5 rounded-full blur-3xl -z-10 animate-blob-slow" />
+          <div className="absolute top-1/3 right-[-10%] w-[450px] h-[450px] bg-indigo-500/5 rounded-full blur-3xl -z-10 animate-blob-medium" />
+
+          <div className="container mx-auto px-6 max-w-7xl">
+            <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+              {/* Text Column with Scroll Reveal */}
+              <div className="lg:col-span-7 flex flex-col justify-center">
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <div className="flex items-center gap-2.5 mb-4">
+                    <span className="h-px w-6 bg-primary"></span>
+                    <span className="text-primary font-bold uppercase tracking-wider text-xs">SERVICES & INNOVATION</span>
+                  </div>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-serif mb-6 text-slate-900 dark:text-white leading-tight">
+                    Delivering Excellence in <br className="hidden sm:block" />
+                    <span className="text-[#2563eb] font-bold">Software Development</span>
+                  </h2>
+                  <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-8 max-w-2xl font-light">
+                    At Syasans Career Analytics, we specialize in delivering top-notch software development services. Our expert team is dedicated to providing innovative solutions, ensuring quality and efficiency in every project. Trust us to drive your software development needs with professionalism and excellence.
+                  </p>
+
+                  {/* Highlights Grid */}
+
+
+
+                </motion.div>
               </div>
-              <div className="flex justify-center">
-                <img
-                  src="/assets/Discussion.jpg"
-                  alt="Software Development"
-                  className="rounded-2xl shadow-xl max-w-[80%] h-auto"
-                />
+
+              {/* Image Mockup Column with 3D Float Frame */}
+              <div className="lg:col-span-5 flex justify-center lg:justify-end">
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                  className="w-full max-w-[450px]"
+                >
+                  <div className="relative group w-full">
+                    {/* Ambient Glow behind image */}
+                    <div className="absolute -inset-2.5 rounded-[24px] bg-gradient-to-tr from-primary/30 to-indigo-500/30 opacity-60 group-hover:opacity-90 blur-2xl group-hover:scale-105 transition-all duration-500 -z-10" />
+
+                    {/* Floating Frame */}
+                    <div className="relative p-2.5 rounded-[20px] bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border border-white/60 dark:border-slate-800/80 shadow-2xl overflow-hidden group-hover:scale-[1.01] transition-all duration-500">
+                      <img
+                        src="/assets/Discussion.jpg"
+                        alt="Software Development Discussion"
+                        className="rounded-[12px] w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
               </div>
+
             </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <section className="py-20 relative">
-          <div className="absolute inset-0 bg-grid-white/5 [mask-image:linear-gradient(180deg,transparent,rgba(0,0,0,0.8))] -z-10" />
+        <section className="py-20 relative overflow-hidden">
+          {/* Subtle Tech Grid Pattern */}
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:30px_30px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_80%,transparent_100%)] pointer-events-none -z-10" />
+
+          {/* Ambient Background Blobs */}
+          <div className="absolute top-1/4 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-3xl -z-10 animate-blob-slow" />
+          <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl -z-10 animate-blob-medium" />
           <div className="container mx-auto px-6">
 
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">

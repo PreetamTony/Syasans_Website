@@ -6,52 +6,52 @@ import { motion } from "framer-motion";
 const teamMembers = [
   {
     name: "Sankar E",
-    role: "Founder Chairman",
+    role: "Chairman",
     image: "/assets/E_Sankar.jpg"
   },
   {
     name: "Youghessh S",
-    role: "Executive Director",
+    role: "Co-Founder & CEO",
     image: "/assets/Youghessh_S.jpg"
   },
   {
     name: "Devibalan M",
-    role: "Executive Director",
+    role: "Co-Founder & Director",
     image: "/assets/Devibalan_M.jpg"
   },
   {
     name: "Vishnu Priyan R",
-    role: "Vice President",
+    role: "Chief Innovation Officer",
     image: "/assets/Vishnu_Priyan_R.jpg"
   },
   {
     name: "Sakthi Priya G",
-    role: "Head HR",
+    role: "Culture & Capablity Director",
     image: "/assets/Sakthi_Priya_G.jpg"
   },
   {
     name: "Kanimozhi D",
-    role: "Head Operations",
+    role: "People Operations Director",
     image: "/assets/Kanimozhi.jpg"
   },
   {
     name: "Parthiban M",
-    role: "Technology Head",
+    role: "Head - Future Technologies",
     image: "/assets/Parthiban_M.jpg"
   },
   {
     name: "Nithya Priya G",
-    role: "Asst Manager",
+    role: "Capability Manager",
     image: "/assets/Nithya_Priya_G.jpg"
   },
   {
     name: "Selvaraj",
-    role: "Training Manager",
+    role: "Learning Ecosystem Manager",
     image: "/assets/Selvaraj.jpeg"
   },
   {
     name: "Gokula Krishnan G",
-    role: "Team Lead",
+    role: "Squad Lead",
     image: "/assets/Gokula_Krishnan.jpg"
   },
   {
@@ -61,17 +61,17 @@ const teamMembers = [
   },
   {
     name: "Kamala P",
-    role: "Subject Matter Expert",
+    role: "Technology Specialist",
     image: "/assets/Kamala.jpg"
   },
   {
     name: "Vanitha Purushothaman",
-    role: "Subject Matter Expert",
+    role: "AI & Technology Strategist",
     image: "/assets/Vanitha.jpg"
   },
   {
     name: "Suganya S",
-    role: "Subject Matter Expert",
+    role: "EdTech Innovation Lead",
     image: "/assets/Suganya.jpg"
   }
 

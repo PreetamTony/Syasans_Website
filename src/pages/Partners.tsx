@@ -136,12 +136,9 @@ export default function Partners() {
               transition={{ duration: 0.6 }}
               className="text-center mb-20"
             >
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400 bg-blue-50/80 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900/40 mb-5 backdrop-blur-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-                Our Clients
-              </span>
+
               <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-5">
-                Strategic Campus Partners
+                Growth Alliances
               </h2>
               <div className="flex items-center justify-center gap-2 mb-6">
                 <div className="h-px w-16 bg-gradient-to-r from-transparent to-blue-400" />
@@ -154,7 +151,7 @@ export default function Partners() {
             </motion.div>
 
             {/* ── Bento-style grid ── */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
               {institutions.map((inst, i) => (
                 <motion.div
                   key={inst.name}
@@ -165,13 +162,13 @@ export default function Partners() {
                   whileHover={{ y: -8, transition: { duration: 0.25, ease: "easeOut" } }}
                   className="group relative"
                 >
-                  {/* Outer glow ring on hover */}
-                  <div className="absolute -inset-px rounded-2xl bg-blue-500/25 opacity-0 group-hover:opacity-100 blur-md transition-opacity duration-500 -z-10" />
+                  {/* Outer glow backlight on hover */}
+                  <div className="absolute -inset-1 rounded-2xl bg-gradient-to-tr from-blue-500/20 to-indigo-500/20 opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 -z-10 group-hover:scale-105" />
 
-                  <div className="relative bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-100/80 dark:border-slate-800/80 shadow-[0_2px_16px_rgba(0,0,0,0.04)] group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.18)] group-hover:border-blue-300/50 dark:group-hover:border-blue-700/40 transition-all duration-400 h-full flex flex-col">
+                  <div className="relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800/80 shadow-[0_2px_16px_rgba(0,0,0,0.03)] group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] group-hover:border-blue-500/30 dark:group-hover:border-blue-500/20 transition-all duration-400 h-full flex flex-col z-10">
 
                     {/* Image area */}
-                    <div className="relative h-44 overflow-hidden bg-slate-100 dark:bg-slate-800 flex-shrink-0">
+                    <div className="relative h-44 overflow-hidden bg-slate-100 dark:bg-slate-950 flex-shrink-0">
                       <img
                         src={inst.image}
                         alt={inst.name}
@@ -179,32 +176,28 @@ export default function Partners() {
                         loading="lazy"
                       />
                       {/* Cinematic scrim */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       {/* Top shimmer line */}
                       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
-
-
                       {/* Active dot — bottom right */}
-                      <div className="absolute bottom-3.5 right-3.5 flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.8)] animate-pulse" />
-                      </div>
+
                     </div>
 
                     {/* Content */}
-                    <div className="p-4 flex flex-col gap-1.5 flex-1">
+                    <div className="p-5 flex flex-col gap-2 flex-1 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
                       {/* College name */}
-                      <h3 className="font-bold text-sm sm:text-[15px] text-slate-900 dark:text-white leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-250">
+                      <h3 className="font-serif font-semibold text-base sm:text-lg text-slate-900 dark:text-slate-100 tracking-tight leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                         {inst.name}
                       </h3>
 
                       {/* Divider */}
-                      <div className="h-px bg-slate-100 dark:bg-slate-800 my-1 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors duration-300" />
+                      <div className="h-px bg-slate-100 dark:bg-slate-800 my-1 group-hover:bg-gradient-to-r group-hover:from-blue-500/30 group-hover:to-transparent transition-all duration-300" />
 
                       {/* Location */}
-                      <div className="flex items-center gap-1.5 text-[11px] text-slate-400 dark:text-slate-500 font-semibold mt-auto">
-                        <MapPin className="w-3 h-3 flex-shrink-0 text-blue-400/70" />
-                        <span>{inst.location}</span>
+                      <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mt-auto">
+                        <MapPin className="w-3.5 h-3.5 flex-shrink-0 text-blue-500 dark:text-blue-400/80" />
+                        <span className="font-medium">{inst.location}</span>
                       </div>
                     </div>
                   </div>
@@ -334,11 +327,8 @@ export default function Partners() {
         <section className="py-24 relative bg-white dark:bg-slate-950 overflow-hidden border-t border-slate-100 dark:border-slate-800">
           <div className="container mx-auto px-6 mb-12 relative z-20">
             <div className="text-center">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 bg-indigo-50/80 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 mb-4 backdrop-blur-sm">
-                Alumni Success
-              </span>
-              <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-                Companies Where Our Students Work
+              <h2 className="text-3xl md:text-4xl font-medium text-slate-900 dark:text-white tracking-tight">
+                Building Careers at Global Organizations
               </h2>
             </div>
           </div>

@@ -48,7 +48,7 @@ export default function JoinUs() {
     phone: '',
     message: ''
   });
-  const [submitStatus, setSubmitStatus] = useState<{success: boolean; message: string} | null>(null);
+  const [submitStatus, setSubmitStatus] = useState<{ success: boolean; message: string } | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -60,21 +60,21 @@ export default function JoinUs() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     const subject = 'New Job Application from Website';
     const body = `Name: ${formData.name}%0D%0A` +
-                 `Email: ${formData.email}%0D%0A` +
-                 `Phone: ${formData.phone}%0D%0A` +
-                 `Message: ${formData.message}`;
-    
+      `Email: ${formData.email}%0D%0A` +
+      `Phone: ${formData.phone}%0D%0A` +
+      `Message: ${formData.message}`;
+
     window.location.href = `mailto:${RECIPIENT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`;
-    
+
     // Show success message
     setSubmitStatus({
       success: true,
       message: 'Your email client is opening with a pre-filled message. Please send it to submit your application.'
     });
-    
+
     // Reset form
     setFormData({ name: '', email: '', phone: '', message: '' });
   };
@@ -87,7 +87,7 @@ export default function JoinUs() {
           title="Join Our Growing"
           highlight="Community"
           tag="CAREER OPPORTUNITIES"
-          subtitle="Be part of something extraordinary. Join SYASAN'S and unlock your potential with industry-leading training and mentorship."
+          subtitle="Be part of something extraordinary. Join SYASAN'S and unlock your potential with industry-leading training"
         />
 
         {/* Features Section */}
@@ -99,10 +99,10 @@ export default function JoinUs() {
                 We're committed to nurturing talent and providing the best learning experience.
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               {features.map((feature, index) => (
-                <motion.div 
+                <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ export default function JoinUs() {
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12 items-start">
               {/* Contact Form */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
@@ -136,7 +136,7 @@ export default function JoinUs() {
                   <h2 className="text-3xl font-bold">Ready to Start Your Journey?</h2>
                   <p className="text-muted-foreground mt-2">Fill out the form and our team will get back to you within 24 hours.</p>
                 </div>
-                
+
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium">Full Name</label>
@@ -151,7 +151,7 @@ export default function JoinUs() {
                       required
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium">Email Address</label>
                     <Input
@@ -165,7 +165,7 @@ export default function JoinUs() {
                       required
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label htmlFor="phone" className="text-sm font-medium">Phone Number</label>
                     <Input
@@ -178,7 +178,7 @@ export default function JoinUs() {
                       onChange={handleChange}
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium">Your Message</label>
                     <Textarea
@@ -192,7 +192,7 @@ export default function JoinUs() {
                       required
                     />
                   </div>
-                  
+
                   <div className="space-y-4">
                     <Button type="submit" className="w-full group">
                       Open Email Application
@@ -211,7 +211,7 @@ export default function JoinUs() {
               </motion.div>
 
               {/* Contact Information */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -224,7 +224,7 @@ export default function JoinUs() {
                       We're here to help and answer any questions you might have.
                     </p>
                   </div>
-                  
+
                   <div className="space-y-6">
                     {/* Phone Section */}
                     <div className="group relative p-4 bg-white/50 dark:bg-gray-900/50 rounded-lg transition-all duration-300 hover:shadow-md hover:border-primary/20 border border-transparent">
@@ -235,22 +235,22 @@ export default function JoinUs() {
                         <div>
                           <h3 className="font-semibold text-lg mb-1">Call Us</h3>
                           <div className="space-y-1">
-                            <a 
-                              href="tel:+919176458486" 
+                            <a
+                              href="tel:+919176458486"
                               className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 transition-transform"
                             >
                               <span className="inline-block w-2 h-2 rounded-full bg-primary/50 group-hover:bg-primary"></span>
                               (+91) 9176458486
                             </a>
-                            <a 
-                              href="tel:+919597222661" 
+                            <a
+                              href="tel:+919597222661"
                               className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 transition-transform"
                             >
                               <span className="inline-block w-2 h-2 rounded-full bg-primary/50 group-hover:bg-primary"></span>
                               (+91) 9597222661
                             </a>
-                            <a 
-                              href="tel:04442822290" 
+                            <a
+                              href="tel:04442822290"
                               className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 transition-transform"
                             >
                               <span className="inline-block w-2 h-2 rounded-full bg-primary/50 group-hover:bg-primary"></span>
@@ -265,7 +265,7 @@ export default function JoinUs() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Email Section */}
                     <div className="group relative p-4 bg-white/50 dark:bg-gray-900/50 rounded-lg transition-all duration-300 hover:shadow-md hover:border-primary/20 border border-transparent">
                       <div className="flex items-start gap-4">
@@ -274,8 +274,8 @@ export default function JoinUs() {
                         </div>
                         <div>
                           <h3 className="font-semibold text-lg mb-1">Email Us</h3>
-                          <a 
-                            href="mailto:askus@syasans.com" 
+                          <a
+                            href="mailto:askus@syasans.com"
                             className="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 transition-transform"
                           >
                             <span className="inline-block w-2 h-2 rounded-full bg-primary/50 group-hover:bg-primary"></span>
@@ -292,7 +292,7 @@ export default function JoinUs() {
                         </div>
                       </div>
                     </div>
-                    
+
                     {/* Address Section */}
                     <div className="group relative p-4 bg-white/50 dark:bg-gray-900/50 rounded-lg transition-all duration-300 hover:shadow-md hover:border-primary/20 border border-transparent">
                       <div className="flex items-start gap-4">
@@ -312,9 +312,9 @@ export default function JoinUs() {
                               </span>
                             </p>
                           </address>
-                          <a 
-                            href="https://maps.google.com?q=SYASAN'S+Chennai" 
-                            target="_blank" 
+                          <a
+                            href="https://maps.google.com?q=SYASAN'S+Chennai"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center text-sm text-primary mt-3 hover:underline"
                           >
@@ -330,17 +330,17 @@ export default function JoinUs() {
                       </div>
                     </div>
                   </div>
-                  
-                  
+
+
                 </div>
 
-                
+
               </motion.div>
             </div>
           </div>
         </section>
 
-        
+
       </main>
       <Footer />
     </div>

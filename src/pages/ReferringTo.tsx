@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Award, Trophy, Medal, Star, Target, Award as AwardIcon, CheckCircle } from "lucide-react";
+import { Award, Trophy, Medal, Star, Target, Award as AwardIcon, CheckCircle, Lightbulb, Code, Users, Compass, GraduationCap, School, Brain, BarChart3, TrendingUp, CheckCircle2, FileSpreadsheet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroSection } from "@/components/HeroSection";
 import { motion, Variants } from "framer-motion";
@@ -192,149 +192,213 @@ export default function AboutUs() {
             </div>
 
             {/* Training Modules Section with Assessment Image */}
-            <div className="py-20 relative">
+            <div className="py-24 relative overflow-hidden bg-gradient-to-b from-transparent via-slate-50/30 to-transparent dark:via-slate-900/10">
+              {/* Floating decorative gradient background blobs */}
+              <div className="absolute top-1/4 left-1/10 w-96 h-96 bg-primary/5 rounded-full filter blur-3xl animate-blob-slow pointer-events-none -z-10"></div>
+              <div className="absolute bottom-1/4 right-1/10 w-96 h-96 bg-accent/5 rounded-full filter blur-3xl animate-blob-medium pointer-events-none -z-10"></div>
+
               <div className="container mx-auto px-6">
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="text-center mb-16"
-                >
-                  <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
-                    Holistic Training Ecosystem
-                  </h2>
-                  <div className="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                  <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                    Our comprehensive training modules are designed to develop well-rounded professionals
-                  </p>
-                </motion.div>
 
-                <div className="grid md:grid-cols-2 gap-12 items-center">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {[
-                      {
-                        title: "Behavioural Assessment",
-                        description: "Communication, cognitive ability, digital skills, professional behaviour.",
-                        icon: (
-                          <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
-                          </svg>
-                        )
-                      },
-                      {
-                        title: "Think with No Ink",
-                        description: "Tech Global evaluation platform using Hackerrank, LeetCode and Hackerearth",
-                        icon: (
-                          <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-                          </svg>
-                        )
-                      },
-                      {
-                        title: "Aptitude Assessment",
-                        description: "Advanced assessment engine for aptitude, reasoning, and performance benchmarking.",
-                        icon: (
-                          <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-                          </svg>
-                        )
-                      },
-                      {
-                        title: "Soft Skills",
-                        description: "Teamwork, adaptability, emotional intelligence, communication.",
-                        icon: (
-                          <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                          </svg>
-                        )
-                      }
-                    ].map((item, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                        whileInView={{
-                          opacity: 1,
-                          y: 0,
-                          scale: 1,
-                          transition: {
-                            type: 'spring',
-                            stiffness: 100,
-                            damping: 15,
-                            delay: index * 0.1
-                          }
-                        }}
-                        whileHover={{
-                          y: -8,
-                          transition: { duration: 0.3, ease: 'easeOut' }
-                        }}
-                        viewport={{ once: true, margin: '-50px' }}
-                        className="group relative overflow-hidden p-6 rounded-2xl backdrop-blur-lg bg-white/70 border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.1)] transition-all duration-500"
-                      >
-                        {/* Animated background highlight on hover */}
-                        <motion.div
-                          className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 -z-10"
-                          transition={{ duration: 0.6, ease: 'easeOut' }}
-                        />
-
-                        {/* Icon with floating animation */}
-                        <motion.div
-                          className="w-12 h-12 rounded-xl bg-white/80 backdrop-blur-sm shadow-sm flex items-center justify-center mb-5 text-primary"
-                          whileHover={{
-                            rotate: [0, 5, -5, 0],
-                            transition: { duration: 0.6 }
-                          }}
-                        >
-                          {item.icon}
-                        </motion.div>
-
-                        <motion.h3
-                          className="text-lg font-semibold mb-3 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent"
-                          whileHover={{
-                            scale: 1.02,
-                            x: 2,
-                            transition: { duration: 0.3 }
-                          }}
-                        >
-                          {item.title}
-                        </motion.h3>
-
-                        <motion.p
-                          className="text-gray-600 text-sm leading-relaxed"
-                          initial={{ opacity: 0.8 }}
-                          whileHover={{
-                            opacity: 1,
-                            x: 2,
-                            transition: { duration: 0.3 }
-                          }}
-                        >
-                          {item.description}
-                        </motion.p>
-
-                        {/* Subtle border highlight on hover */}
-                        <motion.div
-                          className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/20 -z-20"
-                          transition={{ duration: 0.4 }}
-                        />
-                      </motion.div>
-                    ))}
-                  </div>
+                {/* Intro Layout: Two columns (Intro Text & Assessment Image) */}
+                <div className="grid lg:grid-cols-12 gap-12 items-center mb-20">
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    viewport={{ once: true }}
+                    className="lg:col-span-7 space-y-6"
+                  >
+                    <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider bg-primary/10 px-3 py-1 rounded-full">
+                      Empowerment & Preparation
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-gray-900 via-primary to-accent bg-clip-text text-transparent dark:from-white">
+                      Holistic Training Ecosystem
+                    </h2>
+                    <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+                    <p className="text-lg text-muted-foreground leading-relaxed font-sans">
+                      Our signature training ecosystem is engineered to build modern technical capabilities,
+                      professional behavioral maturity, and advanced cognitive readiness. From intensive
+                      hackathon preparation to outdoor leadership simulation and AI-driven teacher workshops,
+                      we deliver industry-relevant empowerment programs.
+                    </p>
+                  </motion.div>
 
                   <motion.div
-                    className="relative"
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="lg:col-span-5 relative"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.7, delay: 0.2 }}
                     viewport={{ once: true }}
                   >
-                    <div className="relative z-10">
+                    <div className="relative z-10 group">
                       <img
                         src={assessment}
-                        alt="Training Ecosystem"
-                        className="rounded-2xl shadow-2xl w-full max-w-lg mx-auto border-4 border-white"
+                        alt="Holistic Evaluation and Training Ecosystem"
+                        className="rounded-3xl shadow-2xl w-full max-w-md mx-auto border-4 border-white dark:border-slate-800 transition-transform duration-500 group-hover:scale-[1.02]"
                         loading="lazy"
                       />
-                      <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary/10 rounded-2xl -z-10"></div>
+                      <div className="absolute -bottom-4 -right-4 w-full h-full bg-gradient-to-tr from-primary/10 to-accent/10 rounded-3xl -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-300"></div>
+                    </div>
+                  </motion.div>
+                </div>
+
+                {/* 7 Modules Cards Grid Layout */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {[
+                    {
+                      title: "Thinkathon",
+                      subtitle: "Hackathon Readiness & Innovation Training Ecosystem",
+                      description: "A specialized training program designed to prepare students for national and international hackathons through problem-solving frameworks, innovation methodologies, real-world case discussions, previous hackathon problem analysis, frequently asked challenge patterns, rapid ideation techniques, prototype development strategies, and team-based solution building.",
+                      icon: <Lightbulb className="w-6 h-6" />,
+                      color: "from-amber-500 to-orange-600",
+                      glow: "rgba(245, 158, 11, 0.15)"
+                    },
+                    {
+                      title: "AlgoX",
+                      subtitle: "Advanced Coding Excellence using Global Learning Platforms",
+                      description: "An intensive coding and problem-solving program delivered through globally recognized platforms including HackerRank and LeetCode, focused on strengthening programming logic, DSA mastery, analytical thinking, coding interview preparation, competitive programming exposure, and placement-oriented technical excellence.",
+                      icon: <Code className="w-6 h-6" />,
+                      color: "from-blue-500 to-indigo-600",
+                      glow: "rgba(59, 130, 246, 0.15)"
+                    },
+                    {
+                      title: "Humaneering Skills",
+                      subtitle: "Campus-to-Corporate Behavioral Transformation Program",
+                      description: "A human-centric professional development program designed to bridge the gap between academic learning and corporate expectations through communication mastery, leadership development, workplace etiquette, emotional intelligence, critical thinking, presentation skills, team collaboration, and corporate readiness training.",
+                      icon: <Users className="w-6 h-6" />,
+                      color: "from-emerald-500 to-teal-600",
+                      glow: "rgba(16, 185, 129, 0.15)"
+                    },
+                    {
+                      title: "Impact Camps",
+                      subtitle: "Experiential Outdoor Leadership & High-Performance Team Workshops",
+                      description: "An immersive outbound learning experience focused on building high-performance teams through experiential activities, leadership simulations, problem-solving missions, strategic collaboration exercises, trust-building frameworks, adaptability training, and real-time decision-making challenges.",
+                      icon: <Compass className="w-6 h-6" />,
+                      color: "from-red-500 to-rose-600",
+                      glow: "rgba(239, 68, 68, 0.15)"
+                    },
+                    {
+                      title: "FacultyEdge",
+                      subtitle: "AI-Integrated Faculty Development & Certification Programs",
+                      description: "An exclusive faculty empowerment initiative focused on enabling educators to integrate modern AI tools, digital teaching methodologies, outcome-based learning practices, student engagement strategies, and technology-enabled pedagogy into today’s classrooms, along with industry-relevant certification programs for academic excellence.",
+                      icon: <GraduationCap className="w-6 h-6" />,
+                      color: "from-purple-500 to-violet-600",
+                      glow: "rgba(139, 92, 246, 0.15)"
+                    },
+                    {
+                      title: "Classroom Innovation Labs",
+                      subtitle: "Next-Generation Teacher Training & Certification Workshops",
+                      description: "A future-focused teacher training ecosystem designed to transform traditional teaching practices through innovative classroom strategies, AI-assisted teaching tools, experiential learning methods, interactive pedagogy, student psychology understanding, and exclusive professional certification programs for educators.",
+                      icon: <School className="w-6 h-6" />,
+                      color: "from-cyan-500 to-sky-600",
+                      glow: "rgba(6, 182, 212, 0.15)"
+                    }
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                      whileInView={{
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        transition: {
+                          type: 'spring',
+                          stiffness: 100,
+                          damping: 15,
+                          delay: index * 0.08
+                        }
+                      }}
+                      whileHover={{
+                        y: -8,
+                        boxShadow: `0 20px 40px ${item.glow}`,
+                        transition: { duration: 0.3, ease: 'easeOut' }
+                      }}
+                      viewport={{ once: true, margin: '-50px' }}
+                      className="group relative overflow-hidden p-8 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border border-slate-100 dark:border-slate-800/80 shadow-md hover:border-transparent transition-all duration-500 flex flex-col h-full"
+                    >
+                      {/* Top border colored highlight */}
+                      <div className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${item.color}`} />
+
+                      {/* Glowing circle background inside the card */}
+                      <div className={`absolute -top-16 -right-16 w-32 h-32 bg-gradient-to-br ${item.color} opacity-5 group-hover:opacity-10 rounded-full transition-opacity duration-500`} />
+
+                      {/* Icon */}
+                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} text-white flex items-center justify-center mb-6 shadow-md transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+                        {item.icon}
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1 flex flex-col justify-between">
+                        <div>
+                          <span className={`text-[15px] font-extrabold uppercase tracking-widest bg-gradient-to-r ${item.color} bg-clip-text text-transparent mb-1 block`}>
+                            {item.title}
+                          </span>
+                          <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 tracking-tight group-hover:text-primary transition-colors duration-300">
+                            {item.subtitle}
+                          </h3>
+                          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed font-normal">
+                            {item.description}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Interactive slide up background highlight */}
+                      <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-[0.01] -z-10 transition-opacity duration-500`} />
+                    </motion.div>
+                  ))}
+
+                  {/* 7th Module: Think With No Ink (Featured Full-width Card) */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    whileInView={{
+                      opacity: 1,
+                      y: 0,
+                      scale: 1,
+                      transition: {
+                        type: 'spring',
+                        stiffness: 100,
+                        damping: 15,
+                        delay: 0.2
+                      }
+                    }}
+                    whileHover={{
+                      y: -8,
+                      boxShadow: '0 25px 50px rgba(244, 63, 94, 0.15)',
+                      transition: { duration: 0.3, ease: 'easeOut' }
+                    }}
+                    viewport={{ once: true, margin: '-50px' }}
+                    className="group relative overflow-hidden p-8 md:p-10 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-900/80 border border-slate-100 dark:border-slate-800/80 shadow-md hover:border-transparent transition-all duration-500 md:col-span-2 lg:col-span-3 flex flex-col md:flex-row gap-8 items-start md:items-center"
+                  >
+                    {/* Top border colored highlight */}
+                    <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-rose-500 via-pink-500 to-red-600" />
+
+                    {/* Background blob inside card */}
+                    <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-gradient-to-br from-rose-500 to-red-600 opacity-5 group-hover:opacity-10 rounded-full transition-opacity duration-500" />
+
+                    {/* Left/Top Part: Icon */}
+                    <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-500 to-red-600 text-white flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                      <Brain className="w-8 h-8" />
+                    </div>
+
+                    {/* Right/Bottom Part: Details */}
+                    <div className="flex-1 space-y-4">
+                      <div>
+                        <span className="text-xs font-extrabold uppercase tracking-widest bg-gradient-to-r from-rose-500 to-red-600 bg-clip-text text-transparent mb-1 block">
+                          Think With No Ink
+                        </span>
+                        <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-primary transition-colors duration-300">
+                          Aptitude & Competitive Exam Mastery Program
+                        </h3>
+                      </div>
+                      <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed font-normal">
+                        A unique aptitude and competitive exam training ecosystem powered by SYASAN’S exclusive
+                        <strong className="text-rose-500 dark:text-rose-400 font-semibold"> "Think With No Ink" </strong>
+                        methodology, enabling students to solve aptitude and logical reasoning problems mentally
+                        without depending on pen-and-paper calculations. The program focuses on improving analytical
+                        thinking speed, shortcut techniques, problem-solving accuracy, quantitative aptitude, verbal
+                        ability, interview readiness, campus placement preparation, and competitive examination performance
+                        through high-speed cognitive training frameworks and real-time assessment methodologies.
+                      </p>
                     </div>
                   </motion.div>
                 </div>
@@ -353,101 +417,188 @@ export default function AboutUs() {
             </div>
 
             {/* Dashboard Section */}
-            <div className="relative py-20 overflow-hidden">
+            <div className="relative py-24 overflow-hidden bg-grid-pattern">
+              {/* Floating gradient blobs behind the section */}
+              <div className="absolute top-10 left-10 w-[500px] h-[500px] bg-blue-500/10 dark:bg-blue-500/5 rounded-full filter blur-3xl animate-blob-slow pointer-events-none -z-10"></div>
+              <div className="absolute bottom-10 right-10 w-[500px] h-[500px] bg-amber-500/10 dark:bg-amber-500/5 rounded-full filter blur-3xl animate-blob-medium pointer-events-none -z-10"></div>
+              <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-rose-500/10 dark:bg-rose-500/5 rounded-full filter blur-3xl animate-blob-slow pointer-events-none -z-10" style={{ animationDelay: '3s' }}></div>
+
               <div className="container mx-auto px-6">
-                <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                  {/* Bento Card 1: Intro (Spans 2 columns on lg) */}
                   <motion.div
-                    className="order-2 md:order-1"
-                    initial={{ opacity: 0, x: -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="col-span-1 md:col-span-2 p-8 md:p-10 rounded-3xl border border-slate-100/80 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/80 backdrop-blur-sm shadow-sm flex flex-col justify-center space-y-4 relative group hover:shadow-md"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true }}
+                    whileHover={{ y: -4 }}
                   >
-                    <div className="inline-block px-3 py-1 text-sm font-medium text-primary bg-primary/10 rounded-full mb-4">
-                      Analytics & Insights
+                    {/* Background glows */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl -z-10" />
+                    <div className="absolute -inset-1.5 bg-gradient-to-r from-primary/15 to-accent/15 rounded-[32px] opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 -z-20" />
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-primary/10 border border-primary/20 text-primary w-fit micro-pulse">
+                      <BarChart3 className="w-3.5 h-3.5" />
+                      <span>Analytics & Insights</span>
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+
+                    <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-gray-900 via-primary to-accent bg-clip-text text-transparent dark:from-white">
                       Smart Institutional Dashboards
                     </h2>
-                    <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                      Track student performance, cohort readiness, training progress and placement metrics
-                      through intuitive dashboards — enabling data-driven decisions and academic excellence.
+
+                    <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                      Track student performance, cohort readiness, training progress, and placement metrics
+                      through our intuitive and comprehensive dashboards — enabling data-driven decisions
+                      and academic excellence at every level.
                     </p>
-                    <div className="flex flex-wrap gap-3">
-                      {[
-                        { text: 'Real-time Analytics', icon: '📊' },
-                        { text: 'Performance Metrics', icon: '📈' },
-                        { text: 'Progress Tracking', icon: '✅' },
-                        { text: 'Custom Reports', icon: '📋' }
-                      ].map((item, i) => (
-                        <span key={i} className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-white/50 backdrop-blur-sm border border-gray-100 shadow-sm">
-                          <span className="mr-1.5">{item.icon}</span>
-                          {item.text}
-                        </span>
-                      ))}
-                    </div>
                   </motion.div>
 
+                  {/* Bento Card 2: macOS Browser Mockup (Spans 1 col, 3 rows on lg) */}
                   <motion.div
-                    className="relative order-1 md:order-2 group"
-                    initial={{ opacity: 0, y: 30, scale: 0.98 }}
-                    whileInView={{
-                      opacity: 1,
-                      y: 0,
-                      scale: 1,
-                      transition: {
-                        type: 'spring',
-                        stiffness: 100,
-                        damping: 15,
-                        delay: 0.3
-                      }
+                    className="col-span-1 row-span-1 md:col-span-2 lg:col-span-1 lg:row-span-3 group cursor-pointer h-full relative"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{
+                      y: -6,
+                      rotateX: 1.5,
+                      rotateY: -1.5,
+                      transition: { duration: 0.3 }
                     }}
-                    viewport={{ once: true, margin: '0px 0px -50px 0px' }}
                   >
-                    {/* Simple container matching assessment image style */}
-                    <div className="relative z-10">
-                      <img
-                        src="/assets/Dashboard.png"
-                        alt="Syasan's Analytics Dashboard"
-                        className="rounded-2xl shadow-2xl w-full max-w-lg mx-auto border-4 border-white"
-                        loading="lazy"
-                      />
-                      <div className="absolute -bottom-6 -right-6 w-full h-full bg-primary/10 rounded-2xl -z-10"></div>
+                    {/* Background glow behind card */}
+                    <div className="absolute -inset-2 bg-gradient-to-tr from-primary/20 via-blue-500/10 to-accent/20 rounded-[32px] opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-500 -z-10" />
+                    <div className="relative z-10 rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800/80 bg-slate-900 shadow-2xl shadow-primary/10 h-full flex flex-col justify-between">
+                      {/* Browser Header Bar */}
+
+                      {/* Image Frame - fill remaining height */}
+                      <div className="relative overflow-hidden bg-slate-950 flex-1 flex items-center justify-center min-h-[300px]">
+                        <img
+                          src="/assets/Dashboard.png"
+                          alt="Syasan's Analytics Dashboard"
+                          className="w-full h-full object-cover lg:object-left-top opacity-90 transition-transform duration-700 group-hover:scale-[1.03]"
+                          loading="lazy"
+                        />
+                        {/* Overlay visual gradient tint */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-60 pointer-events-none" />
+                      </div>
                     </div>
-
-                    {/* Floating decorative elements */}
-                    <div className="absolute -top-4 -right-4 w-32 h-32 bg-primary/10 rounded-full -z-10 group-hover:scale-110 transition-all duration-700 group-hover:rotate-12"></div>
-                    <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-secondary/10 rounded-full -z-10 group-hover:scale-110 transition-all duration-700 group-hover:-rotate-12"></div>
-
-                    {/* Subtle border highlight */}
-                    <motion.div
-                      className="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-primary/20 -z-20"
-                      transition={{ duration: 0.4 }}
-                    />
                   </motion.div>
+
+                  {/* Bento Cards 3-6: Features (4 individual cards) */}
+                  {[
+                    {
+                      text: 'Real-time Analytics',
+                      desc: 'Live tracking of student participation and evaluation outcomes.',
+                      icon: <BarChart3 className="w-5 h-5 text-blue-600 dark:text-blue-400" />,
+                      styles: "bg-blue-50/50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400 border-blue-100/30 dark:border-blue-900/30 hover:border-blue-500/30",
+                      glow: "from-blue-500/10 to-indigo-500/10"
+                    },
+                    {
+                      text: 'Performance Metrics',
+                      desc: 'Deep analytical insights into individual and cohort benchmarks.',
+                      icon: <TrendingUp className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />,
+                      styles: "bg-emerald-50/50 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400 border-emerald-100/30 dark:border-emerald-900/30 hover:border-emerald-500/30",
+                      glow: "from-emerald-500/10 to-teal-500/10"
+                    },
+                    {
+                      text: 'Progress Tracking',
+                      desc: 'Continuous monitoring of student progress across learning phases.',
+                      icon: <CheckCircle2 className="w-5 h-5 text-purple-600 dark:text-purple-400" />,
+                      styles: "bg-purple-50/50 dark:bg-purple-950/20 text-purple-600 dark:text-purple-400 border-purple-100/30 dark:border-purple-900/30 hover:border-purple-500/30",
+                      glow: "from-purple-500/10 to-violet-500/10"
+                    },
+                    {
+                      text: 'Custom Reports',
+                      desc: 'Seamless data exports for administrative reviews and decision making.',
+                      icon: <FileSpreadsheet className="w-5 h-5 text-rose-600 dark:text-rose-400" />,
+                      styles: "bg-rose-50/50 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 border-rose-100/30 dark:border-rose-900/30 hover:border-rose-500/30",
+                      glow: "from-rose-500/10 to-pink-500/10"
+                    }
+                  ].map((item, i) => (
+                    <motion.div
+                      key={i}
+                      className={`p-6 rounded-3xl border border-slate-100 bg-white/70 dark:bg-slate-900/70 dark:border-slate-800/80 shadow-sm flex flex-col justify-between hover:shadow-md hover:bg-white dark:hover:bg-slate-900 hover:border-slate-200 dark:hover:border-slate-700 transition-all duration-300 group/item h-full min-h-[160px] relative`}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: i * 0.05 }}
+                      viewport={{ once: true }}
+                      whileHover={{ y: -5 }}
+                    >
+                      {/* Background glowing frame on hover */}
+                      <div className={`absolute -inset-1 bg-gradient-to-r ${item.glow} rounded-[32px] opacity-0 group-hover/item:opacity-100 blur-lg transition-opacity duration-500 -z-10`} />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover/item:opacity-100 transition-opacity duration-500 rounded-3xl -z-10" />
+
+                      <div className="space-y-4 relative z-10">
+                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm border transition-transform duration-300 group-hover/item:scale-110 group-hover/item:rotate-3 ${item.styles.split(' ').slice(0, 4).join(' ')}`}>
+                          {item.icon}
+                        </div>
+                        <div className="space-y-2">
+                          <h4 className="text-base font-bold text-gray-900 dark:text-white tracking-tight">
+                            {item.text}
+                          </h4>
+                          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
-              {/* Background elements */}
-              <div className="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full -z-10"></div>
-              <div className="absolute -left-20 -bottom-20 w-80 h-80 bg-secondary/5 rounded-full -z-10"></div>
             </div>
 
             {/* Student Transformation */}
-            <div className="py-16 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-2xl text-center my-12">
-              <h2 className="text-3xl font-bold mb-4">Student Transformation</h2>
-              <p className="max-w-3xl mx-auto text-lg text-muted-foreground">
-                Syasan enables students to understand their strengths, behavioural patterns and
-                career pathways — making them confident, industry-ready professionals.
-              </p>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+              className="relative py-16 px-8 rounded-3xl text-center my-16 bg-white/70 dark:bg-slate-900/70 border border-slate-100 dark:border-slate-800/80 backdrop-blur-md shadow-[0_20px_50px_rgba(59,130,246,0.08)] overflow-hidden group cursor-pointer"
+            >
+              {/* Backlight Glow */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 rounded-[32px] opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 -z-10" />
+              
+              {/* Decorative side blobs inside card */}
+              <div className="absolute -top-24 -left-24 w-48 h-48 bg-primary/5 rounded-full filter blur-xl transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-accent/5 rounded-full filter blur-xl transition-transform duration-700 group-hover:scale-110" />
+
+              <div className="max-w-3xl mx-auto space-y-4 relative z-10">
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-gray-900 via-primary to-accent bg-clip-text text-transparent dark:from-white">
+                  Student Transformation
+                </h2>
+                <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed font-sans font-normal max-w-2xl mx-auto">
+                  Syasan enables students to understand their strengths, behavioural patterns and career pathways — making them confident, industry-ready professionals.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Summary Section */}
-            <div className="py-12 text-center px-6 bg-white rounded-2xl shadow-sm">
-              <p className="max-w-4xl mx-auto text-xl text-foreground font-medium leading-relaxed">
-                In summary, Syasan offers behavioural assessment, software training, aptitude enhancement
-                and soft skill development — creating well-rounded, future-ready professionals.
-              </p>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5 }}
+              className="relative py-16 px-8 rounded-3xl text-center my-16 bg-white/70 dark:bg-slate-900/70 border border-slate-100 dark:border-slate-800/80 backdrop-blur-md shadow-[0_20px_50px_rgba(139,92,246,0.08)] overflow-hidden group cursor-pointer"
+            >
+              {/* Backlight Glow */}
+              <div className="absolute -inset-1.5 bg-gradient-to-r from-purple-500/10 via-pink-500/5 to-purple-500/10 rounded-[32px] opacity-0 group-hover:opacity-100 blur-xl transition-all duration-500 -z-10" />
+
+              {/* Decorative blobs inside card */}
+              <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/5 rounded-full filter blur-xl transition-transform duration-700 group-hover:scale-110" />
+              <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-pink-500/5 rounded-full filter blur-xl transition-transform duration-700 group-hover:scale-110" />
+
+              <div className="max-w-4xl mx-auto relative z-10">
+                <p className="text-xl md:text-2xl text-gray-800 dark:text-gray-100 font-medium leading-relaxed font-sans">
+                  In summary, Syasan offers behavioural assessment, software training, aptitude enhancement and soft skill development — <strong className="text-purple-600 dark:text-purple-400 font-semibold">creating well-rounded, future-ready professionals</strong>.
+                </p>
+              </div>
+            </motion.div>
 
             {/* Achievements Grid */}
             <div className="relative py-16 mb-20 overflow-hidden">
@@ -509,31 +660,31 @@ export default function AboutUs() {
                         {/* Background glow on hover */}
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 -z-10" />
 
-                        <Card className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-slate-100/80 dark:border-slate-800/80 h-full rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-500 group-hover:border-primary/20 group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col justify-between">
+                        <Card className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-slate-200 dark:border-slate-800 h-full rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.03)] transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-[0_20px_50px_rgba(59,130,246,0.15)] overflow-hidden flex flex-col justify-between">
                           <div className="p-8 relative flex-1 flex flex-col justify-between h-full">
                             {/* Top row: Icon and tags */}
                             <div className="flex justify-between items-start mb-6">
-                              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary/10 to-primary/5 dark:from-primary/20 dark:to-transparent flex items-center justify-center text-primary group-hover:from-primary group-hover:to-accent group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg group-hover:shadow-primary/30 group-hover:scale-110">
+                              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-primary to-accent flex items-center justify-center text-white transition-all duration-350 shadow-md shadow-primary/25 group-hover:shadow-lg group-hover:shadow-primary/40 group-hover:scale-110 group-hover:rotate-6">
                                 {achievement.icon}
                               </div>
 
                               <div className="flex items-center gap-2">
                                 {yearTag && (
-                                  <span className="bg-primary/5 text-primary text-xs font-semibold px-2.5 py-1 rounded-full border border-primary/10 dark:bg-primary/20 dark:text-primary-foreground group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                                  <span className="bg-primary text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm transition-all duration-300 group-hover:bg-accent group-hover:scale-105">
                                     {yearTag}
                                   </span>
                                 )}
                                 {isISO && (
-                                  <span className="bg-amber-500/10 text-amber-600 text-xs font-semibold px-2.5 py-1 rounded-full border border-amber-500/20 group-hover:bg-amber-500 group-hover:text-white transition-colors duration-300">
+                                  <span className="bg-amber-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm transition-all duration-300 group-hover:bg-amber-600 group-hover:scale-105">
                                     ISO Certified
                                   </span>
                                 )}
                                 {isAptitude && (
-                                  <span className="bg-emerald-500/10 text-emerald-600 text-xs font-semibold px-2.5 py-1 rounded-full border border-emerald-500/20 group-hover:bg-emerald-500 group-hover:text-white transition-colors duration-300">
+                                  <span className="bg-emerald-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm transition-all duration-300 group-hover:bg-emerald-600 group-hover:scale-105">
                                     Practice Tests
                                   </span>
                                 )}
-                                <span className="text-4xl font-extrabold text-slate-100 dark:text-slate-800 select-none group-hover:text-primary/10 transition-colors duration-300 font-serif leading-none ml-2">
+                                <span className="text-4xl font-extrabold text-slate-200 dark:text-slate-800 select-none group-hover:text-primary dark:group-hover:text-accent group-hover:scale-115 group-hover:drop-shadow-[0_0_8px_rgba(59,130,246,0.3)] transition-all duration-350 font-serif leading-none ml-2 origin-right inline-block">
                                   0{index + 1}
                                 </span>
                               </div>
@@ -548,7 +699,7 @@ export default function AboutUs() {
                           </div>
 
                           {/* Bottom colored accent strip */}
-                          <div className="h-1.5 w-full bg-gradient-to-r from-primary/20 to-accent/20 group-hover:from-primary group-hover:to-accent transition-all duration-500" />
+                          <div className="h-1.5 w-full bg-gradient-to-r from-primary to-accent transition-all duration-500" />
                         </Card>
                       </motion.div>
                     );

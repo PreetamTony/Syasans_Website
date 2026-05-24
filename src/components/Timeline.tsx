@@ -119,67 +119,85 @@ const TimelineCard: React.FC<{ data: Milestone; index: number }> = ({ data, inde
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true, margin: "0px" }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className="flex-shrink-0 w-[290px] sm:w-[320px] snap-center flex flex-col items-center pt-[70px] relative group"
+      className="flex-shrink-0 w-[290px] sm:w-[320px] snap-center flex flex-col items-center pt-[90px] relative group"
     >
+      {/* Year Label above the dot */}
+      <div className="absolute top-[6px] z-30 bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-500 dark:to-indigo-500 text-white text-[11px] font-extrabold px-3 py-0.5 rounded-full shadow-md tracking-wider group-hover:from-orange-500 group-hover:to-red-500 group-hover:scale-110 group-hover:ring-4 group-hover:ring-orange-500/25 transition-all duration-300 select-none">
+        {data.year}
+      </div>
+
       {/* Node Dot on Timeline Line */}
-      <div className="absolute top-[20px] w-8 h-8 rounded-full bg-white backdrop-blur-sm shadow-md z-20 flex items-center justify-center border-2 border-slate-200 group-hover:border-blue-600 group-hover:scale-110 transition-all duration-300">
-        <div className={`w-3.5 h-3.5 rounded-full bg-gradient-to-br ${
+      <div className="absolute top-[40px] w-8 h-8 rounded-full bg-white dark:bg-slate-950 backdrop-blur-sm shadow-md z-20 flex items-center justify-center border-2 border-slate-200 dark:border-slate-800 group-hover:border-orange-500 dark:group-hover:border-orange-400 group-hover:scale-115 transition-all duration-300">
+        <div className={`w-3.5 h-3.5 rounded-full bg-gradient-to-br transition-all duration-300 group-hover:scale-110 ${
           data.year === '2025' 
             ? 'from-yellow-400 to-red-500 animate-pulse' 
-            : 'from-blue-500 to-indigo-600'
+            : 'from-blue-500 to-indigo-600 group-hover:from-orange-500 group-hover:to-red-500'
         }`} />
-        {data.year === '2025' && (
+        {data.year === '2025' ? (
           <div className="absolute inset-0 bg-yellow-400 rounded-full animate-ping opacity-30" />
+        ) : (
+          <div className="absolute inset-0 bg-orange-500 rounded-full animate-ping opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
         )}
       </div>
 
       {/* Stem connector */}
-      <div className="absolute top-[28px] h-[42px] w-0.5 bg-gradient-to-b from-blue-500/40 to-blue-500/10 group-hover:from-blue-600 group-hover:to-blue-500 transition-all duration-300 z-10" />
+      <div className="absolute top-[48px] h-[42px] w-0.5 bg-gradient-to-b from-blue-500/30 to-blue-500/5 group-hover:from-orange-500 group-hover:to-red-500 transition-all duration-300 z-10" />
 
-      {/* Card Content */}
-      <div className={`w-full bg-white dark:bg-slate-900 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border ${data.year === '2025' ? 'border-orange-500 shadow-orange-500/10' : 'border-slate-100 dark:border-slate-800'} flex flex-col h-[340px]`}>
-        {/* Image Header */}
-        <div className="relative h-32 overflow-hidden bg-white flex items-center justify-center flex-shrink-0">
-          <img 
-            src={data.image} 
-            alt={data.title} 
-            className={`${data.year === '2015' ? 'h-24 w-auto object-contain' : 'w-full h-full object-cover'} transform group-hover:scale-105 transition-transform duration-500`}
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent flex items-end p-3">
-            <div className="text-white w-full">
-              <div className="flex justify-between items-center mb-0.5">
-                 <span className="bg-gradient-to-r from-blue-600 to-orange-500 text-[10px] font-extrabold px-2 py-0.5 rounded text-white shadow-sm tracking-wide">
-                   {data.year}
-                 </span>
-                 {data.year === '2025' && <span className="bg-green-500 text-[8px] font-bold px-1.5 py-0.5 rounded text-white animate-pulse">LATEST</span>}
+      {/* Card Wrapper with Glow Backlight */}
+      <div className="w-full relative px-1">
+        {/* Backlight Glow Overlay */}
+        <div className={`absolute -inset-1 rounded-3xl bg-gradient-to-r ${
+          data.year === '2025'
+            ? 'from-yellow-500/25 to-red-500/25 opacity-60 group-hover:opacity-100 group-hover:scale-[1.03]'
+            : 'from-blue-600/25 to-indigo-600/25 dark:from-blue-500/15 dark:to-purple-500/15 opacity-0 group-hover:opacity-100 group-hover:scale-[1.03]'
+        } blur-xl transition-all duration-500 -z-10`} />
+
+        {/* Card Content */}
+        <div className={`w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border ${
+          data.year === '2025' 
+            ? 'border-orange-500/40 shadow-orange-500/10' 
+            : 'border-slate-100 dark:border-slate-800/80 group-hover:border-slate-200 dark:group-hover:border-slate-700'
+        } flex flex-col h-[340px] transform group-hover:-translate-y-2 relative z-10`}>
+          {/* Image Header */}
+          <div className="relative h-32 overflow-hidden bg-white dark:bg-slate-950 flex items-center justify-center flex-shrink-0">
+            <img 
+              src={data.image} 
+              alt={data.title} 
+              className={`${data.year === '2015' ? 'h-24 w-auto object-contain' : 'w-full h-full object-cover'} transform group-hover:scale-110 transition-transform duration-500`}
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/30 to-transparent flex items-end p-3">
+              <div className="text-white w-full">
+                <div className="flex justify-between items-center mb-1">
+                   {data.year === '2025' && <span className="bg-green-500 text-[8px] font-bold px-1.5 py-0.5 rounded text-white animate-pulse">LATEST</span>}
+                </div>
+                <h3 className="text-sm md:text-base font-bold leading-tight text-white/95 truncate">{data.title}</h3>
               </div>
-              <h3 className="text-sm md:text-base font-bold leading-tight text-white/95 truncate">{data.title}</h3>
+            </div>
+            
+            {/* Icon Bubble */}
+            <div className="absolute top-2.5 right-2.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm p-1.5 rounded-full shadow-md">
+               <data.icon 
+                 size={14} 
+                 className="text-blue-600 dark:text-blue-400" 
+               />
             </div>
           </div>
-          
-          {/* Icon Bubble */}
-          <div className="absolute top-2.5 right-2.5 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm p-1.5 rounded-full shadow-md">
-             <data.icon 
-               size={14} 
-               className="text-blue-600 dark:text-blue-400" 
-             />
-          </div>
-        </div>
 
-        {/* Card Body */}
-        <div className="p-4 flex-1 flex flex-col justify-between overflow-hidden">
-          <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xs mb-3 line-clamp-4">
-            {data.description}
-          </p>
-          
-          {/* Tags */}
-          <div className="flex flex-wrap gap-1.5 mt-auto">
-            {data.tags?.map((tag) => (
-              <span key={tag} className="text-[9px] uppercase tracking-wider font-bold text-slate-500 bg-slate-50 dark:bg-slate-800 dark:text-slate-400 px-2 py-0.5 rounded-md group-hover:bg-blue-500/5 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                #{tag}
-              </span>
-            ))}
+          {/* Card Body */}
+          <div className="p-4 flex-1 flex flex-col justify-between overflow-hidden bg-white/50 dark:bg-slate-900/50">
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-xs mb-3 line-clamp-4">
+              {data.description}
+            </p>
+            
+            {/* Tags */}
+            <div className="flex flex-wrap gap-1.5 mt-auto">
+              {data.tags?.map((tag) => (
+                <span key={tag} className="text-[9px] uppercase tracking-wider font-bold text-slate-500 dark:text-slate-400 bg-slate-100/80 dark:bg-slate-800/85 px-2 py-0.5 rounded-md group-hover:bg-orange-500/10 group-hover:text-orange-600 dark:group-hover:text-orange-400 transition-colors">
+                  #{tag}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -191,12 +209,21 @@ export const Timeline: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [showLeftBtn, setShowLeftBtn] = useState(false);
   const [showRightBtn, setShowRightBtn] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const checkScrollLimits = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
       setShowLeftBtn(scrollLeft > 10);
       setShowRightBtn(scrollWidth - scrollLeft - clientWidth > 10);
+
+      // Track scroll progress percentage
+      const maxScroll = scrollWidth - clientWidth;
+      if (maxScroll > 0) {
+        setScrollProgress(scrollLeft / maxScroll);
+      } else {
+        setScrollProgress(0);
+      }
     }
   };
 
@@ -224,11 +251,14 @@ export const Timeline: React.FC = () => {
 
   return (
     <div className="relative w-full py-20 px-4 md:px-0 bg-slate-50 dark:bg-slate-950 overflow-hidden">
+      {/* Subtle Tech Grid Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+
       {/* Decorative Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-         <div className="absolute top-[-10%] left-[-5%] w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
-         <div className="absolute top-[30%] right-[-10%] w-[500px] h-[500px] bg-orange-500/5 rounded-full blur-3xl" />
-         <div className="absolute bottom-[10%] left-[10%] w-72 h-72 bg-blue-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+         <div className="absolute top-[-10%] left-[-5%] w-[450px] h-[450px] bg-blue-500/10 dark:bg-blue-500/5 rounded-full blur-3xl animate-blob-slow" />
+         <div className="absolute top-[30%] right-[-10%] w-[550px] h-[550px] bg-indigo-500/10 dark:bg-purple-500/5 rounded-full blur-3xl animate-blob-medium" />
+         <div className="absolute bottom-[10%] left-[10%] w-80 h-80 bg-orange-500/10 dark:bg-orange-500/5 rounded-full blur-3xl animate-blob-slow" style={{ animationDelay: '2s' }} />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -264,7 +294,7 @@ export const Timeline: React.FC = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleScroll('left')}
-              className="absolute left-0 top-[206px] -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-lg text-slate-700 dark:text-slate-300 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 backdrop-blur-md"
+              className="absolute left-0 top-[226px] -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 shadow-xl text-slate-700 dark:text-slate-300 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 dark:hover:from-blue-500 dark:hover:to-indigo-500 hover:text-white hover:border-transparent transition-all duration-300 backdrop-blur-md"
               aria-label="Scroll Left"
             >
               <ChevronLeft size={24} />
@@ -276,7 +306,7 @@ export const Timeline: React.FC = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => handleScroll('right')}
-              className="absolute right-0 top-[206px] -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 shadow-lg text-slate-700 dark:text-slate-300 flex items-center justify-center hover:bg-white dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 backdrop-blur-md"
+              className="absolute right-0 top-[226px] -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/95 dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 shadow-xl text-slate-700 dark:text-slate-300 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-600 hover:to-indigo-600 dark:hover:from-blue-500 dark:hover:to-indigo-500 hover:text-white hover:border-transparent transition-all duration-300 backdrop-blur-md"
               aria-label="Scroll Right"
             >
               <ChevronRight size={24} />
@@ -284,10 +314,17 @@ export const Timeline: React.FC = () => {
           )}
 
           {/* Timeline Track Content */}
-          <div className="relative overflow-hidden w-full py-4">
+          {/* Shifted padding slightly to provide top clearance for year badges */}
+          <div className="relative overflow-hidden w-full pt-4 pb-4">
             
-            {/* Timeline continuous horizontal track line */}
-            <div className="absolute top-[40px] left-0 right-0 h-1 bg-gradient-to-r from-blue-500/20 via-blue-500/50 to-indigo-500/20 z-0" />
+            {/* Timeline continuous horizontal track line (Inactive) */}
+            <div className="absolute top-[72px] left-4 right-4 h-1 bg-slate-200 dark:bg-slate-850 z-0 rounded-full" />
+
+            {/* Glowing Active Scroll Progress Line */}
+            <div 
+              className="absolute top-[72px] left-4 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-500 z-0 rounded-full shadow-[0_0_8px_rgba(99,102,241,0.6)] transition-all duration-200 ease-out"
+              style={{ width: `calc(${scrollProgress * 100}% - 32px)` }}
+            />
             
             {/* Scrollable Track */}
             <div 
