@@ -31,8 +31,15 @@ export const Footer = () => {
             <Mail className="w-6 h-6" />
           </a>
         </div>
-        <p className="text-center text-muted-foreground">
-          © {new Date().getFullYear()} Created with SYASAN'S Career Analytics
+        <p className="text-center text-muted-foreground flex flex-wrap items-center justify-center gap-1 text-sm">
+          <span>© {new Date().getFullYear()} Created with</span>
+          <span className="font-semibold text-slate-700 dark:text-slate-300 inline-flex items-center">
+            SYASAN&apos;S
+            <span className="inline-flex items-center justify-center text-[8px] font-black w-3.5 h-3.5 rounded-full border border-slate-400 dark:border-slate-500 text-slate-500 dark:text-slate-400 ml-1 select-none transform scale-90 translate-y-[-1px]" title="Registered Trademark">
+              R
+            </span>
+          </span>
+          <span>Career Analytics</span>
         </p>
       </div>
     </footer>
